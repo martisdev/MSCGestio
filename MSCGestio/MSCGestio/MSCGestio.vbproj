@@ -1,0 +1,795 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4F58BDF9-6AD1-479E-9DBD-BD0BB81F60D7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>MSCGestio.My.MyApplication</StartupObject>
+    <RootNamespace>MSCGestio</RootNamespace>
+    <AssemblyName>MSCGestio</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <ApplicationIcon>..\logo_icona_210.ico</ApplicationIcon>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <SignAssembly>false</SignAssembly>
+    <DelaySign>False</DelaySign>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <OptionStrict>Off</OptionStrict>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionInfer>Off</OptionInfer>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <SourceAnalysisOverrideSettingsFile>C:\Documents and Settings\Martí\Datos de programa\ICSharpCode/SharpDevelop4\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <RemoveIntegerChecks>True</RemoveIntegerChecks>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\..\bin\Release\</OutputPath>
+    <DocumentationFile>MSCGestio.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DefineConstants>HideJamendo = "1"</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\bin\Release\</OutputPath>
+    <DocumentationFile>MSCGestio.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Optimize>true</Optimize>
+    <NoWarn>42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Optimize>False</Optimize>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <StartAction>Project</StartAction>
+    <NoWarn>42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>x64</PlatformTarget>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <FileAlignment>4096</FileAlignment>
+    <NoWarn>42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bass.Net">
+      <HintPath>..\..\..\bin\Release\Bass.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Freedb">
+      <HintPath>..\..\..\bin\Release\Freedb.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>..\..\..\bin\Release\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>..\..\..\bin\Release\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>..\..\..\bin\Release\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\bin\Release\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\Compartit\frmSplash.designer.vb">
+      <Link>Compartit\frmSplash.designer.vb</Link>
+      <DependentUpon>frmSplash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\frmSplash.vb">
+      <Link>Compartit\frmSplash.vb</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\frmTip.vb">
+      <Link>Compartit\frmTip.vb</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\MantFirxers.vb">
+      <Link>Compartit\MantFirxers.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlAudioBASS.vb">
+      <Link>Compartit\mdlAudioBASS.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlBackup.vb">
+      <Link>Compartit\mdlBackup.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlCodeDecode.vb">
+      <Link>Compartit\mdlCodeDecode.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlCodiBarres.vb">
+      <Link>Compartit\mdlCodiBarres.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlDBS.vb">
+      <Link>Compartit\mdlDBS.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlDefinesMultimedia.vb">
+      <Link>Compartit\mdlDefinesMultimedia.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlFrmDetall.vb">
+      <Link>Compartit\mdlFrmDetall.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlFrontEnd.vb">
+      <Link>Compartit\mdlFrontEnd.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlFTPClient.vb">
+      <Link>Compartit\mdlFTPClient.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlInfo.vb">
+      <Link>Compartit\mdlInfo.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlIniFile.vb">
+      <Link>Compartit\mdlIniFile.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlMail.vb">
+      <Link>Compartit\mdlMail.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlMscDefines.vb">
+      <Link>Compartit\mdlMscDefines.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlPicture.vb">
+      <Link>mdlPicture.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlProgrames.vb">
+      <Link>Compartit\mdlProgrames.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlSistOper.vb">
+      <Link>Compartit\mdlSistOper.vb</Link>
+    </Compile>
+    <Compile Include="..\..\..\Compartit\mdlTimeDate.vb">
+      <Link>Compartit\mdlTimeDate.vb</Link>
+    </Compile>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Automatització\frmIcons.Designer.vb">
+      <DependentUpon>frmIcons.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Automatització\frmIcons.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automatització\frmDelLogger.Designer.vb">
+      <DependentUpon>frmDelLogger.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Automatització\frmDelLogger.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automatització\frmExport.Designer.vb">
+      <DependentUpon>frmExport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Automatització\frmExport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automatització\frmPodcast.designer.vb">
+      <DependentUpon>frmPodcast.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Automatització\frmPodcast.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automatització\frmUpdateCloud.Designer.vb">
+      <DependentUpon>frmUpdateCloud.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Automatització\frmUpdateCloud.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="clsParamsGest.vb" />
+    <Compile Include="FrmManteniments\frmMantCatNews.Designer.vb">
+      <DependentUpon>frmMantCatNews.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantCatNews.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantSubject.Designer.vb">
+      <DependentUpon>frmMantSubject.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantSubject.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantTags.Designer.vb">
+      <DependentUpon>frmMantTags.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantTags.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantTecnic.Designer.vb">
+      <DependentUpon>frmMantTecnic.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantTecnic.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Importar\frmJamendo.Designer.vb">
+      <DependentUpon>frmJamendo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Importar\frmJamendo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Importar\frmSelectItem.Designer.vb">
+      <DependentUpon>frmSelectItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Importar\frmSelectItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Publicitat\frmCalendarPubli.Designer.vb">
+      <DependentUpon>frmCalendarPubli.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Publicitat\frmCalendarPubli.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Publicitat\frmPlantillesPublicitat.Designer.vb">
+      <DependentUpon>frmPlantillesPublicitat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Publicitat\frmPlantillesPublicitat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuaris\frmMantUsuari.Designer.vb">
+      <DependentUpon>frmMantUsuari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Usuaris\frmMantUsuari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automatització\frmBKPDBS.designer.vb">
+      <DependentUpon>frmBKPDBS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Automatització\frmBKPDBS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automatització\frmBlocs.designer.vb">
+      <DependentUpon>frmBlocs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Automatització\frmBlocs.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producció\frmBuscarDiscos.designer.vb">
+      <DependentUpon>frmBuscarDiscos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producció\frmBuscarDiscos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producció\frmBuscarTemes.designer.vb">
+      <DependentUpon>frmBuscarTemes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producció\frmBuscarTemes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automatització\frmCalendari.designer.vb">
+      <DependentUpon>frmCalendari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Automatització\frmCalendari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Importar\frmCDDBMultipleResult.designer.vb">
+      <DependentUpon>frmCDDBMultipleResult.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Importar\frmCDDBMultipleResult.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automatització\frmCtlRadia.designer.vb">
+      <DependentUpon>frmCtlRadia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Automatització\frmCtlRadia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automatització\frmDelCalendar.Designer.vb">
+      <DependentUpon>frmDelCalendar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Automatització\frmDelCalendar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producció\frmDiscos.designer.vb">
+      <DependentUpon>frmDiscos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producció\frmDiscos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producció\frmEquival.designer.vb">
+      <DependentUpon>frmEquival.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producció\frmEquival.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producció\frmEsdeveniment.designer.vb">
+      <DependentUpon>frmEsdeveniment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producció\frmEsdeveniment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producció\frmExits.designer.vb">
+      <DependentUpon>frmExits.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producció\frmExits.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Publicitat\frmFrangeHora.designer.vb">
+      <DependentUpon>frmFrangeHora.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Publicitat\frmFrangeHora.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producció\frmGrafics.designer.vb">
+      <DependentUpon>frmGrafics.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producció\frmGrafics.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Importar\frmImport.designer.vb">
+      <DependentUpon>frmImport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Importar\frmImport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Publicitat\frmInformRadia.designer.vb">
+      <DependentUpon>frmInformRadia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Publicitat\frmInformRadia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantClients.designer.vb">
+      <DependentUpon>frmMantClients.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantClients.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantComercial.designer.vb">
+      <DependentUpon>frmMantComercial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantComercial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantDicograf.designer.vb">
+      <DependentUpon>frmMantDicograf.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantDicograf.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantEstil.designer.vb">
+      <DependentUpon>frmMantEstil.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantEstil.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantIdioma.designer.vb">
+      <DependentUpon>frmMantIdioma.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantIdioma.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantInterp.designer.vb">
+      <DependentUpon>frmMantInterp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantInterp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantLocutors.designer.vb">
+      <DependentUpon>frmMantLocutors.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantLocutors.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantProductes.designer.vb">
+      <DependentUpon>frmMantProductes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantProductes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantProveidor.designer.vb">
+      <DependentUpon>frmMantProveidor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantProveidor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantTarifa.designer.vb">
+      <DependentUpon>frmMantTarifa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManteniments\frmMantTarifa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producció\frmNews.designer.vb">
+      <DependentUpon>frmNews.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producció\frmNews.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automatització\frmParams.designer.vb">
+      <DependentUpon>frmParams.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Automatització\frmParams.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automatització\frmPautes.designer.vb">
+      <DependentUpon>frmPautes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Automatització\frmPautes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producció\frmPicture.designer.vb">
+      <DependentUpon>frmPicture.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producció\frmPicture.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automatització\frmPrgLogger.designer.vb">
+      <DependentUpon>frmPrgLogger.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Automatització\frmPrgLogger.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrint.designer.vb">
+      <DependentUpon>frmPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producció\frmProgrames.designer.vb">
+      <DependentUpon>frmProgrames.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producció\frmProgrames.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producció\frmAudios.designer.vb">
+      <DependentUpon>frmAudios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producció\frmAudios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Publicitat\frmPubli.designer.vb">
+      <DependentUpon>frmPubli.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Publicitat\frmPubli.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Importar\frmTagRipper.designer.vb">
+      <DependentUpon>frmTagRipper.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Importar\frmTagRipper.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producció\frmTemes.designer.vb">
+      <DependentUpon>frmTemes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producció\frmTemes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuaris\frmUsers.designer.vb">
+      <DependentUpon>frmUsers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Usuaris\frmUsers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mdlGestio.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\..\Compartit\frmSplash.resx">
+      <Link>Compartit\frmSplash.resx</Link>
+      <DependentUpon>frmSplash.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\..\Compartit\frmTip.resx">
+      <Link>Compartit\frmTip.resx</Link>
+      <DependentUpon>frmTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Automatització\frmDelLogger.resx">
+      <DependentUpon>frmDelLogger.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Automatització\frmExport.resx">
+      <DependentUpon>frmExport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Automatització\frmIcons.resx">
+      <DependentUpon>frmIcons.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Automatització\frmPodcast.resx">
+      <DependentUpon>frmPodcast.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Automatització\frmUpdateCloud.resx">
+      <DependentUpon>frmUpdateCloud.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManteniments\frmMantCatNews.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMantCatNews.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManteniments\frmMantSubject.resx">
+      <DependentUpon>frmMantSubject.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManteniments\frmMantTags.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMantTags.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManteniments\frmMantTecnic.resx">
+      <DependentUpon>frmMantTecnic.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Importar\frmJamendo.resx">
+      <DependentUpon>frmJamendo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Importar\frmSelectItem.resx">
+      <DependentUpon>frmSelectItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Publicitat\frmCalendarPubli.resx">
+      <DependentUpon>frmCalendarPubli.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Publicitat\frmPlantillesPublicitat.resx">
+      <DependentUpon>frmPlantillesPublicitat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuaris\frmMantUsuari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMantUsuari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Automatització\frmBKPDBS.resx">
+      <DependentUpon>frmBKPDBS.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Automatització\frmBlocs.resx">
+      <DependentUpon>frmBlocs.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producció\frmBuscarDiscos.resx">
+      <DependentUpon>frmBuscarDiscos.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producció\frmBuscarTemes.resx">
+      <DependentUpon>frmBuscarTemes.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Automatització\frmCalendari.resx">
+      <DependentUpon>frmCalendari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Importar\frmCDDBMultipleResult.resx">
+      <DependentUpon>frmCDDBMultipleResult.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Automatització\frmCtlRadia.resx">
+      <DependentUpon>frmCtlRadia.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Automatització\frmDelCalendar.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmDelCalendar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producció\frmDiscos.resx">
+      <DependentUpon>frmDiscos.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producció\frmEquival.resx">
+      <DependentUpon>frmEquival.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producció\frmEsdeveniment.resx">
+      <DependentUpon>frmEsdeveniment.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producció\frmExits.resx">
+      <DependentUpon>frmExits.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Publicitat\frmFrangeHora.resx">
+      <DependentUpon>frmFrangeHora.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producció\frmGrafics.resx">
+      <DependentUpon>frmGrafics.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Importar\frmImport.resx">
+      <DependentUpon>frmImport.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Publicitat\frmInformRadia.resx">
+      <DependentUpon>frmInformRadia.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManteniments\frmMantClients.resx">
+      <DependentUpon>frmMantClients.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManteniments\frmMantComercial.resx">
+      <DependentUpon>frmMantComercial.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManteniments\frmMantDicograf.resx">
+      <DependentUpon>frmMantDicograf.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManteniments\frmMantEstil.resx">
+      <DependentUpon>frmMantEstil.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManteniments\frmMantIdioma.resx">
+      <DependentUpon>frmMantIdioma.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManteniments\frmMantInterp.resx">
+      <DependentUpon>frmMantInterp.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManteniments\frmMantLocutors.resx">
+      <DependentUpon>frmMantLocutors.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManteniments\frmMantProductes.resx">
+      <DependentUpon>frmMantProductes.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManteniments\frmMantProveidor.resx">
+      <DependentUpon>frmMantProveidor.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManteniments\frmMantTarifa.resx">
+      <DependentUpon>frmMantTarifa.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producció\frmNews.resx">
+      <DependentUpon>frmNews.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Automatització\frmParams.resx">
+      <DependentUpon>frmParams.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Automatització\frmPautes.resx">
+      <DependentUpon>frmPautes.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producció\frmPicture.resx">
+      <DependentUpon>frmPicture.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Automatització\frmPrgLogger.resx">
+      <DependentUpon>frmPrgLogger.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrint.resx">
+      <DependentUpon>frmPrint.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producció\frmProgrames.resx">
+      <DependentUpon>frmProgrames.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producció\frmAudios.resx">
+      <DependentUpon>frmAudios.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Publicitat\frmPubli.resx">
+      <DependentUpon>frmPubli.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Importar\frmTagRipper.resx">
+      <DependentUpon>frmTagRipper.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producció\frmTemes.resx">
+      <DependentUpon>frmTemes.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuaris\frmUsers.resx">
+      <DependentUpon>frmUsers.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\..\registre d%27actualitzacions.txt">
+      <Link>registre d%27actualitzacions.txt</Link>
+    </Content>
+    <Content Include="Localization\ca\MetroMessageBoxControl.xml" />
+    <Content Include="Localization\en\MetroMessageBoxControl.xml" />
+    <Content Include="Localization\es\MetroMessageBoxControl.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="Un4seen.Bass" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\msc_cloud\msc_cloud\msc_cloud\msc_cloud.vbproj">
+      <Project>{b7f464e7-11e0-4a82-b529-62dcc57709c2}</Project>
+      <Name>msc_cloud</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\msc_lib\msc_lib\msc_lib.vbproj">
+      <Project>{f5d7c75a-6916-456a-929f-80af8518a6d8}</Project>
+      <Name>msc_lib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <Localization>
+    <Key>Ok</Key>
+    <Value>&amp;Ok</Value>
+  </Localization>
+  <Localization>
+    <Key>Cancel</Key>
+    <Value>&amp;Cancel</Value>
+  </Localization>
+  <Localization>
+    <Key>Retry</Key>
+    <Value>&amp;Retry</Value>
+  </Localization>
+  <Localization>
+    <Key>Yes</Key>
+    <Value>&amp;Yes</Value>
+  </Localization>
+  <Localization>
+    <Key>No</Key>
+    <Value>&amp;No</Value>
+  </Localization>
+  <Localization>
+    <Key>Abort</Key>
+    <Value>&amp;Abort</Value>
+  </Localization>
+  <Localization>
+    <Key>Ignore</Key>
+    <Value>&amp;Ignore</Value>
+  </Localization>
+</root>
