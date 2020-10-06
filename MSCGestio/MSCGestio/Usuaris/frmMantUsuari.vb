@@ -261,8 +261,8 @@ Public Class frmMantUsuari
                 Exit Sub
             Else
                 'Tot OK
-                StrSql += ", usr_alies = HEX(AES_ENCRYPT('" & txtNouNick.Text.Trim & "','" & MY_SECRET_KEY_TO_ENCRYPT & "'))"
-			End If
+                StrSql += ", usr_alies = HEX(AES_ENCRYPT('" & txtNouNick.Text.Trim & "','" & Cloud.MSC_PRI_SECRET_KEY & "'))"
+            End If
 		End If
 
         If Me.txtNouPasword.Text.Length = 0 Then
@@ -282,8 +282,8 @@ Public Class frmMantUsuari
                 Exit Sub
             Else
                 'tot OK 
-                StrSql += ", usr_password = HEX(AES_ENCRYPT('" & txtNouPasword.Text & "','" & MY_SECRET_KEY_TO_ENCRYPT & "'))"
-				StrSql += ", usr_caducpsw = '1899-12-30'" ' Un cop canviem el password ja no caduca
+                StrSql += ", usr_password = HEX(AES_ENCRYPT('" & txtNouPasword.Text & "','" & Cloud.MSC_PRI_SECRET_KEY & "'))"
+                StrSql += ", usr_caducpsw = '1899-12-30'" ' Un cop canviem el password ja no caduca
 			End If
 		End If
 

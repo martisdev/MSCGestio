@@ -747,7 +747,7 @@ Partial Class frmMantClients
         Me.txtEMail.Location = New System.Drawing.Point(106, 179)
         Me.txtEMail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtEMail.Name = "txtEMail"
-        Me.txtEMail.Size = New System.Drawing.Size(34, 25)
+        Me.txtEMail.Size = New System.Drawing.Size(0, 25)
         Me.txtEMail.TabIndex = 11
         '
         'txtDireccio
@@ -759,7 +759,7 @@ Partial Class frmMantClients
         Me.txtDireccio.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtDireccio.Multiline = True
         Me.txtDireccio.Name = "txtDireccio"
-        Me.txtDireccio.Size = New System.Drawing.Size(200, 35)
+        Me.txtDireccio.Size = New System.Drawing.Size(166, 35)
         Me.txtDireccio.TabIndex = 1
         '
         'lbEMail
@@ -789,7 +789,7 @@ Partial Class frmMantClients
         Me.txtFax.Location = New System.Drawing.Point(106, 146)
         Me.txtFax.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtFax.Name = "txtFax"
-        Me.txtFax.Size = New System.Drawing.Size(34, 25)
+        Me.txtFax.Size = New System.Drawing.Size(0, 25)
         Me.txtFax.TabIndex = 9
         '
         'txtCiutat
@@ -800,7 +800,7 @@ Partial Class frmMantClients
         Me.txtCiutat.Location = New System.Drawing.Point(106, 47)
         Me.txtCiutat.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtCiutat.Name = "txtCiutat"
-        Me.txtCiutat.Size = New System.Drawing.Size(34, 25)
+        Me.txtCiutat.Size = New System.Drawing.Size(0, 25)
         Me.txtCiutat.TabIndex = 3
         '
         'Label13
@@ -829,7 +829,7 @@ Partial Class frmMantClients
         Me.txtTelf.Location = New System.Drawing.Point(106, 113)
         Me.txtTelf.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtTelf.Name = "txtTelf"
-        Me.txtTelf.Size = New System.Drawing.Size(34, 25)
+        Me.txtTelf.Size = New System.Drawing.Size(0, 25)
         Me.txtTelf.TabIndex = 7
         '
         'txtZip
@@ -840,7 +840,7 @@ Partial Class frmMantClients
         Me.txtZip.Location = New System.Drawing.Point(106, 80)
         Me.txtZip.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtZip.Name = "txtZip"
-        Me.txtZip.Size = New System.Drawing.Size(34, 25)
+        Me.txtZip.Size = New System.Drawing.Size(0, 25)
         Me.txtZip.TabIndex = 5
         '
         'Label12

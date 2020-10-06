@@ -839,7 +839,7 @@ Public Class frmAudios
     Private Sub mnu_Help_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnu_Help.Click
         Dim Proces As Process = New Process
         Try
-            Process.Start(MSC.Help.HELP_GEST_PRODUCCIO_PROMOS.ToString)
+            Process.Start(MSC.Help.HELP_GEST_PRODUCCIO_AUDIO_USER.ToString)
         Catch ex As Exception
         End Try
     End Sub

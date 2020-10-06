@@ -22,8 +22,8 @@ Public Class frmMain
     Enum MNU_MUSIC
 		MNU_MUSIC_DISCOS = 0
 		MNU_MUSIC_TEMES = 1
-        'MNU_MUSIC_JINGELS = 3
-        'MNU_MUSIC_PROMOS = 4
+
+
         MNU_MUSIC_PROGRAM = 6
 		MNU_MUSIC_NEWS = 7
 		MNU_MUSIC_LLISTA_EXITS = 9
@@ -1205,7 +1205,7 @@ Public Class frmMain
                 Case ServerInstruc.GEST_CLOSE_FORM_DISCOS : tancaPantalla("frmDiscos")
                 Case ServerInstruc.GEST_CLOSE_FORM_TEMES : tancaPantalla("frmTemes")
                 Case ServerInstruc.GEST_CLOSE_FORM_JINGELS : tancaPantalla("frmJingels")
-                Case ServerInstruc.GEST_CLOSE_FORM_PROMOS : tancaPantalla("frmPromos")
+                'Case ServerInstruc.GEST_CLOSE_FORM_PROMOS : tancaPantalla("frmPromos")
                 Case ServerInstruc.GEST_CLOSE_FORM_PROGRAMES : tancaPantalla("frmProgrames")
                 Case ServerInstruc.GEST_CLOSE_FORM_NOTICIES : tancaPantalla("frmNews")
                 Case ServerInstruc.GEST_CLOSE_FORM_LIST_EXITS : tancaPantalla("frmExits")

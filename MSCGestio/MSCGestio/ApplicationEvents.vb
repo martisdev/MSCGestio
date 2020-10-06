@@ -20,6 +20,7 @@ Namespace My
 	Partial Friend Class MyApplication
 
         Const MIN_VER_DBS As String = "4.1"
+        Const COMPATIBLE_VERSION_DBS As String = "4.1"
         'Const NAME_APLIC As Short = Aplicatius.PRG_GESTIO
 
         Private Sub MyApplication_Shutdown(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Shutdown
@@ -45,7 +46,7 @@ Namespace My
 				Case ErrorsConnect.Err_INI_NO_EXIST : End
 				Case ErrorsConnect.Err_STOP : End
 			End Select
-			If MyAPP.TestVersionDBS(MIN_VER_DBS) = False Then CloseMyApp()
+            If MyAPP.TestVersionDBS(MIN_VER_DBS, COMPATIBLE_VERSION_DBS) = False Then CloseMyApp()
 
             'Atenció: Perillos segons la capacitat de processament del sistema.
             Dim filIniDataSet As Thread

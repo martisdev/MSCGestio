@@ -272,8 +272,8 @@ Public Class frmMantClients
 		Me.cmdSortir.Text = lang.getText("LABEL_EXIT",True) '"Sortir"
 		Me.txtBuscar.Text = lang.getText("LABEL_BUSCAR",True)'"Buscar"
 		Me.lbNou.Text = lang.getText("LABEL_NEW_UPPER",True) '"NOU"
-		Me.Label2.Text = lang.getText("LABEL_NEW",True) '"Nom"
-		Me.Label1.Text = lang.getText("LABEL_IDENTIFICADOR",True) & ":" '"Identificador"
+        Me.Label2.Text = Lang.getText("LABEL_NOM", True) '"Nom"
+        Me.Label1.Text = lang.getText("LABEL_IDENTIFICADOR",True) & ":" '"Identificador"
 		Me.ColumnID.HeaderText = lang.getText("HEADERTEXT_ID",True) '"ID"
 		Me.ColumnNom.HeaderText = lang.getText("LABEL_NOM",True) '"Nom"
 		Me.DataGridViewTextBoxColumn1.HeaderText = lang.getText("HEADERTEXT_ID",True) '"ID"
@@ -408,7 +408,7 @@ Public Class frmMantClients
 			StrSql = StrSql & ", '" & Now.ToString("yyyy-MM-dd HH:mm:ss") & "'"
 			StrSql = StrSql & ", " & CShort(IIf(WebActv, 1, 0))
 			StrSql = StrSql & ", '" & WebNick & "'"
-            If WebPsw.Length > 0 Then StrSql = StrSql & ", HEX(AES_ENCRYPT('" & WebPsw & "','" & MY_SECRET_KEY_TO_ENCRYPT & "'))"
+            If WebPsw.Length > 0 Then StrSql = StrSql & ", HEX(AES_ENCRYPT('" & WebPsw & "','" & Cloud.MSC_SECRET_KEY & "'))"
 
             StrSql = StrSql & ");"
 			
@@ -464,8 +464,8 @@ Public Class frmMantClients
 			StrSql = StrSql & ", cli_agent = " & IdAgent
 			
 			StrSql = StrSql & ", cli_webactv = " & CShort(IIf(WebActv, 1, 0))
-			StrSql = StrSql & ", cli_webnick = '" & WebNick & "'"
-            If WebPsw.Length > 0 Then StrSql = StrSql & ", cli_webpsw = HEX(AES_ENCRYPT('" & WebPsw & "','" & MY_SECRET_KEY_TO_ENCRYPT & "'))"
+            StrSql = StrSql & ", cli_webnick = '" & WebNick & "'"
+            If WebPsw.Length > 0 Then StrSql = StrSql & ", cli_webpsw = HEX(AES_ENCRYPT('" & WebPsw & "','" & Cloud.MSC_SECRET_KEY & "'))"
 
             StrSql = StrSql & " WHERE cli_id = " & ID & " ;"
 			db.Update_ID(StrSql)

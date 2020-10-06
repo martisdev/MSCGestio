@@ -758,9 +758,9 @@ Public Class frmParams
                     DBS_Col(i).HostDBS = INIFile.INIRead(MyAPP.IniFile, "Data Connect", "DB_SERVER" & i, "")
                     DBS_Col(i).PortDBS = INIFile.INIRead(MyAPP.IniFile, "Data Connect", "DB_PORT" & i, "3306")
                     DBS_Col(i).NomDBS = INIFile.INIRead(MyAPP.IniFile, "Data Connect", "DB_NAME" & i, "")
-                    Dim Usr As String = DecryptRJ256(MY_SECRET_KEY_TO_ENCRYPT, CLIENT_SECRET_KEY, INIFile.INIRead(MyAPP.IniFile, "Data Connect", "DB_USER" & i, ""))
+                    Dim Usr As String = DecryptRJ256(Cloud.MSC_PRI_SECRET_KEY, CLIENT_SECRET_KEY, INIFile.INIRead(MyAPP.IniFile, "Data Connect", "DB_USER" & i, ""))
                     DBS_Col(i).UsrDBS = Usr.Trim(Chr(0))
-                    Dim psw As String = DecryptRJ256(MY_SECRET_KEY_TO_ENCRYPT, CLIENT_SECRET_KEY, INIFile.INIRead(MyAPP.IniFile, "Data Connect", "DB_PSW" & i, ""))
+                    Dim psw As String = DecryptRJ256(Cloud.MSC_PRI_SECRET_KEY, CLIENT_SECRET_KEY, INIFile.INIRead(MyAPP.IniFile, "Data Connect", "DB_PSW" & i, ""))
                     DBS_Col(i).PswDBS = psw.Trim(Chr(0))
                 Else
                     Exit For
@@ -1260,16 +1260,6 @@ Public Class frmParams
         Me.MetroLabel1.Text = lang.getText("MetroLabel1.Text") ' "Send errors to developer"
 
         Me.grupPath.Text = lang.getText("grupPath.Text") ' "Directoris Magatzem"
-
-        'Me.lbPathPublicitat.Text = "Publicitat"
-        'Me.lbPathPromos.Text = "Promos"
-        'Me.lbPathProgrames.Text = "Programes"
-        'Me.lbPathPautes.Text = "Pautes"
-        'Me.lbPathJingels.Text = "Jingels"
-        'Me.lbPathAudioUser.Text = "audioUser"
-        'Me.lbPathCapeles.Text = "capeles"
-        'Me.lbPathMusica.Text = "música"
-        'Me.cmdPathArrel.Text = "..."
 
         Me.Label47.Text = lang.getText("Label47.Text") & ":" ' "Directori arrel dels fitxers d'àudio:"		
 
@@ -2028,8 +2018,8 @@ ErrorLine:
                     INIFile.INIWrite(MyAPP.IniFile, "Data Connect", "DB_NAME" & e, DBS_Col(i).NomDBS)
                     INIFile.INIWrite(MyAPP.IniFile, "Data Connect", "DB_SERVER" & e, DBS_Col(i).HostDBS)
                     INIFile.INIWrite(MyAPP.IniFile, "Data Connect", "DB_PORT" & e, DBS_Col(i).PortDBS)
-                    INIFile.INIWrite(MyAPP.IniFile, "Data Connect", "DB_USER" & e, EncryptRJ256(MY_SECRET_KEY_TO_ENCRYPT, CLIENT_SECRET_KEY, DBS_Col(i).UsrDBS))
-                    INIFile.INIWrite(MyAPP.IniFile, "Data Connect", "DB_PSW" & e, EncryptRJ256(MY_SECRET_KEY_TO_ENCRYPT, CLIENT_SECRET_KEY, DBS_Col(i).PswDBS))
+                    INIFile.INIWrite(MyAPP.IniFile, "Data Connect", "DB_USER" & e, EncryptRJ256(Cloud.MSC_PRI_SECRET_KEY, CLIENT_SECRET_KEY, DBS_Col(i).UsrDBS))
+                    INIFile.INIWrite(MyAPP.IniFile, "Data Connect", "DB_PSW" & e, EncryptRJ256(Cloud.MSC_PRI_SECRET_KEY, CLIENT_SECRET_KEY, DBS_Col(i).PswDBS))
                     e = e + 1
                 End If
             Next
@@ -2371,7 +2361,7 @@ ErrorLine:
 
             StrSql = "UPDATE config_params SET params_valor='" & Me.lbCientID.Text & "' WHERE params_id=" & CONFIG.paramClientID & " ;"
             db.Update_ID(StrSql)
-            StrSql = "UPDATE config_params SET params_valor= HEX(AES_ENCRYPT('" & Me.txtClientKey.Text & "','" & MY_SECRET_KEY_TO_ENCRYPT & "')) WHERE params_id=" & CONFIG.paramClientKey & " ;"
+            StrSql = "UPDATE config_params SET params_valor= HEX(AES_ENCRYPT('" & Me.txtClientKey.Text & "','" & Cloud.MSC_PRI_SECRET_KEY & "')) WHERE params_id=" & CONFIG.paramClientKey & " ;"
             db.Update_ID(StrSql)
             If Cloud.TestClient(cl_id, client_key) = False Then
                 StrSql = "UPDATE config_params SET params_valor='0' WHERE params_id=" & CONFIG.paramClientID & " ;"
@@ -2961,7 +2951,7 @@ ErrorLine:
 
             Dim FileToSave As String = DirTosave & "\connection.mscconf"
 
-            mdlCodeDecode.AESEncryptFile(FiletempToencript, FileToSave, MY_SECRET_KEY_TO_ENCRYPT, "dasdasdasd", initVector)
+            mdlCodeDecode.AESEncryptFile(FiletempToencript, FileToSave, Cloud.MSC_PRI_SECRET_KEY, "dasdasdasd", initVector)
             MetroFramework.MetroMessageBox.Show(Me, FileToSave, My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information, 100)
 
         End If

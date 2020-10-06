@@ -34,11 +34,8 @@ Namespace Parametres
         Dim param_HoresBorrInterp As Short
         Dim param_IntervRitme As Short
         Dim param_PathMusica As String
-        'Dim param_PathPromos As String
         Dim param_PathPublicitat As String
         Dim param_PathDefPauta As String
-        'Dim param_PathJingels As String
-        'Dim param_PathCapeles As String
         Dim param_CanviCat As Boolean
         Dim param_NTopHit As Short
         Dim param_NHitOld As Short
@@ -59,7 +56,7 @@ Namespace Parametres
         Dim param_ErrEmail As String
         Dim param_SendToDevelop As Boolean
 
-        'Dim param_InputRadio As Short
+
         Dim param_MaxRadiTop As Short
         Dim param_MaxRadiHit As Short
         Dim param_MaxRadiOld As Short
@@ -72,7 +69,7 @@ Namespace Parametres
         Dim param_Attack As Short
         Dim param_VolNormalize As Integer
         Dim param_VolIni As Short
-        'Dim param_SegActivate As Short
+
         Dim param_SegIniLoad As Short
         Dim param_MSegOClock As Short
         Dim param_FHExacte As Boolean
@@ -172,11 +169,8 @@ Namespace Parametres
 
             param_PathProgrames = param_PathArrelAudios & separador & DIR_PROGRAMES & separador
             param_PathMusica = param_PathArrelAudios & separador & DIR_MUSICA & separador
-            'param_PathPromos = param_PathArrelAudios & separador & DIR_PROMOS & separador
             param_PathPublicitat = param_PathArrelAudios & separador & DIR_PUBLICITAT & separador
             param_PathDefPauta = param_PathArrelAudios & separador & DIR_PAUTES & separador
-            'param_PathJingels = param_PathArrelAudios & separador & DIR_JINGELS & separador
-            'param_PathCapeles = param_PathArrelAudios & separador & DIR_CAPELES & separador
             param_PathAudioUser = param_PathArrelAudios & separador & DIR_AUDIOUSER & separador
             param_PathBackups = param_PathArrelAudios & separador & DIR_BACKUPS & separador
 
@@ -267,7 +261,7 @@ Namespace Parametres
             'cloud OnLine
             param_OnLine = CBool(dt.Rows(CONFIG.paramOnLine - 1)("params_valor"))
 
-            Dim StrSql As String = "SELECT AES_DECRYPT(UNHEX(params_valor),'" & MY_SECRET_KEY_TO_ENCRYPT & "') as psw FROM config_params WHERE params_id = " & CONFIG.paramPasswordCR
+            Dim StrSql As String = "SELECT AES_DECRYPT(UNHEX(params_valor),'" & Cloud.MSC_PRI_SECRET_KEY & "') as psw FROM config_params WHERE params_id = " & CONFIG.paramPasswordCR
             Try
                 param_PasswordCR = Encoding.ASCII.GetString(CType(db.ExecuteScalar(StrSql), Byte()))
             Catch ex As Exception
@@ -276,7 +270,7 @@ Namespace Parametres
 
             'cloud			
             param_ClientID = CInt(dt.Rows(CONFIG.paramClientID - 1)("params_valor"))
-            StrSql = "SELECT AES_DECRYPT(UNHEX(params_valor),'" & MY_SECRET_KEY_TO_ENCRYPT & "') as psw FROM config_params WHERE params_id = " & CONFIG.paramClientKey
+            StrSql = "SELECT AES_DECRYPT(UNHEX(params_valor),'" & Cloud.MSC_PRI_SECRET_KEY & "') as psw FROM config_params WHERE params_id = " & CONFIG.paramClientKey
             Try
                 param_ClientKey = Encoding.ASCII.GetString(CType(db.ExecuteScalar(StrSql), Byte()))
             Catch ex As Exception
@@ -326,7 +320,7 @@ Namespace Parametres
                 StrSql += "UPDATE config_params SET params_valor='" & param_intervalCR & "' WHERE params_id=" & CONFIG.paramIntervalCR & " ;"
                 db.Update_ID(StrSql) : StrSql = ""
                 If Not IsNothing(param_PasswordCR) AndAlso param_PasswordCR.Length > 0 Then
-                    StrSql = "UPDATE config_params SET params_valor= HEX(AES_ENCRYPT('" & param_PasswordCR & "','" & my_secret_key_to_encrypt & "')) WHERE params_id=" & CONFIG.paramPasswordCR & " ;"
+                    StrSql = "UPDATE config_params SET params_valor= HEX(AES_ENCRYPT('" & param_PasswordCR & "','" & Cloud.MSC_PRI_SECRET_KEY & "')) WHERE params_id=" & CONFIG.paramPasswordCR & " ;"
                     db.Update_ID(StrSql) : StrSql = ""
                 End If
 

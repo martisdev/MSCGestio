@@ -183,10 +183,10 @@ Public Class frmUsers
     Private Sub cmbUSR_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbUSR.SelectedIndexChanged
         If blEnable = True Then LockedPantalla()
         Dim id As Integer = Me.cmbUSR.SelectedValue
-
+        BuidarPantallaUSR()
         If id > 0 Then
-            Dim StrSql As String = "SELECT usr_id,AES_DECRYPT(UNHEX(usr_alies),'" & MY_SECRET_KEY_TO_ENCRYPT & "') as usr_alies, " _
-                        & "AES_DECRYPT(UNHEX(usr_password),'" & MY_SECRET_KEY_TO_ENCRYPT & "') as usr_password,usr_nom," _
+            Dim StrSql As String = "SELECT usr_id,AES_DECRYPT(UNHEX(usr_alies),'" & Cloud.MSC_PRI_SECRET_KEY & "') as usr_alies, " _
+                        & "AES_DECRYPT(UNHEX(usr_password),'" & Cloud.MSC_PRI_SECRET_KEY & "') as usr_password,usr_nom," _
                         & "usr_nivell,usr_tipus,usr_datacreacio,usr_dataultconex,usr_dataultdesconex,usr_intentserr," _
                         & "usr_dataultinternterr,usr_errpsw,usr_caducitat,usr_caducpsw,usr_applications FROM users WHERE usr_id = " & id
 
@@ -245,8 +245,6 @@ Public Class frmUsers
             rs.Dispose()
             db = Nothing
             Me.Refresh()
-        Else
-            BuidarPantallaUSR()
         End If
 
         cmdBorrar.Enabled = CBool(IIf(id > 0, True, False))
@@ -325,9 +323,9 @@ Public Class frmUsers
                 'Crea un nou usuari
                 Dim sCmd As String = "INSERT INTO users ( usr_alies, usr_password, usr_nom, usr_nivell, usr_tipus ,usr_caducitat, usr_caducpsw,usr_datacreacio,usr_applications)"
                 sCmd = sCmd & " VALUES ("
-                sCmd = sCmd & " HEX(AES_ENCRYPT('" & txtAlies.Text & "','" & MY_SECRET_KEY_TO_ENCRYPT & "')) "
-                sCmd = sCmd & ", HEX(AES_ENCRYPT('" & txtPassWord.Text & "','" & MY_SECRET_KEY_TO_ENCRYPT & "')) "
-                sCmd = sCmd & ", '" & Nom & "'"
+            sCmd = sCmd & " HEX(AES_ENCRYPT('" & txtAlies.Text & "','" & Cloud.MSC_PRI_SECRET_KEY & "')) "
+            sCmd = sCmd & ", HEX(AES_ENCRYPT('" & txtPassWord.Text & "','" & Cloud.MSC_PRI_SECRET_KEY & "')) "
+            sCmd = sCmd & ", '" & Nom & "'"
                 sCmd = sCmd & ", " & Nivell
                 sCmd = sCmd & ", " & Tipus
                 sCmd = sCmd & ", '" & Datacaduc.ToString("yyyy-MM-dd HH:mm:ss") & "'"
@@ -348,9 +346,9 @@ Public Class frmUsers
             Else
                 'Salva dades usuari (UPDATE).
                 Dim sCmd As String = "UPDATE users SET"
-                If txtAlies.Text.Length > 0 Then sCmd = sCmd & " usr_alies = HEX(AES_ENCRYPT('" & txtAlies.Text & "','" & MY_SECRET_KEY_TO_ENCRYPT & "'))"
-                If txtPassWord.Text.Length > 0 Then sCmd = sCmd & ", usr_password = HEX(AES_ENCRYPT('" & txtPassWord.Text & "','" & MY_SECRET_KEY_TO_ENCRYPT & "'))"
-                sCmd = sCmd & ", usr_nom = '" & Nom & "'"
+            If txtAlies.Text.Length > 0 Then sCmd = sCmd & " usr_alies = HEX(AES_ENCRYPT('" & txtAlies.Text & "','" & Cloud.MSC_PRI_SECRET_KEY & "'))"
+            If txtPassWord.Text.Length > 0 Then sCmd = sCmd & ", usr_password = HEX(AES_ENCRYPT('" & txtPassWord.Text & "','" & Cloud.MSC_PRI_SECRET_KEY & "'))"
+            sCmd = sCmd & ", usr_nom = '" & Nom & "'"
                 sCmd = sCmd & ", usr_nivell = " & Nivell & ""
                 sCmd = sCmd & ", usr_tipus = " & Tipus & ""
                 sCmd = sCmd & ", usr_caducitat = '" & Datacaduc.ToString("yyyy-MM-dd HH:mm:ss") & "'"
@@ -460,7 +458,7 @@ Public Class frmUsers
         End If
 
         If USER_Id > 1 Then
-            MetroFramework.MetroMessageBox.Show(Me, MSG_USER_CONFIRM_DELETE, MSG_ATENCIO, MessageBoxButtons.OK, MessageBoxIcon.Error, 100)
+            If MetroFramework.MetroMessageBox.Show(Me, MSG_USER_CONFIRM_DELETE, MSG_ATENCIO, MessageBoxButtons.OKCancel, MessageBoxIcon.Error, 100) = DialogResult.Cancel Then Exit Sub
 
             Dim db As New MSC.dbs(Cloud)
             db.IniTransaction()
