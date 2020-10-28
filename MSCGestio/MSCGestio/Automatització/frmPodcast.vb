@@ -112,7 +112,9 @@ Public Class frmPodcast
 
         Dim StrSql As String = ""
         If Me.cmbProgrames.SelectedValue = 0 Then
-            StrSql = "SELECT * FROM podcasting WHERE podcasting.pod_tipusfitxer = 5"
+            'StrSql = "SELECT * FROM podcasting WHERE podcasting.pod_tipusfitxer = 5;"
+
+            StrSql = "SELECT * FROM podcasting ;"
         Else
             StrSql = "SELECT podcasting.pod_id,podcasting.pod_tipusfitxer,podcasting.pod_id_origen,podcasting.pod_durada,podcasting.pod_descrip," &
                 "podcasting.pod_datacreacio,podcasting.pod_datapubli,podcasting.pod_dataout, podcasting.pod_file " &
@@ -296,7 +298,7 @@ Public Class frmPodcast
         Me.Text = lang.getText("LABEL_PODCASTING", True) '"PodCasting"					
 
         Dim Cmb As New combo
-        'Cmb.OmpleCombo(ComboBoxTipus, TAULES_DBS.TAULA_TIPUS_FITXER, TotsCap.CAP) : ComboBoxTipus.SelectedValue = 0
+        Cmb.OmpleCombo(ComboBoxTipus, TAULES_DBS.TAULA_TIPUS_FITXER, TotsCap.CAP) : ComboBoxTipus.SelectedValue = 0
         Cmb.OmpleCombo(ColumnFTPAction, TAULES_DBS.TAULA_ACCIONS_FTP, TotsCap.NO_ADD)
         Cmb.OmpleCombo(comboboxGeneralTaskServer, TAULES_DBS.TAULA_ACCIONS_FTP, TotsCap.NO_ADD) : comboboxGeneralTaskServer.SelectedValue = 0
         Cmb.OmpleCombo(Me.cmbProgrames, TAULES_DBS.TAULA_PROGRAMES, TotsCap.TOTS) : cmbProgrames.SelectedValue = 0
@@ -309,10 +311,10 @@ Public Class frmPodcast
             cmbFitxer.SelectedValue = gridDades.CurrentRow.Cells("ColumnOrigen").Value
             lbDurada.Text = gridDades.CurrentRow.Cells("ColumnDurada").Value.ToString
             txtDecrip.Text = gridDades.CurrentRow.Cells("ColumnDescrip").Value
-            txtDataOut.Value = gridDades.CurrentRow.Cells("ColumnDataOut").Value
-            Dim daPu As Date = gridDades.CurrentRow.Cells("ColumnDataPubli").Value
-            Me.txtDataPublicacio.Value = daPu 'gridDades.CurrentRow.Cells("ColumnDataPubli").Value
-            Me.txtHoraPublicacio.Value = daPu 'gridDades.CurrentRow.Cells("ColumnDataPubli").Value
+            txtDataOut.Value = CDate(gridDades.CurrentRow.Cells("ColumnDataOut").Value)
+            'Dim daPu As Date = gridDades.CurrentRow.Cells("ColumnDataPubli").Value
+            Me.txtDataPublicacio.Value = CDate(gridDades.CurrentRow.Cells("ColumnDataPubli").Value)
+            Me.txtHoraPublicacio.Value = CDate(gridDades.CurrentRow.Cells("ColumnDataPubli").Value)
             Me.lbDataCrea.Text = gridDades.CurrentRow.Cells("ColumnDataCrea").Value.ToString
             Me.lbPosition.Text = gridDades.CurrentRow.Index
             Dim dataCrea As Date = Me.lbDataCrea.Text
@@ -436,7 +438,7 @@ Public Class frmPodcast
 
         If Not MyAPP.PermisPerContinuar() Then MetroFramework.MetroMessageBox.Show(Me, MSG_SERVER_CLOSE, MSG_ATENCIO, MessageBoxButtons.OK, MessageBoxIcon.Stop, 100) : Me.Close()
         If MetroFramework.MetroMessageBox.Show(Me, MSG_CONFIRM_SAVE_DADES, MSG_ATENCIO, MessageBoxButtons.YesNo, MessageBoxIcon.Question, 100) = DialogResult.No Then Exit Sub
-        Dim TipusFitxer As Integer = Me.ComboBoxTipus.SelectedValue
+        Dim TipusFitxer As Integer = Me.ComboBoxTipus.SelectedValue 'Tipus_Fitxers.FITXER_PROGRAMA
         Dim id_origen As Integer = Me.cmbFitxer.SelectedValue
         Dim Durada As String = Me.lbDurada.Text
         Dim DataPubli As Date = New DateTime(txtDataPublicacio.Value.Year, txtDataPublicacio.Value.Month, txtDataPublicacio.Value.Day, txtHoraPublicacio.Value.Hour, txtHoraPublicacio.Value.Minute, txtHoraPublicacio.Value.Second) 'txtDataPublicacio.Value
@@ -451,37 +453,6 @@ Public Class frmPodcast
                 "VALUES (" & TipusFitxer & ", " & id_origen & ",'" & Durada & "','" & Now.ToString("yyyy-MM-dd HH:mm:ss") & "','" & DataPubli.ToString("yyyy-MM-dd HH:mm:ss") & "','" & DataOut.ToString("yyyy-MM-dd") & "','" & Descrip & "' ,'" & NomFitxer & "');"
             ID = db.New_ID(StrSql)
 
-            '			Me.gridDades.Rows(gridDades.NewRowIndex).Cells(0).Value = ID
-            '			Dim newRecord As DataGridViewRow = gridDades.Rows(gridDades.NewRowIndex)
-            '			Dim dt As DataTable
-            '			If gridDades.DataSource IsNot Nothing Then
-            '				dt = gridDades.DataSource
-            '			Else
-            '				dt = New DataTable
-            '				For col As Integer = 0 To gridDades.Columns.Count - 1
-            '					Dim idColumn As DataColumn = New DataColumn()
-            '					idColumn.ColumnName = gridDades.Columns(col).DataPropertyName
-            '					idColumn.DataType = newRecord.Cells(col).ValueType
-            '					dt.Columns.Add(idColumn)
-            '				Next
-            '			End If
-            '			Dim newRow As DataRow = dt.NewRow
-            '			For i As Integer = 0 To newRecord.Cells.Count - 1
-            '				Try
-            '					Dim NewValue As String = NoNul(newRecord.Cells(i).Value.ToString) 
-            '					newRow(i) = NewValue
-            '				Catch ex As Exception
-            '					Dim TypeName As String = newRecord.Cells(i).ValueType.FullName
-            '					Select Case TypeName
-            '						Case "System.Int32" : newRow(i) = 0
-            '						Case "System.String" : newRow(i) = ""
-            '						Case "System.TimeSpan" : newRow(i) = "00:00:00"
-            '						Case "System.DateTime" : newRow(i) = Now.ToString("yyyy-MM-dd HH:mm:ss")
-            '						Case Else : newRow(i) = 0
-            '					End Select
-            '				End Try
-            '			Next
-            '			dt.Rows.Add(newRow)
             gridDades.AllowUserToAddRows = False
             establirRecordset()
             gridDades.Focus()
@@ -551,7 +522,7 @@ Public Class frmPodcast
     Private Sub txtDataOut_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles  txtDataOut.ValueChanged
         Try
             Dim RowID As Integer = FindAfectatRow()
-            Me.gridDades.Rows(RowID).Cells("ColumnDataOut").Value = txtDataOut.Value.ToString("dd/MM/yyyy")
+            Me.gridDades.Rows(RowID).Cells("ColumnDataOut").Value = txtDataOut.Value.ToString("yyyy-MM-dd")
             Changed()
         Catch ex As Exception
         End Try
@@ -599,7 +570,7 @@ Public Class frmPodcast
     Private Sub txtDataPublicacio_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtDataPublicacio.ValueChanged, txtHoraPublicacio.ValueChanged
         Try
             Dim RowID As Integer = FindAfectatRow()
-            Me.gridDades.Rows(RowID).Cells("ColumnDataPubli").Value = txtDataPublicacio.Value.ToString("dd/MM/yyyy") & " " & Me.txtHoraPublicacio.Value.ToString("HH:mm:ss")
+            Me.gridDades.Rows(RowID).Cells("ColumnDataPubli").Value = txtDataPublicacio.Value.ToString("yyyy-MM-dd") & " " & Me.txtHoraPublicacio.Value.ToString("HH:mm:ss")
             Changed()
         Catch ex As Exception
         End Try

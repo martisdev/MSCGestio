@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmUpdateCloud
     Inherits MetroFramework.Forms.MetroForm
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,24 +20,23 @@ Partial Class frmUpdateCloud
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmUpdateCloud))
         Me.MetroProgressSpinnerCloud = New MetroFramework.Controls.MetroProgressSpinner()
         Me.lbInfoProcess = New MetroFramework.Controls.MetroLabel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.pic_logo = New System.Windows.Forms.PictureBox()
-        Me.MetroProgressGeneralCloud = New MetroFramework.Controls.MetroProgressBar()
         Me.GroupBox1.SuspendLayout()
         CType(Me.pic_logo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MetroProgressSpinnerCloud
         '
-        Me.MetroProgressSpinnerCloud.Location = New System.Drawing.Point(65, 19)
+        Me.MetroProgressSpinnerCloud.Location = New System.Drawing.Point(47, 19)
         Me.MetroProgressSpinnerCloud.Maximum = 100
         Me.MetroProgressSpinnerCloud.Name = "MetroProgressSpinnerCloud"
-        Me.MetroProgressSpinnerCloud.Size = New System.Drawing.Size(250, 250)
+        Me.MetroProgressSpinnerCloud.Size = New System.Drawing.Size(287, 287)
         Me.MetroProgressSpinnerCloud.TabIndex = 0
         Me.MetroProgressSpinnerCloud.UseSelectable = True
         '
@@ -52,7 +51,6 @@ Partial Class frmUpdateCloud
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.MetroProgressGeneralCloud)
         Me.GroupBox1.Controls.Add(Me.MetroProgressSpinnerCloud)
         Me.GroupBox1.Controls.Add(Me.lbInfoProcess)
         Me.GroupBox1.Location = New System.Drawing.Point(7, 63)
@@ -71,20 +69,11 @@ Partial Class frmUpdateCloud
         Me.pic_logo.TabIndex = 267
         Me.pic_logo.TabStop = False
         '
-        'MetroProgressGeneralCloud
-        '
-        Me.MetroProgressGeneralCloud.HideProgressText = False
-        Me.MetroProgressGeneralCloud.Location = New System.Drawing.Point(65, 283)
-        Me.MetroProgressGeneralCloud.Name = "MetroProgressGeneralCloud"
-        Me.MetroProgressGeneralCloud.Size = New System.Drawing.Size(250, 29)
-        Me.MetroProgressGeneralCloud.TabIndex = 2
-        Me.MetroProgressGeneralCloud.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'frmUpdateCloud
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(395, 443)
+        Me.ClientSize = New System.Drawing.Size(397, 446)
         Me.Controls.Add(Me.pic_logo)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "frmUpdateCloud"
@@ -101,5 +90,4 @@ Partial Class frmUpdateCloud
     Friend WithEvents lbInfoProcess As MetroFramework.Controls.MetroLabel
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents pic_logo As PictureBox
-    Friend WithEvents MetroProgressGeneralCloud As MetroFramework.Controls.MetroProgressBar
 End Class

@@ -448,7 +448,7 @@ Public Class frmCalendari
             'If ProgressBar.Maximum = 0 Then ProgressBar.Maximum = 1
             ProgressBar.Value = 0
             ProgressBar.Visible = True
-            StrSql = "INSERT INTO calendari (cal_data, cal_tipassig, cal_prgtipus, cal_pauta, cal_pathpauta, cal_noticies, cal_descripcio, cal_prog, cal_durada, cal_reemissio, cal_logger, cal_force, cal_cloud) VALUES "
+            Dim StrInsertCal As String = "INSERT INTO calendari (cal_data, cal_tipassig, cal_prgtipus, cal_pauta, cal_pathpauta, cal_noticies, cal_descripcio, cal_prog, cal_durada, cal_reemissio, cal_logger, cal_force, cal_cloud) VALUES "
             Dim strValues As String = ""
             Dim MyQuery As String = ""
             Do While data <= DataOUT
@@ -610,11 +610,11 @@ Public Class frmCalendari
                 My.Application.DoEvents()
                 'Salvar 7 dies en 7 dies
                 If (DateDiff(DateInterval.Day, Me.txtDataIn.Value, data) Mod 7) = 0 Then
-                    NewID = db.New_ID(StrSql & strValues & " ;")
+                    NewID = db.New_ID(StrInsertCal & strValues & " ;")
                     strValues = ""
                 End If
             Loop
-            If strValues.Length > 0 Then NewID = db.New_ID(StrSql & strValues & " ;")
+            If strValues.Length > 0 Then NewID = db.New_ID(StrInsertCal & strValues & " ;")
             Me.lbID.Text = NewID.ToString
             ProgressBar.Visible = False
             My.Application.DoEvents()
@@ -633,13 +633,12 @@ Public Class frmCalendari
             StrSql = StrSql & ", cal_durada ='" & Durada.ToString("HH:mm:ss") & "'"
             StrSql = StrSql & ", cal_reemissio = " & IIf(IsReemissio = True, 1, 0)
             StrSql = StrSql & ", cal_force = " & IIf(ForceDirecte = True, 1, 0)
-            StrSql = StrSql & " WHERE cal_id = " & calID
-            StrSql = StrSql & " ;"
-            'db.Update_ID(StrSql)			
+            StrSql = StrSql & " WHERE cal_id = " & calID & " ;"
+            db.Update_ID(StrSql)
             Dim IDLogger As Integer = Me.lbIDLogger.Text
             If IDLogger > 0 Then
                 'fer un update també del logger associat.
-                StrSql += " UPDATE prglogger SET" &
+                StrSql = "UPDATE prglogger SET" &
                     " log_saveprg=" & CShort(IIf(IdPrograma > 0, 1, 0)) &
                     ", log_tipassig=" & TipAssig.ToString &
                     ", log_datereg='" & data.ToString("yyyy-MM-dd HH:mm:ss") & "' " &
@@ -647,8 +646,8 @@ Public Class frmCalendari
                     ", log_program=" & IdPrograma &
                     ", log_publiweb=" & CShort(IIf(Me.chk_podcast.Checked, 1, 0)) &
                     " WHERE log_id=" & IDLogger & " ;"
+                db.Update_ID(StrSql)
             End If
-            db.Update_ID(StrSql)
         End If
         db.EndTransaction()
 

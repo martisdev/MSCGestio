@@ -1213,7 +1213,7 @@ Public Class frmMain
                 Case ServerInstruc.GEST_CLOSE_FORM_ESTIL : tancaPantalla("frmMantEstil")
                 Case ServerInstruc.GEST_CLOSE_FORM_SUBJECT : tancaPantalla("frmMantSubject")
                 Case ServerInstruc.GEST_CLOSE_FORM_DISCOGRAFICA : tancaPantalla("frmMantDicograf")
-                Case ServerInstruc.GEST_CLOSE_FORM_NACIONALITATS : tancaPantalla("frmMantNacionalitats")
+                'Case ServerInstruc.GEST_CLOSE_FORM_NACIONALITATS : tancaPantalla("frmMantNacionalitats")
                 Case ServerInstruc.GEST_CLOSE_FORM_IDIOMES : tancaPantalla("frmMantIdioma")
                 Case ServerInstruc.GEST_CLOSE_FORM_PROVEIDORS : tancaPantalla("frmMantProveidor")
                 Case ServerInstruc.GEST_CLOSE_FORM_GRAFICS : tancaPantalla("frmGrafics")

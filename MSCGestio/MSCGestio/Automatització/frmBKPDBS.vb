@@ -73,22 +73,16 @@ Public Class frmBKPDBS
             NomFitxerBKP = "MSC_" & Now.ToString("yyyyMMdd HHmm") & ".sql"
             Dim PathToExport As String = txtDesti.Text & "\" & NomFitxerBKP
 
-
-
-            Dim bkp As New Backup
-            AddHandler bkp.StatusChanged, AddressOf InfoBkpProcess
-
+            Dim tables As New List(Of String)
             If Me.chk_excludeTables.Checked = True Then
-                Dim tables As New List(Of String)
                 tables.Add("connexions")
                 tables.Add("erroruser")
                 tables.Add("controlradiacio")
-                'db.ExportBackup(PathToExport, tables, Me.chk_excludeTables.Checked)
-                Dim result As Boolean = bkp.ExportDataBase(PathToExport, tables)
+                db.ExportBackup(PathToExport, tables, Me.chk_excludeTables.Checked)
             Else
-                'db.ExportBackup(PathToExport)
-                Dim result As Boolean = bkp.ExportDataBase(PathToExport)
+                db.ExportBackup(PathToExport)
             End If
+
 
             db = Nothing
             progressBKP.Value = 0
@@ -161,7 +155,6 @@ Public Class frmBKPDBS
     End Sub
 
     Sub FrmBKPDBSLoad(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.linkWebHelp.Text = MSC.Help.HELP_GEST_AUTOMATITZACIO_BACKUP_DBS.ToString
         setLanguageForm()
     End Sub
 
@@ -193,9 +186,8 @@ Public Class frmBKPDBS
         chk_excludeTables.Text = lang.getText("chk_excludeTables.Text") '"Exclude tables log (connections, radiation control, error users connections)"
         Me.Label1.Text = lang.getText("LABEL_DIR_DESTI", True) & ":" '"Directori destí:"
         Me.TabPage2.Text = lang.getText("TabPage2.Text") '"Restaurar Dades"
-    	Me.groupBox1.Text = MSG_ATENCIO '"Atenció"
-    	Me.label3.Text = lang.getText("label3.Text") '"Si aquesta pantalla us dona un error, consulteu el manual per configurar el vostre servidor."
-    	Me.Label2.Text = lang.getText("Label2.Text") & " :" '"Fitxer a restaurar :"
+
+        Me.Label2.Text = lang.getText("Label2.Text") & " :" '"Fitxer a restaurar :"
     	Me.lbAtencio.Text = lang.getText("lbAtencio.Text") '"Fer qualsevol operació en aquesta pantalla pot suposar un perill per tot el sistema MSC."
     	FolderBrowserDialog1.Description = lang.getText("FolderBrowserDialog1.Description") '"Selecciona un directori"
     	openFileDialog1.Title  = lang.getText("MSG_SELECT_DIR",True) '"Selecciona un directori"
@@ -203,7 +195,7 @@ Public Class frmBKPDBS
     	
 	End Sub
 
-    Private Sub linkWebHelp_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkWebHelp.LinkClicked
+    Private Sub linkWebHelp_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
 
         Dim Proces As Process = New Process
         Try

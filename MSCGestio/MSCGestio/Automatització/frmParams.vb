@@ -75,11 +75,11 @@ Public Class frmParams
         Me.Dispose()
     End Sub
 
-    Private Sub frmParams_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub frmParams_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         CloseForm()
     End Sub
 
-    Private Sub cmdExit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdExit.Click, cmdSortir.Click
+    Private Sub cmdExit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSortir.Click, cmdExit.Click
         Me.Close()
     End Sub
 
@@ -172,7 +172,7 @@ Public Class frmParams
         lbNovaSequ.Visible = False
 
         'Me.grupWeb.Enabled = blEnable	
-        Me.GroupBox4.Enabled = (cloud.ClientType = cloud.client_type.RADIO_WITH_SERVICES And blEnable)
+        Me.GroupBox4.Enabled = (Cloud.ClientType = Cloud.client_type.RADIO_WITH_SERVICES And blEnable)
         txtServerFTP.Enabled = blEnable
         txtDirFTP.Enabled = blEnable
         txtUserFTP.Enabled = blEnable
@@ -180,7 +180,7 @@ Public Class frmParams
         cmdTestFTP.Enabled = blEnable
         ComboBoxSelectQualitatPodcast.Enabled = blEnable
         Me.txtPermanenciaPodcast.Enabled = blEnable
-        Me.GroupBox3.Enabled = (cloud.ClientType = cloud.client_type.RADIO_WITH_SERVICES And blEnable)
+        Me.GroupBox3.Enabled = (Cloud.ClientType = Cloud.client_type.RADIO_WITH_SERVICES And blEnable)
         txtNumTracs.Enabled = blEnable
         txtNumVots.Enabled = blEnable
 
@@ -208,10 +208,10 @@ Public Class frmParams
         'Me.GroupClients.Enabled = blEnable		
         txtClientKey.Enabled = blEnable
         cmdActive.Enabled = blEnable
-        groupBoxCloudPrograms.Enabled = (cloud.IsActive And blEnable)
-        groupBoxCloudShareOptions.Enabled = cloud.IsActive And blEnable
-        groupBoxStreaming.Enabled = (cloud.IsActive And blEnable)
-        grupWeb.Enabled = (cloud.IsActive And blEnable)
+        groupBoxCloudPrograms.Enabled = (Cloud.IsActive And blEnable)
+        groupBoxCloudShareOptions.Enabled = Cloud.IsActive And blEnable
+        groupBoxStreaming.Enabled = (Cloud.IsActive And blEnable)
+        grupWeb.Enabled = (Cloud.IsActive And blEnable)
         chkOnLine.Enabled = blEnable
 
         'Me.grupReparar.Enabled = blEnable
@@ -243,8 +243,8 @@ Public Class frmParams
         chkLastBKP.Enabled = blEnable
 
         'Streaming
-        Me.groupBoxParamsServer.Enabled = (cloud.ClientType = cloud.client_type.RADIO_WITH_SERVICES And blEnable)
-        Me.groupBoxQualityServer.Enabled = (cloud.ClientType = cloud.client_type.RADIO_WITH_SERVICES And blEnable)
+        Me.groupBoxParamsServer.Enabled = (Cloud.ClientType = Cloud.client_type.RADIO_WITH_SERVICES And blEnable)
+        Me.groupBoxQualityServer.Enabled = (Cloud.ClientType = Cloud.client_type.RADIO_WITH_SERVICES And blEnable)
 
 
         If blEnable Then
@@ -359,11 +359,11 @@ Public Class frmParams
         Me.cmdSalvar.Enabled = blEnable
     End Sub
 
-    Private Sub KeyUp_txtDBS(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtDBSDescip.KeyUp, txtDBSHost.KeyUp, txtDBSName.KeyUp, txtDBSPassword.KeyUp, txtDBSUser.KeyUp, txtDBSPort.KeyUp
+    Private Sub KeyUp_txtDBS(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtDBSUser.KeyUp, txtDBSPort.KeyUp, txtDBSPassword.KeyUp, txtDBSName.KeyUp, txtDBSHost.KeyUp, txtDBSDescip.KeyUp
         ModifOrNewDBS()
     End Sub
 
-    Private Sub TextChanged_txtDBS(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtDBSDescip.TextChanged, txtDBSHost.TextChanged, txtDBSName.TextChanged, txtDBSPassword.TextChanged, txtDBSUser.TextChanged, txtDBSName.TextChanged, txtDBSPort.TextChanged
+    Private Sub TextChanged_txtDBS(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtDBSName.TextChanged, txtDBSUser.TextChanged, txtDBSPort.TextChanged, txtDBSPassword.TextChanged, txtDBSHost.TextChanged, txtDBSDescip.TextChanged
         Changed()
     End Sub
 
@@ -776,17 +776,17 @@ Public Class frmParams
     Private Sub loadVal_IntegraWeb()
         'Secció servidor Web
         Try
-            If cloud.ClientType <> cloud.client_type.RADIO_WITH_SERVICES Then
+            If Cloud.ClientType <> Cloud.client_type.RADIO_WITH_SERVICES Then
                 lbAtencio.Visible = True
                 lbAtencio.Text = MSG_ADVANCED_SERVICE_DISABLED
             End If
 
-            txtServerFTP.Text = cloud.ServerFTP
-            txtDirFTP.Text = cloud.DirRemote
-            txtUserFTP.Text = cloud.UserFTP
-            txtPswFTP.Text = cloud.PswFTP 'Microsoft.VisualBasic.Format(Params.PswFTP , "@@@@@@@@")
-            ComboBoxSelectQualitatPodcast.SelectedIndex = cloud.QSamplePodcast
-            txtPermanenciaPodcast.Text = cloud.DiesPermanenciaPodcast
+            txtServerFTP.Text = Cloud.ServerFTP
+            txtDirFTP.Text = Cloud.DirRemote
+            txtUserFTP.Text = Cloud.UserFTP
+            txtPswFTP.Text = Cloud.PswFTP 'Microsoft.VisualBasic.Format(Params.PswFTP , "@@@@@@@@")
+            ComboBoxSelectQualitatPodcast.SelectedIndex = Cloud.QSamplePodcast
+            txtPermanenciaPodcast.Text = Cloud.DiesPermanenciaPodcast
 
             Me.txtNumTracs.Text = Params.NumTracsVotWeb
             Me.txtNumVots.Text = Params.NumVotWebTorn
@@ -934,20 +934,20 @@ Public Class frmParams
         'Secció Streaming
 
         Try
-            If cloud.ClientType <> cloud.client_type.RADIO_WITH_SERVICES Then
+            If Cloud.ClientType <> Cloud.client_type.RADIO_WITH_SERVICES Then
                 lbAtencio.Visible = True
                 lbAtencio.Text = MSG_ADVANCED_SERVICE_DISABLED
             End If
-            txtURLStreaming.Text = cloud.StreamUrl
-            Me.txtStreamSampleRate.Text = cloud.StreamSampleRate
-            Me.txtStreamBitRate.Text = cloud.StreamBitRate
-            Me.txtStreamCannels.Text = IIf(cloud.Streamchannels = 1, "MONO", "STEREO")
-            Me.comboBoxServerStream.SelectedIndex = cloud.StreamServerType
+            txtURLStreaming.Text = Cloud.StreamUrl
+            Me.txtStreamSampleRate.Text = Cloud.StreamSampleRate
+            Me.txtStreamBitRate.Text = Cloud.StreamBitRate
+            Me.txtStreamCannels.Text = IIf(Cloud.Streamchannels = 1, "MONO", "STEREO")
+            Me.comboBoxServerStream.SelectedIndex = Cloud.StreamServerType
 
-            Me.txtServer.Text = cloud.StreamServer
-            Me.txtPort.Text = CStr(cloud.StreamPort)
-            Me.txtMountpoint.Text = cloud.StreamMountPoint
-            Me.txtPassword.Text = cloud.StreamPassword
+            Me.txtServer.Text = Cloud.StreamServer
+            Me.txtPort.Text = CStr(Cloud.StreamPort)
+            Me.txtMountpoint.Text = Cloud.StreamMountPoint
+            Me.txtPassword.Text = Cloud.StreamPassword
             Me.txtEstil.Text = Params.StreamStyle
             change_Streaming = False
         Catch ex As Exception
@@ -999,7 +999,7 @@ Public Class frmParams
 
 #End Region
 
-    Private Sub frmParams_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub frmParams_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
 #If HideJamendo = "1" Then
         groupBox20.Visible = False
 #End If
@@ -1099,344 +1099,345 @@ Public Class frmParams
 
 
     Public Sub setLanguageForm()
-        lang.StrForm = Me.Name
+        Lang.StrForm = Me.Name
 
-        MSG_DELETE_HISTORY = lang.getText("MSG_DELETE_HISTORY") '""Segur que vols borrar el historial de connexions errònies?""
-        MSG_NEW_CONNECTION = lang.getText("MSG_NEW_CONNECTION") '"Nova Connexió"
-        MSG_ERROR_ACCES_DBS = lang.getText("MSG_ERROR_ACCES_DBS") '"Error al accedir a les dades, fagi una reconstrucció del paràmetres esencials"        
-        MSG_CONFIRM_DEL_FILE = lang.getText("MSG_CONFIRM_DEL_FILE") '"Segur que vols borrar els fitxers: {0}?"
-        LABEL_DIR_OK = "     " & lang.getText("LABEL_DIR_OK") '"Directori correctament assignat per {0}"
-        LABEL_DIR_KO = "     " & lang.getText("LABEL_DIR_KO") '"Directori NO localitzat per {0}"		
-        LABEL_LAST_BKP = lang.getText("LABEL_LAST_BKP") '"Última còpia de seguretat"
+        MSG_DELETE_HISTORY = Lang.getText("MSG_DELETE_HISTORY") '""Segur que vols borrar el historial de connexions errònies?""
+        MSG_NEW_CONNECTION = Lang.getText("MSG_NEW_CONNECTION") '"Nova Connexió"
+        MSG_ERROR_ACCES_DBS = Lang.getText("MSG_ERROR_ACCES_DBS") '"Error al accedir a les dades, fagi una reconstrucció del paràmetres esencials"        
+        MSG_CONFIRM_DEL_FILE = Lang.getText("MSG_CONFIRM_DEL_FILE") '"Segur que vols borrar els fitxers: {0}?"
+        LABEL_DIR_OK = "     " & Lang.getText("LABEL_DIR_OK") '"Directori correctament assignat per {0}"
+        LABEL_DIR_KO = "     " & Lang.getText("LABEL_DIR_KO") '"Directori NO localitzat per {0}"		
+        LABEL_LAST_BKP = Lang.getText("LABEL_LAST_BKP") '"Última còpia de seguretat"
 
-        LABEL_VAR_PROGRAMARI = lang.getText("LABEL_VAR_PROGRAMARI") '"Programari"
-        LABEL_VAR_V_APP = lang.getText("LABEL_VAR_V_APP") '"Versió de l'aplicació"
-        LABEL_VAR_V_DBS = lang.getText("LABEL_VAR_V_DBS") '"Versió DBS"
-        LABEL_VAR__V_MYSQL = lang.getText("LABEL_VAR__V_MYSQL") '"Versió MySql Server" 		
-        LABEL_VAR_TIME_ACCES_DBS = lang.getText("LABEL_VAR_TIME_ACCES_DBS") '"Temps accés dbs"
-        LABEL_VAR_V_AUDIO = lang.getText("LABEL_VAR_V_AUDIO") '"Versió llibreria d'àudio"
-        LABEL_VAR_NOM_SO = lang.getText("LABEL_VAR_NOM_SO") '"Nom del Sistema Operatiu"
-        LABEL_VAR_PLATAFORMA_SO = lang.getText("LABEL_VAR_PLATAFORMA_SO") '"Plataforma Sistema Operatiu"
-        LABEL_VAR_V_FRAMEWORK = lang.getText("LABEL_VAR_V_FRAMEWORK") '"Versió .NET Framework"
-        LABEL_VAR_MAQUINARI = lang.getText("LABEL_VAR_MAQUINARI") '"Maquinari"
-        LABEL_VAR_NOM_PC = lang.getText("LABEL_VAR_NOM_PC") '"Nom de PC"
-        LABEL_VAR_CPU = lang.getText("LABEL_VAR_CPU") '"CPU Model"
-        LABEL_VAR_CLOCK = lang.getText("LABEL_VAR_CLOCK") '"CPU Clock"
-        LABEL_VAR_RAM = lang.getText("LABEL_VAR_RAM") '"Memòria RAM"
-        LABEL_VAR_ENABLE_INTERNET = lang.getText("LABEL_VAR_ENABLE_INTERNET") '"Connexió Internet"
-        LABEL_DISPONIBLES = lang.getText("LABEL_DISPONIBLES", True) '"disponibles"
+        LABEL_VAR_PROGRAMARI = Lang.getText("LABEL_VAR_PROGRAMARI") '"Programari"
+        LABEL_VAR_V_APP = Lang.getText("LABEL_VAR_V_APP") '"Versió de l'aplicació"
+        LABEL_VAR_V_DBS = Lang.getText("LABEL_VAR_V_DBS") '"Versió DBS"
+        LABEL_VAR__V_MYSQL = Lang.getText("LABEL_VAR__V_MYSQL") '"Versió MySql Server" 		
+        LABEL_VAR_TIME_ACCES_DBS = Lang.getText("LABEL_VAR_TIME_ACCES_DBS") '"Temps accés dbs"
+        LABEL_VAR_V_AUDIO = Lang.getText("LABEL_VAR_V_AUDIO") '"Versió llibreria d'àudio"
+        LABEL_VAR_NOM_SO = Lang.getText("LABEL_VAR_NOM_SO") '"Nom del Sistema Operatiu"
+        LABEL_VAR_PLATAFORMA_SO = Lang.getText("LABEL_VAR_PLATAFORMA_SO") '"Plataforma Sistema Operatiu"
+        LABEL_VAR_V_FRAMEWORK = Lang.getText("LABEL_VAR_V_FRAMEWORK") '"Versió .NET Framework"
+        LABEL_VAR_MAQUINARI = Lang.getText("LABEL_VAR_MAQUINARI") '"Maquinari"
+        LABEL_VAR_NOM_PC = Lang.getText("LABEL_VAR_NOM_PC") '"Nom de PC"
+        LABEL_VAR_CPU = Lang.getText("LABEL_VAR_CPU") '"CPU Model"
+        LABEL_VAR_CLOCK = Lang.getText("LABEL_VAR_CLOCK") '"CPU Clock"
+        LABEL_VAR_RAM = Lang.getText("LABEL_VAR_RAM") '"Memòria RAM"
+        LABEL_VAR_ENABLE_INTERNET = Lang.getText("LABEL_VAR_ENABLE_INTERNET") '"Connexió Internet"
+        LABEL_DISPONIBLES = Lang.getText("LABEL_DISPONIBLES", True) '"disponibles"
 
-        MSG_BUSCAR = lang.getText("LABEL_BUSCAR", True) & " ..." '"Buscar ..."
-        FolderBrowserDialog1_Description = lang.getText("MSG_SELECT_DIR", True) ' "Selecciona un directori"
-        FILTER_Mapa_bits = lang.getText("FILTER_Mapa_bits") ' "Mapa de bits"
-        FILTER_IMATGES = lang.getText("FILTER_IMATGES") ' "Imatges"
-        MSG_OP_IRREVERSIBLE = lang.getText("MSG_OP_IRREVERSIBLE") ' "Operació irreversible, segur que vols continuar?"
-        MSG_PROCCES_WORK = lang.getText("MSG_PROCCES_WORK") ' "Realitzant {0}/{1} feines"
-        MSG_END_ROWS_AFECTED = lang.getText("MSG_END_ROWS_AFECTED") ' "S'ha Finalitzat la operació, s'han modificat {0} registres."
-        MSG_CANCELED = lang.getText("MSG_CANCELED") ' "Operació cancelada"
-        MSG_MODIF_PARAM = lang.getText("MSG_MODIF_PARAM") ' "Atenció es modificaran els paràmetres, vols continuar?"
-        INBOX_NOM_SEQUENCIA = lang.getText("INBOX_NOM_SEQUENCIA") ' "Nom de la seqüència"
-        NOVA_SEQUENCIA = lang.getText("NOVA_SEQUENCIA") ' "Nova seqüència"
-        MSG_SEQUENCIA_NO_DELETE_DEF = lang.getText("MSG_SEQUENCIA_NO_DELETE_DEF") ' "Aquesta seqüència no es pot borrar"
-        MSG_SEQUENCIA_NO_DELETE_USING = lang.getText("MSG_SEQUENCIA_NO_DELETE_USING") ' "Aquesta seqüència no es pot borrar, s'util·litza a les reemissions de programes "
-        MSG_TEST_MAIL_ERROR_BODY = lang.getText("MSG_TEST_MAIL_ERROR_BODY") ' "Això és un correu test, si has rebut aquest correu vol dir que el sistema d'emergències funciona"
-        MSG_TEST_MAIL_ERROR_MAIL = lang.getText("MSG_TEST_MAIL_ERROR_MAIL") ' "S'ha d'introduïr un correu vàlid"
-        MSG_CONTROL_REMOT_CODI = lang.getText("MSG_CONTROL_REMOT_CODI") ' "S'ha d'especificar un valor al codi"
-        MSG_CONTROL_REMOT_DESTI = lang.getText("MSG_CONTROL_REMOT_DESTI") ' "S'ha d'especificar una aplicació destí"
-        MSG_CONTROL_REMOT_INSTRUCCIO = lang.getText("MSG_CONTROL_REMOT_INSTRUCCIO") ' "S'ha d'especificar una Instrucció"
-        MSG_CONTROL_REMOT_DEL = lang.getText("MSG_CONTROL_REMOT_DEL") ' "Seleccioneu en el llistat la instrucció a borrar"
-        MSG_ERROR_KEY = lang.getText("MSG_ERROR_KEY") ' "La clau NO és correcte"
-        MSG_NOT_CREATED_USER = lang.getText("MSG_NOT_CREATED_USER") ' "No es pot activar el control d'usuaris si no hi ha cap usuari creat"
-        MSG_ERROR_DEL_FILE_LOGERROR = lang.getText("MSG_ERROR_DEL_FILE_LOGERROR") ' "Encara no s'ha creat el fitxer (No s'han registrat errors)"
-        MSG_DEL_LOGERROR = lang.getText("MSG_DEL_LOGERROR") ' "Segur que voleu borrar l'historial d'errors?"
+        MSG_BUSCAR = Lang.getText("LABEL_BUSCAR", True) & " ..." '"Buscar ..."
+        FolderBrowserDialog1_Description = Lang.getText("MSG_SELECT_DIR", True) ' "Selecciona un directori"
+        FILTER_Mapa_bits = Lang.getText("FILTER_Mapa_bits") ' "Mapa de bits"
+        FILTER_IMATGES = Lang.getText("FILTER_IMATGES") ' "Imatges"
+        MSG_OP_IRREVERSIBLE = Lang.getText("MSG_OP_IRREVERSIBLE") ' "Operació irreversible, segur que vols continuar?"
+        MSG_PROCCES_WORK = Lang.getText("MSG_PROCCES_WORK") ' "Realitzant {0}/{1} feines"
+        MSG_END_ROWS_AFECTED = Lang.getText("MSG_END_ROWS_AFECTED") ' "S'ha Finalitzat la operació, s'han modificat {0} registres."
+        MSG_CANCELED = Lang.getText("MSG_CANCELED") ' "Operació cancelada"
+        MSG_MODIF_PARAM = Lang.getText("MSG_MODIF_PARAM") ' "Atenció es modificaran els paràmetres, vols continuar?"
+        INBOX_NOM_SEQUENCIA = Lang.getText("INBOX_NOM_SEQUENCIA") ' "Nom de la seqüència"
+        NOVA_SEQUENCIA = Lang.getText("NOVA_SEQUENCIA") ' "Nova seqüència"
+        MSG_SEQUENCIA_NO_DELETE_DEF = Lang.getText("MSG_SEQUENCIA_NO_DELETE_DEF") ' "Aquesta seqüència no es pot borrar"
+        MSG_SEQUENCIA_NO_DELETE_USING = Lang.getText("MSG_SEQUENCIA_NO_DELETE_USING") ' "Aquesta seqüència no es pot borrar, s'util·litza a les reemissions de programes "
+        MSG_TEST_MAIL_ERROR_BODY = Lang.getText("MSG_TEST_MAIL_ERROR_BODY") ' "Això és un correu test, si has rebut aquest correu vol dir que el sistema d'emergències funciona"
+        MSG_TEST_MAIL_ERROR_MAIL = Lang.getText("MSG_TEST_MAIL_ERROR_MAIL") ' "S'ha d'introduïr un correu vàlid"
+        MSG_CONTROL_REMOT_CODI = Lang.getText("MSG_CONTROL_REMOT_CODI") ' "S'ha d'especificar un valor al codi"
+        MSG_CONTROL_REMOT_DESTI = Lang.getText("MSG_CONTROL_REMOT_DESTI") ' "S'ha d'especificar una aplicació destí"
+        MSG_CONTROL_REMOT_INSTRUCCIO = Lang.getText("MSG_CONTROL_REMOT_INSTRUCCIO") ' "S'ha d'especificar una Instrucció"
+        MSG_CONTROL_REMOT_DEL = Lang.getText("MSG_CONTROL_REMOT_DEL") ' "Seleccioneu en el llistat la instrucció a borrar"
+        MSG_ERROR_KEY = Lang.getText("MSG_ERROR_KEY") ' "La clau NO és correcte"
+        MSG_NOT_CREATED_USER = Lang.getText("MSG_NOT_CREATED_USER") ' "No es pot activar el control d'usuaris si no hi ha cap usuari creat"
+        MSG_ERROR_DEL_FILE_LOGERROR = Lang.getText("MSG_ERROR_DEL_FILE_LOGERROR") ' "Encara no s'ha creat el fitxer (No s'han registrat errors)"
+        MSG_DEL_LOGERROR = Lang.getText("MSG_DEL_LOGERROR") ' "Segur que voleu borrar l'historial d'errors?"
 
-        GroupBoxUsuaris.Text = lang.getText("GroupBoxUsuaris.Text") '"Control d'Usuaris"
+        GroupBoxUsuaris.Text = Lang.getText("GroupBoxUsuaris.Text") '"Control d'Usuaris"
 
 
-        Me.grupAudioUSR.Text = lang.getText("FITXER_AUDIO", True) ' "Fitxers d'àudio"
+        Me.grupAudioUSR.Text = Lang.getText("FITXER_AUDIO", True) ' "Fitxers d'àudio"
 
-        Me.grupMoneda.Text = lang.getText("FITXER_PUBLICITAT", True)
+        Me.grupMoneda.Text = Lang.getText("FITXER_PUBLICITAT", True)
 
-        Me.lbDies.Text = lang.getText("lbDies.Text") '"dies"
-        Me.lbDataOut.Text = lang.getText("lbDataOut.Text") '"Data sortida: avui + "
-        Me.lbTarifa.Text = lang.getText("lbTarifa.Text") '"Tarifa per defecte"
+        Me.lbDies.Text = Lang.getText("lbDies.Text") '"dies"
+        Me.lbDataOut.Text = Lang.getText("lbDataOut.Text") '"Data sortida: avui + "
+        Me.lbTarifa.Text = Lang.getText("lbTarifa.Text") '"Tarifa per defecte"
 
-        lbFileDefActive.Text = lang.getText("lbFileDefActive.Text")
-        lbCaputeTag.Text = lang.getText("lbCaputeTag.Text")
-        Me.grupSequencies.Text = lang.getText("grupSequencies.Text") ' "Seqüències Pautes"
-        Me.grupConnRemot.Text = lang.getText("grupConnRemot.Text") ' "Connexió Emissora Central"
-        Me.grupDBS.Text = lang.getText("grupDBS.Text") ' "Connexió d'accés"
-        Me.grupWeb.Text = lang.getText("grupWeb.Text") ' "Integració web"
-        Me.grupSOS.Text = lang.getText("grupSOS.Text") ' "Servei d'emergència"
+        lbFileDefActive.Text = Lang.getText("lbFileDefActive.Text")
+        lbCaputeTag.Text = Lang.getText("lbCaputeTag.Text")
+        Me.grupSequencies.Text = Lang.getText("grupSequencies.Text") ' "Seqüències Pautes"
+        Me.grupConnRemot.Text = Lang.getText("grupConnRemot.Text") ' "Connexió Emissora Central"
+        Me.grupDBS.Text = Lang.getText("grupDBS.Text") ' "Connexió d'accés"
+        Me.grupWeb.Text = Lang.getText("grupWeb.Text") ' "Integració web"
+        Me.grupSOS.Text = Lang.getText("grupSOS.Text") ' "Servei d'emergència"
         Me.labelActiveSOS.Text = grupSOS.Text ' "Activar servei d'emergència"
-        Me.GroupInfoSistema.Text = lang.getText("GroupInfoSistema.Text") ' "Informació del Sistema"
-        Me.GroupCredits.Text = lang.getText("GroupCredits.Text") ' "Crèdits"
+        Me.GroupInfoSistema.Text = Lang.getText("GroupInfoSistema.Text") ' "Informació del Sistema"
+        Me.GroupCredits.Text = Lang.getText("GroupCredits.Text") ' "Crèdits"
 
 
-        TreeViewParams.Nodes(0).Text = lang.getText("LABEL_PARAMETRES", True) ' "Paràmetres"
-        TreeViewParams.Nodes(0).Nodes(0).Text = lang.getText("TreeViewParams.Nodes(0).Text") ' "Directoris"		
-        TreeViewParams.Nodes(0).Nodes(1).Text = lang.getText("GroupBoxCodificacio.Text") ' "Codificació Àudio"
+        TreeViewParams.Nodes(0).Text = Lang.getText("LABEL_PARAMETRES", True) ' "Paràmetres"
+        TreeViewParams.Nodes(0).Nodes(0).Text = Lang.getText("TreeViewParams.Nodes(0).Text") ' "Directoris"		
+        TreeViewParams.Nodes(0).Nodes(1).Text = Lang.getText("GroupBoxCodificacio.Text") ' "Codificació Àudio"
         TreeViewParams.Nodes(0).Nodes(2).Text = grupAudioUSR.Text ' "Fitxers d'àudio"
         TreeViewParams.Nodes(0).Nodes(3).Text = grupMoneda.Text ' "Publicitat"		
-        TreeViewParams.Nodes(0).Nodes(4).Text = lang.getText("NAME_PRG_DIRECTE", True) ' "MSC Directe"
-        TreeViewParams.Nodes(0).Nodes(4).Nodes(0).Text = lang.getText("TreeViewParams.Nodes(3).Text") ' "regles"
+        TreeViewParams.Nodes(0).Nodes(4).Text = Lang.getText("NAME_PRG_DIRECTE", True) ' "MSC Directe"
+        TreeViewParams.Nodes(0).Nodes(4).Nodes(0).Text = Lang.getText("TreeViewParams.Nodes(3).Text") ' "regles"
         TreeViewParams.Nodes(0).Nodes(4).Nodes(1).Text = grupSequencies.Text ' "Seqüències Pautes"        
-        TreeViewParams.Nodes(0).Nodes(5).Text = lang.getText("NAME_PRG_CONTROLER", True) ' "MSC Controler"
+        TreeViewParams.Nodes(0).Nodes(5).Text = Lang.getText("NAME_PRG_CONTROLER", True) ' "MSC Controler"
         TreeViewParams.Nodes(0).Nodes(5).Nodes(0).Text = grupConnRemot.Text ' "Connexió Emissora Central"
-        TreeViewParams.Nodes(0).Nodes(5).Nodes(1).Text = lang.getText("LABEL_CONTROL_REMOT", True) ' "Control Remot"		
-        TreeViewParams.Nodes(0).Nodes(6).Text = lang.getText("NAME_PRG_CARTUTX", True) ' "MSC Cartutxeres"
+        TreeViewParams.Nodes(0).Nodes(5).Nodes(1).Text = Lang.getText("LABEL_CONTROL_REMOT", True) ' "Control Remot"		
+        TreeViewParams.Nodes(0).Nodes(6).Text = Lang.getText("NAME_PRG_CARTUTX", True) ' "MSC Cartutxeres"
         TreeViewParams.Nodes(0).Nodes(7).Text = Me.grupDBS.Text ' "Connexió d'accés"
         TreeViewParams.Nodes(0).Nodes(8).Text = grupSOS.Text ' "Servei d'emergència"
-        TreeViewParams.Nodes(1).Text = lang.getText("TreeViewParams.Nodes(16).Text") ' "Dades"
-        TreeViewParams.Nodes(2).Text = lang.getText("HEADERTEXT_USUARI", True) ' "Usuaris"
-        TreeViewParams.Nodes(3).Text = lang.getText("LABEL_SERVICES_MSC", True) '"Services MSC-Soft"
-        TreeViewParams.Nodes(3).Nodes(0).Text = lang.getText("LABEL_NUVOL_COMUNITARI", True) '"Núvol Comunitari"'lang.getText("TreeViewParams.Nodes(17).Text")' "Usuaris"
-        TreeViewParams.Nodes(3).Nodes(0).Nodes(0).Text = lang.getText("NAME_PROGRAMES", True) '"Programes"
+        TreeViewParams.Nodes(1).Text = Lang.getText("TreeViewParams.Nodes(16).Text") ' "Dades"
+        TreeViewParams.Nodes(2).Text = Lang.getText("HEADERTEXT_USUARI", True) ' "Usuaris"
+        TreeViewParams.Nodes(3).Text = Lang.getText("LABEL_SERVICES_MSC", True) '"Services MSC-Soft"
+        TreeViewParams.Nodes(3).Nodes(0).Text = Lang.getText("LABEL_NUVOL_COMUNITARI", True) '"Núvol Comunitari"'lang.getText("TreeViewParams.Nodes(17).Text")' "Usuaris"
+        TreeViewParams.Nodes(3).Nodes(0).Nodes(0).Text = Lang.getText("NAME_PROGRAMES", True) '"Programes"
         TreeViewParams.Nodes(3).Nodes(1).Text = grupWeb.Text ' "Integració web"
-        TreeViewParams.Nodes(3).Nodes(2).Text = lang.getText("LABEL_STREAM", True) ' "Streaming"		
+        TreeViewParams.Nodes(3).Nodes(2).Text = Lang.getText("LABEL_STREAM", True) ' "Streaming"		
         TreeViewParams.Nodes(4).Text = GroupCredits.Text ' "Crèdits"
-        TreeViewParams.Nodes(4).Nodes(0).Text = lang.getText("LABEL_EQUIPAT_AMB", True) & " ..." ' "Equipat amb ..."
+        TreeViewParams.Nodes(4).Nodes(0).Text = Lang.getText("LABEL_EQUIPAT_AMB", True) & " ..." ' "Equipat amb ..."
         TreeViewParams.Nodes(4).Nodes(1).Text = GroupInfoSistema.Text ' "Informació del Sistema"
 
-        Me.grupParams.Text = lang.getText("LABEL_PARAMS_GENERALS", True) ' "Paràmetres generals"
-        Me.GroupBox6.Text = lang.getText("GroupBox6.Text") ' "Emissora"
-        Me.label124.Text = lang.getText("label124.Text") & ":" ' "Adreça web" & ":"
-        Me.label111.Text = lang.getText("LABEL_TWITTER_KEY", True) & ":" ' "Twitter Key" & ":"
-        Me.Label50.Text = lang.getText("LABEL_STREAM", True) & ":" ' "Streaming" & ":"
-        Me.Label110.Text = lang.getText("LABEL_TWITTER", True) & ":" ' "Twitter" & ":"
-        Me.Label2.Text = lang.getText("LABEL_FACEBOOK", True) & ":" ' "FaceBook" & ":"
-        Me.cmdAddLogo.Text = lang.getText("cmdAddLogo.Text") & ":" ' "Afegir logo"
-        Me.lbNomRadio.Text = lang.getText("lbNomRadio.Text") & ":" ' "Nom de la ràdio" & ":"
-        Me.Label1.Text = lang.getText("Label1.Text") & ":" ' "Logo" & ":"
-        Me.GroupBox1.Text = lang.getText("LABEL_CALENDAR", True) ' "Calendari"
-        Me.Label94.Text = lang.getText("Label94.Text") & ":" ' "Programació per defecte" & ":"
-        Me.Label96.Text = lang.getText("Label96.Text") ' "La durada per defecte és d'una hora (No modificable)"
+        Me.grupParams.Text = Lang.getText("LABEL_PARAMS_GENERALS", True) ' "Paràmetres generals"
+        Me.GroupBox6.Text = Lang.getText("GroupBox6.Text") ' "Emissora"
+        Me.label124.Text = Lang.getText("label124.Text") & ":" ' "Adreça web" & ":"
+        Me.label111.Text = Lang.getText("LABEL_TWITTER_KEY", True) & ":" ' "Twitter Key" & ":"
+        Me.Label50.Text = Lang.getText("LABEL_STREAM", True) & ":" ' "Streaming" & ":"
+        Me.Label110.Text = Lang.getText("LABEL_TWITTER", True) & ":" ' "Twitter" & ":"
+        Me.Label2.Text = Lang.getText("LABEL_FACEBOOK", True) & ":" ' "FaceBook" & ":"
+        Me.cmdAddLogo.Text = Lang.getText("cmdAddLogo.Text") & ":" ' "Afegir logo"
+        Me.lbNomRadio.Text = Lang.getText("lbNomRadio.Text") & ":" ' "Nom de la ràdio" & ":"
+        Me.Label1.Text = Lang.getText("Label1.Text") & ":" ' "Logo" & ":"
+        Me.GroupBox1.Text = Lang.getText("LABEL_CALENDAR", True) ' "Calendari"
+        Me.Label94.Text = Lang.getText("Label94.Text") & ":" ' "Programació per defecte" & ":"
+        Me.Label96.Text = Lang.getText("Label96.Text") ' "La durada per defecte és d'una hora (No modificable)"
         Me.lbInfo.Text = MSG_SYSTEM_STANBY_DIRECTE ' "Sistemes en standby, la continuïtat és responsabilitat del tècnic."
-        Me.lbRadForm.Text = lang.getText("lbRadForm.Text") ' "Ràdio Fórmula musical, segons els paràmetres de la pauta per defecte."
-        Me.grupCarp.Text = lang.getText("grupCarp.Text") ' "Temàtiques dels blocs musicals"
-        Me.Label57.Text = lang.getText("Label57.Text") ' "Les caselles sense nom es borraran"
-        Me.cmdAddCarpBlocs.Text = lang.getText("LABEL_ADD", True) & "..." ' "Afegir" & "..."
+        Me.lbRadForm.Text = Lang.getText("lbRadForm.Text") ' "Ràdio Fórmula musical, segons els paràmetres de la pauta per defecte."
+        Me.grupCarp.Text = Lang.getText("grupCarp.Text") ' "Temàtiques dels blocs musicals"
+        Me.Label57.Text = Lang.getText("Label57.Text") ' "Les caselles sense nom es borraran"
+        Me.cmdAddCarpBlocs.Text = Lang.getText("LABEL_ADD", True) & "..." ' "Afegir" & "..."
 
-        Me.Label46.Text = lang.getText("Label46.Text") & ":" ' "Relació de canvi" & ":"
-        Me.Label45.Text = lang.getText("Label45.Text") & ":" ' "Contra Valor" & ":"
-        Me.Label44.Text = lang.getText("Label44.Text") & ":" ' "Moneda amb que es treballa" & ":"
+        Me.Label46.Text = Lang.getText("Label46.Text") & ":" ' "Relació de canvi" & ":"
+        Me.Label45.Text = Lang.getText("Label45.Text") & ":" ' "Contra Valor" & ":"
+        Me.Label44.Text = Lang.getText("Label44.Text") & ":" ' "Moneda amb que es treballa" & ":"
 
-        Me.grupCartut.Text = lang.getText("NAME_PRG_CARTUTX", True) ' "MSC Cartutxeres"
-        Me.Label58.Text = lang.getText("Label58.Text") ' "Ha d'estar activat el control d'usuaris. Per configurar-lo aneu a manteniment d'usuaris."
-        Me.chkCTL_USR_Cartux.Text = lang.getText("chkCTL_USR_Cartux.Text") ' "Control d'usuaris a les cartutxeres"
-        Me.chkActvTabProgram.Text = lang.getText("chkActvTabProgram.Text") ' "Tenir accesibilitat a les sessions dels programes"
-        Me.grupCategories.Text = lang.getText("grupCategories.Text") ' "Comptadors Musicals"
-        Me.Label43.Text = lang.getText("Label43.Text") & ":" ' "Nº Màxim de radiacions per un OLD" & ":"
-        Me.Label42.Text = lang.getText("Label42.Text") & ":" ' "Nº Màxim de radiacions per un HIT" & ":"
-        Me.Label41.Text = lang.getText("Label41.Text") & ":" ' "Nº Màxim de radiacions per un TOP" & ":"
-        Me.Label40.Text = lang.getText("Label40.Text") ' "A una cançó podem forçar-li el número màxim de radiacion segons la seva categoria, passat aquestes radiacions deixarà d'estar activa. S'ha d'activar aquesta opció a cada cançó en concret."
-        Me.GroupBox2.Text = lang.getText("GroupBox2.Text") ' "Canvi automàtic de categoria"
-        Me.Label38.Text = lang.getText("Label38.Text") & ":" ' "Nº de radiacions per passar de Hit a Old" & ":"
-        Me.Label37.Text = lang.getText("Label37.Text") & ":" ' "Nº de radiacions per passar de Top a Hit" & ":"
-        Me.chkCanviCat.Text = lang.getText("chkCanviCat.Text") ' "Activa el canvi automàtic"
-        Me.Label39.Text = lang.getText("Label39.Text") ' "La categoria HitTop i OldTop s'interpreten com a Hit i Old respectivament."
-        Me.Label36.Text = lang.getText("Label36.Text") & ":" ' "OLD" & ":"
-        Me.Label35.Text = lang.getText("Label35.Text") & ":" ' "OLTTOP" & ":"
-        Me.Label34.Text = lang.getText("Label34.Text") & ":" ' "HITTOP" & ":"
-        Me.Label33.Text = lang.getText("Label33.Text") & ":" ' "HIT" & ":"
-        Me.Label32.Text = lang.getText("LABEL_TOP", True) & ":" ' "TOP" & ":"
-        Me.Label31.Text = lang.getText("Label31.Text") ' "Número de hores que han de passar fins que una cançó no torni a sonar. Segons la 'classificació temporal' de la cançó podem definir un interval diferent."
+        Me.grupCartut.Text = Lang.getText("NAME_PRG_CARTUTX", True) ' "MSC Cartutxeres"
+        Me.Label58.Text = Lang.getText("Label58.Text") ' "Ha d'estar activat el control d'usuaris. Per configurar-lo aneu a manteniment d'usuaris."
+        Me.chkCTL_USR_Cartux.Text = Lang.getText("chkCTL_USR_Cartux.Text") ' "Control d'usuaris a les cartutxeres"
+        Me.chkActvTabProgram.Text = Lang.getText("chkActvTabProgram.Text") ' "Tenir accesibilitat a les sessions dels programes"
+        Me.grupCategories.Text = Lang.getText("grupCategories.Text") ' "Comptadors Musicals"
+        Me.Label43.Text = Lang.getText("Label43.Text") & ":" ' "Nº Màxim de radiacions per un OLD" & ":"
+        Me.Label42.Text = Lang.getText("Label42.Text") & ":" ' "Nº Màxim de radiacions per un HIT" & ":"
+        Me.Label41.Text = Lang.getText("Label41.Text") & ":" ' "Nº Màxim de radiacions per un TOP" & ":"
+        Me.Label40.Text = Lang.getText("Label40.Text") ' "A una cançó podem forçar-li el número màxim de radiacion segons la seva categoria, passat aquestes radiacions deixarà d'estar activa. S'ha d'activar aquesta opció a cada cançó en concret."
+        Me.GroupBox2.Text = Lang.getText("GroupBox2.Text") ' "Canvi automàtic de categoria"
+        Me.Label38.Text = Lang.getText("Label38.Text") & ":" ' "Nº de radiacions per passar de Hit a Old" & ":"
+        Me.Label37.Text = Lang.getText("Label37.Text") & ":" ' "Nº de radiacions per passar de Top a Hit" & ":"
+        Me.chkCanviCat.Text = Lang.getText("chkCanviCat.Text") ' "Activa el canvi automàtic"
+        Me.Label39.Text = Lang.getText("Label39.Text") ' "La categoria HitTop i OldTop s'interpreten com a Hit i Old respectivament."
+        Me.Label36.Text = Lang.getText("Label36.Text") & ":" ' "OLD" & ":"
+        Me.Label35.Text = Lang.getText("Label35.Text") & ":" ' "OLTTOP" & ":"
+        Me.Label34.Text = Lang.getText("Label34.Text") & ":" ' "HITTOP" & ":"
+        Me.Label33.Text = Lang.getText("Label33.Text") & ":" ' "HIT" & ":"
+        Me.Label32.Text = Lang.getText("LABEL_TOP", True) & ":" ' "TOP" & ":"
+        Me.Label31.Text = Lang.getText("Label31.Text") ' "Número de hores que han de passar fins que una cançó no torni a sonar. Segons la 'classificació temporal' de la cançó podem definir un interval diferent."
 
-        Me.buttonDelCtlLog.Text = lang.getText("LABEL_DELETE", True) '"Borrar"		
-        Me.cmdDelDBS.Text = lang.getText("LABEL_DELETE", True) '"Borrar"
-        Me.cmdDelSequenc.Text = lang.getText("LABEL_DELETE", True) '"Borrar"
-        Me.cmdDelAudio.Text = lang.getText("LABEL_DELETE", True) '"Borrar"
-        cmdExportConnection.Text = lang.getText("LABEL_EXPORT", True) '"Exportar"
+        Me.buttonDelCtlLog.Text = Lang.getText("LABEL_DELETE", True) '"Borrar"		
+        Me.cmdDelDBS.Text = Lang.getText("LABEL_DELETE", True) '"Borrar"
+        Me.cmdDelSequenc.Text = Lang.getText("LABEL_DELETE", True) '"Borrar"
+        Me.cmdDelAudio.Text = Lang.getText("LABEL_DELETE", True) '"Borrar"
+        cmdExportConnection.Text = Lang.getText("LABEL_EXPORT", True) '"Exportar"
 
-        Me.label51.Text = lang.getText("LABEL_LOCALITZACIO", True) & ":" ' "Localització" & ":"
+        Me.label51.Text = Lang.getText("LABEL_LOCALITZACIO", True) & ":" ' "Localització" & ":"
         Me.label53.Text = label51.Text ' "Localització" & ":"
 
-        Me.Label86.Text = lang.getText("Label86.Text") ' "Utilitzeu aquesta funció per assabentar-vos al moment de qualsevol pèrdua de continuïtat de la programació"
-        Label87.Text = lang.getText("Label87.Text") '"Utilitzant la configuració per defecte esteu acceptant enviar l'informe d'error al desenvolupador d'aquesta suite, aquest es compromet a utilitzar les dades única i exclusivament per millorar la aplicació."
-        Label20.Text = lang.getText("Label20.Text") '"No s'envia cap informació de l'usuari ni del sistema, només un informe de l'error que ha provocat l'aturada descontrolada. Podeu visualitzar la totalitat de la informació enviada en el fitxer 'ctlMSC.log'."
-        Me.Label74.Text = lang.getText("Label74.Text") ' "És possible varis correus separats per comes"
-        Me.Label72.Text = lang.getText("Label72.Text") ' "Correu destí"
-        Me.Label71.Text = lang.getText("Label71.Text") ' "Correu remitent"
-        Me.MetroLabel1.Text = lang.getText("MetroLabel1.Text") ' "Send errors to developer"
+        Me.Label86.Text = Lang.getText("Label86.Text") ' "Utilitzeu aquesta funció per assabentar-vos al moment de qualsevol pèrdua de continuïtat de la programació"
+        Label87.Text = Lang.getText("Label87.Text") '"Utilitzant la configuració per defecte esteu acceptant enviar l'informe d'error al desenvolupador d'aquesta suite, aquest es compromet a utilitzar les dades única i exclusivament per millorar la aplicació."
+        Label20.Text = Lang.getText("Label20.Text") '"No s'envia cap informació de l'usuari ni del sistema, només un informe de l'error que ha provocat l'aturada descontrolada. Podeu visualitzar la totalitat de la informació enviada en el fitxer 'ctlMSC.log'."
+        Me.Label74.Text = Lang.getText("Label74.Text") ' "És possible varis correus separats per comes"
+        Me.Label72.Text = Lang.getText("Label72.Text") ' "Correu destí"
+        Me.Label71.Text = Lang.getText("Label71.Text") ' "Correu remitent"
+        Me.MetroLabel1.Text = Lang.getText("MetroLabel1.Text") ' "Send errors to developer"
 
-        Me.grupPath.Text = lang.getText("grupPath.Text") ' "Directoris Magatzem"
+        Me.grupPath.Text = Lang.getText("grupPath.Text") ' "Directoris Magatzem"
 
-        Me.Label47.Text = lang.getText("Label47.Text") & ":" ' "Directori arrel dels fitxers d'àudio:"		
+        Me.Label47.Text = Lang.getText("Label47.Text") & ":" ' "Directori arrel dels fitxers d'àudio:"		
 
-        Me.Label8.Text = lang.getText("LABEL_PORT", True) & ":" ' "Port" & ":"
+        Me.Label8.Text = Lang.getText("LABEL_PORT", True) & ":" ' "Port" & ":"
 
-        Me.Label10.Text = lang.getText("LABEL_CONTRASENYA", True) & ":" ' "Contrasenya" & ":"
-        Me.Label9.Text = lang.getText("LABEL_USER", True) & ":" ' "Usuari" & ":"
-        Me.Label7.Text = lang.getText("LABEL_HOST", True)  ' "Host o IP" & ":"
-        Me.Label6.Text = lang.getText("LABEL_NOM_DBS", True) & ":" ' "Nom DBS" & ":"
-        Me.Label5.Text = lang.getText("LABEL_DESCRIPCIO", True) ' "Descripció"
-        Me.Label4.Text = lang.getText("Label4.Text") ' "Llistat de connexions possibles"
-        Me.labelMltDBS.Text = lang.getText("chkMltDBS.Text") ' "Accés a múltiples connexions"
-        Me.grupDirecte.Text = lang.getText("NAME_PRG_DIRECTE", True) ' "MSC Directe"
-        Me.label114.Text = lang.getText("label114.Text") ' "Si el valor és 0 equival a no s'establir la prohibició."
-        Me.label115.Text = lang.getText("label115.Text") ' "Minuts que han de passar per poder repetir un disc"
-        Me.Label25.Text = lang.getText("Label25.Text") ' "Aquest valor no hauria de ser superior al valor més petit d'hores que han de passar per repetir una cançó segons la seva categoria (veure ""Comptadors"")."
-        Me.Label24.Text = lang.getText("Label24.Text") & ":" ' "Hores que han de passar per poder repetir un intèrpret" & ":"
-        Me.Label23.Text = lang.getText("Label23.Text") ' "El paràmetre ""Interval Ritme"" expressa la tolerància del filtratge del ritme. Ex: si assignem un interval de 20 , al filtrar cançons d'un ritme de 100 BPMs tolerarà ritmes de 80 fins a 120. "
-        Me.Label22.Text = lang.getText("Label22.Text") & ":" ' "Interval Ritme" & ":"
-        Me.chkBorHistInterp.Text = lang.getText("chkBorHistInterp.Text") ' "Borrar historial d' intèrprets al iniciar el programa."
-        Me.Label21.Text = lang.getText("Label21.Text") ' "Milisegons de retard per ajustar l'inici de la pauta a l'inici d'hora."
-        Me.chkForceHoraExect.Text = lang.getText("chkForceHoraExect.Text") ' "Forçar la recerca d'un tema per quadar la hora al final."
-        Me.grupCR.Text = lang.getText("grupCR.Text") ' "Control Remot (via e-mail)"
-        Me.Label83.Text = lang.getText("Label83.Text") & ":" ' "Interval de refesc (seg.)"
-        Me.GroupBox5.Text = lang.getText("GroupBox5.Text") ' "Llistat d'instruccions" & ":"
-        Me.Label82.Text = lang.getText("LABEL_DESCRIPCIO", True) & ":" ' "Descripció" & ":"
-        Me.Label81.Text = lang.getText("LABEL_CODI", True) & ":" ' "Codi" & ":"
-        Me.Label79.Text = lang.getText("LABEL_APLICACIO", True) & ":" ' "Aplicació" & ":"
-        Me.Label80.Text = lang.getText("LABEL_INSTRUCCIO", True) & ":" ' "Instrucció" & ":"
-        Me.ButtonAddInstrucioCR.Text = lang.getText("ButtonAddInstrucioCR.Text") ' "Afegir instrucció"
-        Me.ButtonDelInstruccio.Text = lang.getText("ButtonDelInstruccio.Text") ' "Borrar instrucció"
-        Me.ColumnCodi.HeaderText = lang.getText("LABEL_CODI", True) ' "Codi"
-        Me.ColumnAppDesti.HeaderText = lang.getText("ColumnAppDesti.HeaderText") ' "Aplic Destí"
-        Me.ColumnInstruc.HeaderText = lang.getText("LABEL_INSTRUCCIO", True) ' "Instrucció"
-        Me.ColumnDescrip.HeaderText = lang.getText("LABEL_DESCRIPCIO", True) ' "Descripció"
-        Me.Label78.Text = lang.getText("Label78.Text") ' "Per activar-lo  introduïu un correu vàlid ."
-        Me.Label77.Text = lang.getText("Label77.Text") ' "Contrasenya Mail"
-        Me.Label76.Text = lang.getText("Label76.Text") ' "Usuari Mail"
-        Me.Label75.Text = lang.getText("Label75.Text") ' "Servidor Mail entrant"
-        Me.Label73.Text = lang.getText("Label73.Text") ' "Control del remitent"
+        Me.Label10.Text = Lang.getText("LABEL_CONTRASENYA", True) & ":" ' "Contrasenya" & ":"
+        Me.Label9.Text = Lang.getText("LABEL_USER", True) & ":" ' "Usuari" & ":"
+        Me.Label7.Text = Lang.getText("LABEL_HOST", True)  ' "Host o IP" & ":"
+        Me.Label6.Text = Lang.getText("LABEL_NOM_DBS", True) & ":" ' "Nom DBS" & ":"
+        Me.Label5.Text = Lang.getText("LABEL_DESCRIPCIO", True) ' "Descripció"
+        Me.Label4.Text = Lang.getText("Label4.Text") ' "Llistat de connexions possibles"
+        Me.labelMltDBS.Text = Lang.getText("chkMltDBS.Text") ' "Accés a múltiples connexions"
+        Me.grupDirecte.Text = Lang.getText("NAME_PRG_DIRECTE", True) ' "MSC Directe"
+        Me.label114.Text = Lang.getText("label114.Text") ' "Si el valor és 0 equival a no s'establir la prohibició."
+        Me.label115.Text = Lang.getText("label115.Text") ' "Minuts que han de passar per poder repetir un disc"
+        Me.Label25.Text = Lang.getText("Label25.Text") ' "Aquest valor no hauria de ser superior al valor més petit d'hores que han de passar per repetir una cançó segons la seva categoria (veure ""Comptadors"")."
+        Me.Label24.Text = Lang.getText("Label24.Text") & ":" ' "Hores que han de passar per poder repetir un intèrpret" & ":"
+        Me.Label23.Text = Lang.getText("Label23.Text") ' "El paràmetre ""Interval Ritme"" expressa la tolerància del filtratge del ritme. Ex: si assignem un interval de 20 , al filtrar cançons d'un ritme de 100 BPMs tolerarà ritmes de 80 fins a 120. "
+        Me.Label22.Text = Lang.getText("Label22.Text") & ":" ' "Interval Ritme" & ":"
+        Me.chkBorHistInterp.Text = Lang.getText("chkBorHistInterp.Text") ' "Borrar historial d' intèrprets al iniciar el programa."
+        Me.Label21.Text = Lang.getText("Label21.Text") ' "Milisegons de retard per ajustar l'inici de la pauta a l'inici d'hora."
+        Me.chkForceHoraExect.Text = Lang.getText("chkForceHoraExect.Text") ' "Forçar la recerca d'un tema per quadar la hora al final."
+        Me.grupCR.Text = Lang.getText("grupCR.Text") ' "Control Remot (via e-mail)"
+        Me.Label83.Text = Lang.getText("Label83.Text") & ":" ' "Interval de refesc (seg.)"
+        Me.GroupBox5.Text = Lang.getText("GroupBox5.Text") ' "Llistat d'instruccions" & ":"
+        Me.Label82.Text = Lang.getText("LABEL_DESCRIPCIO", True) & ":" ' "Descripció" & ":"
+        Me.Label81.Text = Lang.getText("LABEL_CODI", True) & ":" ' "Codi" & ":"
+        Me.Label79.Text = Lang.getText("LABEL_APLICACIO", True) & ":" ' "Aplicació" & ":"
+        Me.Label80.Text = Lang.getText("LABEL_INSTRUCCIO", True) & ":" ' "Instrucció" & ":"
+        Me.ButtonAddInstrucioCR.Text = Lang.getText("ButtonAddInstrucioCR.Text") ' "Afegir instrucció"
+        Me.ButtonDelInstruccio.Text = Lang.getText("ButtonDelInstruccio.Text") ' "Borrar instrucció"
+        Me.ColumnCodi.HeaderText = Lang.getText("LABEL_CODI", True) ' "Codi"
+        Me.ColumnAppDesti.HeaderText = Lang.getText("ColumnAppDesti.HeaderText") ' "Aplic Destí"
+        Me.ColumnInstruc.HeaderText = Lang.getText("LABEL_INSTRUCCIO", True) ' "Instrucció"
+        Me.ColumnDescrip.HeaderText = Lang.getText("LABEL_DESCRIPCIO", True) ' "Descripció"
+        Me.Label78.Text = Lang.getText("Label78.Text") ' "Per activar-lo  introduïu un correu vàlid ."
+        Me.Label77.Text = Lang.getText("Label77.Text") ' "Contrasenya Mail"
+        Me.Label76.Text = Lang.getText("Label76.Text") ' "Usuari Mail"
+        Me.Label75.Text = Lang.getText("Label75.Text") ' "Servidor Mail entrant"
+        Me.Label73.Text = Lang.getText("Label73.Text") ' "Control del remitent"
 
-        Me.label116.Text = lang.getText("label116.Text") ' "Seqüència per defecte de la emissió automàtica de programes"
-        Me.Label69.Text = lang.getText("Label69.Text") ' "Valors del llistat"
-        Me.Label68.Text = lang.getText("Label68.Text") ' "Llistat de seqüències disponibles"
-        Me.lbNovaSequ.Text = lang.getText("lbNovaSequ.Text") ' "NOVA"
+        Me.label116.Text = Lang.getText("label116.Text") ' "Seqüència per defecte de la emissió automàtica de programes"
+        Me.Label69.Text = Lang.getText("Label69.Text") ' "Valors del llistat"
+        Me.Label68.Text = Lang.getText("Label68.Text") ' "Llistat de seqüències disponibles"
+        Me.lbNovaSequ.Text = Lang.getText("lbNovaSequ.Text") ' "NOVA"
 
-        Me.cmdAddSequenc.Text = lang.getText("cmdAddSequenc.Text") ' "Nova"
-        Me.ColumnValors.HeaderText = lang.getText("ColumnValors.HeaderText") ' "Valor"
-        Me.GroupBox8.Text = lang.getText("GroupBox8.Text") ' "Intents de connexió erronis"
-        Me.ColumnHeader3.Text = lang.getText("ColumnHeader3.Text") ' "Alies erròni"
-        Me.ColumnHeader4.Text = lang.getText("ColumnHeader4.Text") ' "PassWord erròni"
-        Me.ColumnHeader5.Text = lang.getText("ColumnHeader5.Text") ' "Nº intents"
-        Me.Label103.Text = lang.getText("Label103.Text") '  "Es conservaran els últims 30 dies."
-        Me.cmdBorrHistori.Text = lang.getText("LABEL_DEL_HISTORIAL", True) ' "Borrar historial"
-        Me.labelCtlPsw.Text = lang.getText("chkCtlPsw.Text") '  "control d'usuaris activat"
-        Me.Label98.Text = lang.getText("Label98.Text") & ":" ' "Màxim nº d'intents erronis:"
-        Me.Label101.Text = lang.getText("Label101.Text") & ":" ' "Temps Bloqueig" & ":"
-        Me.Label102.Text = lang.getText("Label102.Text") ' "Temps que ha de passar per autoritzar una connexió quan la última vegada que s'ha intentat accedir va ser errònia."
-        Me.GroupBoxCodificacio.Text = lang.getText("GroupBoxCodificacio.Text") ' "Codificació Àudio"
-        Me.GroupCodecAudio.Text = lang.getText("GroupCodecAudio.Text") ' "Codificar a MP3"
+        Me.cmdAddSequenc.Text = Lang.getText("cmdAddSequenc.Text") ' "Nova"
+        Me.ColumnValors.HeaderText = Lang.getText("ColumnValors.HeaderText") ' "Valor"
+        Me.GroupBox8.Text = Lang.getText("GroupBox8.Text") ' "Intents de connexió erronis"
+        Me.ColumnHeader3.Text = Lang.getText("ColumnHeader3.Text") ' "Alies erròni"
+        Me.ColumnHeader4.Text = Lang.getText("ColumnHeader4.Text") ' "PassWord erròni"
+        Me.ColumnHeader5.Text = Lang.getText("ColumnHeader5.Text") ' "Nº intents"
+        Me.Label103.Text = Lang.getText("Label103.Text") '  "Es conservaran els últims 30 dies."
+        Me.cmdBorrHistori.Text = Lang.getText("LABEL_DEL_HISTORIAL", True) ' "Borrar historial"
+        Me.labelCtlPsw.Text = Lang.getText("chkCtlPsw.Text") '  "control d'usuaris activat"
+        Me.Label98.Text = Lang.getText("Label98.Text") & ":" ' "Màxim nº d'intents erronis:"
+        Me.Label101.Text = Lang.getText("Label101.Text") & ":" ' "Temps Bloqueig" & ":"
+        Me.Label102.Text = Lang.getText("Label102.Text") ' "Temps que ha de passar per autoritzar una connexió quan la última vegada que s'ha intentat accedir va ser errònia."
+        Me.GroupBoxCodificacio.Text = Lang.getText("GroupBoxCodificacio.Text") ' "Codificació Àudio"
+        Me.GroupCodecAudio.Text = Lang.getText("GroupCodecAudio.Text") ' "Codificar a MP3"
         'Me.lbLameVer.Text = "Versió: 2.3"		
-        Me.chkCRC.Text = lang.getText("chkCRC.Text") ' "CRC"
-        Me.chkCopyright.Text = lang.getText("chkCopyright.Text") ' "Copyright"
-        Me.label121.Text = lang.getText("LABEL_CANALS_AUDIO", True) ' "Canals d'audio"
-        Me.label122.Text = lang.getText("LABEL_FREQUENCIA_HZ", True) ' "Freqüència (Hz)"
-        Me.label123.Text = lang.getText("LABEL_BITRATE", True) & " (Kbps)" ' "Bitrate (Kbps)"
-        Me.label120.Text = lang.getText("label120.Text") ' "Al importar fitxers es codificaran amb la qualitat aquí definida"
-        Me.groupBox15.Text = lang.getText("groupBox15.Text") ' "Còpia Testimòni (MSC Logger)"
-        Me.Label104.Text = lang.getText("Label104.Text") ' "A les hores on no hi cap enregistrament assignat (apartat Programació Logger) es procedirà segons les especificacions aquí configurades."
-        Me.fraConf.Text = lang.getText("LABEL_VALOR_DEFECTE", True) ' "Valors per defecte"
-        Me.Label105.Text = lang.getText("HEADERTEXT_DURADA", True) ' "Durada"
-        Me.Label106.Text = lang.getText("LABEL_CANALS_AUDIO", True) ' "Canals d'audio"		
-        Me.Label107.Text = lang.getText("LABEL_FREQUENCIA_HZ", True) ' "Freqüència (Hz)"
-        Me.Label108.Text = lang.getText("LABEL_BITRATE", True) ' "Bitrate (Kbps)"
-        Me.chkRecord.Text = lang.getText("chkRecord.Text") ' "Enregistrar per defecte"
+        Me.chkCRC.Text = Lang.getText("chkCRC.Text") ' "CRC"
+        Me.chkCopyright.Text = Lang.getText("chkCopyright.Text") ' "Copyright"
+        Me.label121.Text = Lang.getText("LABEL_CANALS_AUDIO", True) ' "Canals d'audio"
+        Me.label122.Text = Lang.getText("LABEL_FREQUENCIA_HZ", True) ' "Freqüència (Hz)"
+        Me.label123.Text = Lang.getText("LABEL_BITRATE", True) & " (Kbps)" ' "Bitrate (Kbps)"
+        Me.label120.Text = Lang.getText("label120.Text") ' "Al importar fitxers es codificaran amb la qualitat aquí definida"
+        Me.groupBox15.Text = Lang.getText("groupBox15.Text") ' "Còpia Testimòni (MSC Logger)"
+        Me.Label104.Text = Lang.getText("Label104.Text") ' "A les hores on no hi cap enregistrament assignat (apartat Programació Logger) es procedirà segons les especificacions aquí configurades."
+        Me.fraConf.Text = Lang.getText("LABEL_VALOR_DEFECTE", True) ' "Valors per defecte"
+        Me.Label105.Text = Lang.getText("HEADERTEXT_DURADA", True) ' "Durada"
+        Me.Label106.Text = Lang.getText("LABEL_CANALS_AUDIO", True) ' "Canals d'audio"		
+        Me.Label107.Text = Lang.getText("LABEL_FREQUENCIA_HZ", True) ' "Freqüència (Hz)"
+        Me.Label108.Text = Lang.getText("LABEL_BITRATE", True) ' "Bitrate (Kbps)"
+        Me.chkRecord.Text = Lang.getText("chkRecord.Text") ' "Enregistrar per defecte"
 
-        Me.GroupBox9.Text = lang.getText("GroupBox9.Text") ' "Llibreries d'àudio"
+        Me.groupBox14.Text = Lang.getText("groupBox14.Text") ' "Còpies de seguretat"
+        Me.GroupBox9.Text = Lang.getText("GroupBox9.Text") ' "Llibreries d'àudio"
         'Me.Label92.Text = "LAME is a high quality MPEG Audio Layer III (MP3) encoder licensed under the LGPL."
         'Me.LinkLbLame.Text = "http://lame.sourceforge.net"
         'Me.LinkLbBass.Text = "http://www.un4seen.com/"
         'Me.Label95.Text = "Lame_enc"
         'Me.lbVersioBass.Text = "2.4"
-        Me.Label97.Text = lang.getText("Label97.Text") & ":" ' "Bass Audio Library " & ":"
-        Me.GroupBox10.Text = lang.getText("GroupBox10.Text") ' "Servidor de dades"
+        Me.Label97.Text = Lang.getText("Label97.Text") & ":" ' "Bass Audio Library " & ":"
+        Me.GroupBox10.Text = Lang.getText("GroupBox10.Text") ' "Servidor de dades"
         'Me.Label56.Text = "The world's most popular open source database"
         'Me.LinkLbMySql.Text = "http://www.mysql.com/"
         'Me.lbVerMysql.Text = "5.5"
-        Me.Label99.Text = lang.getText("Label99.Text") & ":" ' "MySQL Server " & ":"
+        Me.Label99.Text = Lang.getText("Label99.Text") & ":" ' "MySQL Server " & ":"
 
-        Me.Label109.Text = lang.getText("Label109.Text") & ":" ' "Informe del sistema" & ":"
-        Me.GroupBox11.Text = lang.getText("GroupBox11.Text") ' "Versions"
+        Me.Label109.Text = Lang.getText("Label109.Text") & ":" ' "Informe del sistema" & ":"
+        Me.GroupBox11.Text = Lang.getText("GroupBox11.Text") ' "Versions"
         'Me.lbVerAplic.Text = "7.5"
         Me.Label93.Text = LABEL_VAR_V_APP & " : " ' "Versió de la aplicació" & " : "
-        Me.Label100.Text = lang.getText("Label100.Text") & " : " ' "Versió de la DBS" & " : "
+        Me.Label100.Text = Lang.getText("Label100.Text") & " : " ' "Versió de la DBS" & " : "
         'Me.lbVerDBS.Text = "5.6"
-        groupBox20.Text = lang.getText("groupBox20.Text") '"Free music downloads"
+        groupBox20.Text = Lang.getText("groupBox20.Text") '"Free music downloads"
 
-        Me.cmdAddAudio.Text = lang.getText("LABEL_NEW", True) ' "Nou"
-        Me.Label11.Text = lang.getText("Label11.Text") ' "Llista de fitxers d'àudio."
-        GroupBoxCarpetes.Text = lang.getText("LABEL_FOLDERS", True) ' "Carpetes"
-        ButtonAddCarpeta.Text = lang.getText("LABEL_ADD", True) & "..."
+        Me.cmdAddAudio.Text = Lang.getText("LABEL_NEW", True) ' "Nou"
+        Me.Label11.Text = Lang.getText("Label11.Text") ' "Llista de fitxers d'àudio."
+        GroupBoxCarpetes.Text = Lang.getText("LABEL_FOLDERS", True) ' "Carpetes"
+        ButtonAddCarpeta.Text = Lang.getText("LABEL_ADD", True) & "..."
         ColumnCarp.HeaderText = GroupBoxCarpetes.Text
-        Column_nom.HeaderText = lang.getText("LABEL_NOM", True)
-        ColumnEnding.HeaderText = lang.getText("LABEL_ENDINGS", True)
-        Columnph.ToolTipText = lang.getText("FITXER_PRESENTA_HORA", True)
-        Columnph.HeaderText = lang.getText("HEADERTEXT_HORA", True)
-        Me.GroupBox3.Text = lang.getText("GroupBox3.Text") ' "Ràdio-Activa"
-        Me.Label61.Text = lang.getText("Label61.Text") ' "La audiència pot escollir les cançons mitjançant la Web. La activació d'aquesta funció depèn de cada pauta"
-        Me.Label60.Text = lang.getText("Label60.Text") & ":" ' "Nº de votacions per torn" & ":"
-        Me.Label59.Text = lang.getText("Label59.Text") & ":" ' "Nº de cançons a escollir" & ":"
-        Me.GroupBox4.Text = lang.getText("GroupBox4.Text") ' "Servidor Web Potcasting"
-        Me.label113.Text = lang.getText("label113.Text") ' "Data Caducitat = Data Publicació + dies"
-        Me.label112.Text = lang.getText("label112.Text") ' "Dies de permanència"
-        Me.GroupBox13.Text = lang.getText("GroupBox13.Text") ' "Resamplejar arxius"
-        Me.Label19.Text = lang.getText("LABEL_QUALITAT", True) ' "Qualitat"		
-        Me.cmdTestFTP.Text = lang.getText("cmdTestFTP.Text") ' "Test FTP"		
-        Me.Label66.Text = lang.getText("LABEL_CONTRASENYA", True) ' "Contrasenya"
-        Me.Label65.Text = lang.getText("LABEL_USER", True) ' "Usuari"
-        Me.Label64.Text = lang.getText("Label64.Text") ' "Directori del servidor"
-        Me.Label63.Text = lang.getText("Label63.Text") ' "Servidor FTP"		
+        Column_nom.HeaderText = Lang.getText("LABEL_NOM", True)
+        ColumnEnding.HeaderText = Lang.getText("LABEL_ENDINGS", True)
+        Columnph.ToolTipText = Lang.getText("FITXER_PRESENTA_HORA", True)
+        Columnph.HeaderText = Lang.getText("HEADERTEXT_HORA", True)
+        Me.GroupBox3.Text = Lang.getText("GroupBox3.Text") ' "Ràdio-Activa"
+        Me.Label61.Text = Lang.getText("Label61.Text") ' "La audiència pot escollir les cançons mitjançant la Web. La activació d'aquesta funció depèn de cada pauta"
+        Me.Label60.Text = Lang.getText("Label60.Text") & ":" ' "Nº de votacions per torn" & ":"
+        Me.Label59.Text = Lang.getText("Label59.Text") & ":" ' "Nº de cançons a escollir" & ":"
+        Me.GroupBox4.Text = Lang.getText("GroupBox4.Text") ' "Servidor Web Potcasting"
+        Me.label113.Text = Lang.getText("label113.Text") ' "Data Caducitat = Data Publicació + dies"
+        Me.label112.Text = Lang.getText("label112.Text") ' "Dies de permanència"
+        Me.GroupBox13.Text = Lang.getText("GroupBox13.Text") ' "Resamplejar arxius"
+        Me.Label19.Text = Lang.getText("LABEL_QUALITAT", True) ' "Qualitat"		
+        Me.cmdTestFTP.Text = Lang.getText("cmdTestFTP.Text") ' "Test FTP"		
+        Me.Label66.Text = Lang.getText("LABEL_CONTRASENYA", True) ' "Contrasenya"
+        Me.Label65.Text = Lang.getText("LABEL_USER", True) ' "Usuari"
+        Me.Label64.Text = Lang.getText("Label64.Text") ' "Directori del servidor"
+        Me.Label63.Text = Lang.getText("Label63.Text") ' "Servidor FTP"		
 
-        Me.Label88.Text = lang.getText("Label88.Text") ' "La configuració de la targeta de so i el canal d'entrada s'ha de gestionar directament en el programa MSC Controller i en el PC que gestiona la continuïtat."
+        Me.Label88.Text = Lang.getText("Label88.Text") ' "La configuració de la targeta de so i el canal d'entrada s'ha de gestionar directament en el programa MSC Controller i en el PC que gestiona la continuïtat."
 
-        Me.Label14.Text = lang.getText("Label14.Text") & " :" ' "Milisegons d'espera per fer el fader" & " :"
-        Me.Label13.Text = lang.getText("Label13.Text") ' "Augmenta o disminueix el temps que tarda en fer un Fader In o Fader Out. "
-        Me.Label12.Text = lang.getText("Label12.Text") & ":" ' "Velocitat de Fader" & ":"
-        Me.grupControler.Text = lang.getText("NAME_PRG_CONTROLER", True) ' "MSC Controler"
-        Me.label91.Text = lang.getText("label91.Text") & ":" ' "Sincronització dels senyals horaris" & ":"
-        Me.Label18.Text = lang.getText("Label18.Text") ' "Atenció, el fitxer dels senyals horaris no pot tenir una durada superior a 1 minut."
-        Me.Label17.Text = lang.getText("Label17.Text") ' "Fitxer senyals horaris"
-        Me.Label16.Text = lang.getText("Label16.Text") ' "Milisegons adicionals per avançar el punt d'inici dels senyals horaris "
-        Me.grupReparar.Text = lang.getText("grupReparar.Text") ' "Sistema de Dades"
-        Me.groupBox16.Text = lang.getText("groupBox16.Text") ' "Còpies automàtiques de la base de dades"
+        Me.Label14.Text = Lang.getText("Label14.Text") & " :" ' "Milisegons d'espera per fer el fader" & " :"
+        Me.Label13.Text = Lang.getText("Label13.Text") ' "Augmenta o disminueix el temps que tarda en fer un Fader In o Fader Out. "
+        Me.Label12.Text = Lang.getText("Label12.Text") & ":" ' "Velocitat de Fader" & ":"
+        Me.grupControler.Text = Lang.getText("NAME_PRG_CONTROLER", True) ' "MSC Controler"
+        Me.label91.Text = Lang.getText("label91.Text") & ":" ' "Sincronització dels senyals horaris" & ":"
+        Me.Label18.Text = Lang.getText("Label18.Text") ' "Atenció, el fitxer dels senyals horaris no pot tenir una durada superior a 1 minut."
+        Me.Label17.Text = Lang.getText("Label17.Text") ' "Fitxer senyals horaris"
+        Me.Label16.Text = Lang.getText("Label16.Text") ' "Milisegons adicionals per avançar el punt d'inici dels senyals horaris "
+        Me.grupReparar.Text = Lang.getText("grupReparar.Text") ' "Sistema de Dades"
+        Me.groupBox16.Text = Lang.getText("groupBox16.Text") ' "Còpies automàtiques de la base de dades"
         'Me.lbLastBKP.Text = "Última còpia : 2015-05-05 11:30:00"
-        Me.chkLastBKP.Text = lang.getText("chkLastBKP.Text") ' "Activar la còpia automàtica"
-        Me.GroupBox12.Text = lang.getText("GroupBox12.Text") ' "Reparar"
-        Me.cmdReparIDs.Text = lang.getText("cmdReparIDs.Text") ' "Reparar IDs depenents"
-        Me.Label55.Text = lang.getText("Label55.Text") ' "Repara les dependències errònies de la BBDD."
+        Me.chkLastBKP.Text = Lang.getText("chkLastBKP.Text") ' "Activar la còpia automàtica"
+        Me.GroupBox12.Text = Lang.getText("GroupBox12.Text") ' "Reparar"
+        Me.cmdReparIDs.Text = Lang.getText("cmdReparIDs.Text") ' "Reparar IDs depenents"
+        Me.Label55.Text = Lang.getText("Label55.Text") ' "Repara les dependències errònies de la BBDD."
 
-        groupBox17.Text = lang.getText("groupBox17.Text") '"Resincronitzar Web"
-        chkAllDBS.Text = lang.getText("chkAllDBS.Text")
-        Me.buttonSincroWeb.Text = lang.getText("buttonSincroWeb.Text") '"Resincronitzar"
-        label140.Text = lang.getText("label140.Text") '"Sincronitza les dades compartides"				
+        groupBox17.Text = Lang.getText("groupBox17.Text") '"Resincronitzar Web"
+        chkAllDBS.Text = Lang.getText("chkAllDBS.Text")
+        Me.buttonSincroWeb.Text = Lang.getText("buttonSincroWeb.Text") '"Resincronitzar"
+        label140.Text = Lang.getText("label140.Text") '"Sincronitza les dades compartides"				
 
-        Me.ProgramaToolStripMenuItem.Text = lang.getText("LABEL_PROGRAMA", True) ' "Programa"
+        Me.ProgramaToolStripMenuItem.Text = Lang.getText("LABEL_PROGRAMA", True) ' "Programa"
 
-        Me.mnuExit.Text = lang.getText("LABEL_EXIT", True) ' "Sortir"
-        Me.AjudaToolStripMenuItem.Text = lang.getText("mnu_Help", True) ' "Referent a " & "... "
-        Me.mnuHelp.Text = lang.getText("mnuRefHelp.Text", True) ' "Manual OnLine"
-        Me.mnuInternet.Text = lang.getText("mnuRefWeb.Text", True) ' "MSC a Internet"
-        Me.mnuAbout.Text = lang.getText("mnuRefMSC.Text", True) ' "Sobre MSC"
-        Me.label125.Text = lang.getText("LABEL_IDIOMA_INTERFICIE", True) & ":" 'Idioma Interfície:
+        Me.mnuExit.Text = Lang.getText("LABEL_EXIT", True) ' "Sortir"
+        Me.AjudaToolStripMenuItem.Text = Lang.getText("mnu_Help", True) ' "Referent a " & "... "
+        Me.mnuHelp.Text = Lang.getText("mnuRefHelp.Text", True) ' "Manual OnLine"
+        Me.mnuInternet.Text = Lang.getText("mnuRefWeb.Text", True) ' "MSC a Internet"
+        Me.mnuAbout.Text = Lang.getText("mnuRefMSC.Text", True) ' "Sobre MSC"
+        Me.label125.Text = Lang.getText("LABEL_IDIOMA_INTERFICIE", True) & ":" 'Idioma Interfície:
 
         'streaming
 
-        Me.groupBoxQualityServer.Text = lang.getText("LABEL_QUALITAT_STREAMING", True) '"Qualitat streaming"
-        Me.groupBoxParamsServer.Text = lang.getText("LABEL_PARAMS_SERVER", True) '"Paràmetres del servidor"
+        Me.groupBoxQualityServer.Text = Lang.getText("LABEL_QUALITAT_STREAMING", True) '"Qualitat streaming"
+        Me.groupBoxParamsServer.Text = Lang.getText("LABEL_PARAMS_SERVER", True) '"Paràmetres del servidor"
 
-        Me.label128.Text = lang.getText("HEADERTEXT_ESTIL", True) '"Estil"
-        Me.label129.Text = lang.getText("label129.Text") '"Tipus de servidor:"
-        Me.label130.Text = lang.getText("LABEL_PASSWORD", True) & ":" '"Password:"
-        Me.label131.Text = lang.getText("LABEL_MOUNT_POINT", True) & ":" '"Mount Point:"
-        Me.label132.Text = lang.getText("LABEL_PORT", True) & ":" '"Port:"
-        Me.label133.Text = lang.getText("LABEL_SERVER", True) & ":" '"Servidor:"
-        Me.label28.Text = lang.getText("LABEL_CANALS_AUDIO", True) '"Canals d'audio"
-        Me.label126.Text = lang.getText("LABEL_FREQUENCIA_HZ", True) '"Freqüència (Hz)"
-        Me.label127.Text = lang.getText("LABEL_BITRATE", True) '"Bitrate (Kbps)"
-        label134.Text = lang.getText("label134.Text") & ":" '"Directori local alternatiu"
-        Label47.Text = lang.getText("LABEL_DIR_ROOT_AUDIOS", True) & ":"
+        Me.label128.Text = Lang.getText("HEADERTEXT_ESTIL", True) '"Estil"
+        Me.label129.Text = Lang.getText("label129.Text") '"Tipus de servidor:"
+        Me.label130.Text = Lang.getText("LABEL_PASSWORD", True) & ":" '"Password:"
+        Me.label131.Text = Lang.getText("LABEL_MOUNT_POINT", True) & ":" '"Mount Point:"
+        Me.label132.Text = Lang.getText("LABEL_PORT", True) & ":" '"Port:"
+        Me.label133.Text = Lang.getText("LABEL_SERVER", True) & ":" '"Servidor:"
+        Me.label28.Text = Lang.getText("LABEL_CANALS_AUDIO", True) '"Canals d'audio"
+        Me.label126.Text = Lang.getText("LABEL_FREQUENCIA_HZ", True) '"Freqüència (Hz)"
+        Me.label127.Text = Lang.getText("LABEL_BITRATE", True) '"Bitrate (Kbps)"
+        label134.Text = Lang.getText("label134.Text") & ":" '"Directori local alternatiu"
+        Label47.Text = Lang.getText("LABEL_DIR_ROOT_AUDIOS", True) & ":"
 
         'Núvol
-        Me.GroupClients.Text = lang.getText("GroupClients.Text") ' "Registre del servei"
-        Me.LbClientOK.Text = lang.getText("LbClientOK.Text") ' "Client amb seveis avançats"
-        Me.LbClientKO.Text = lang.getText("MSG_ADVANCED_SERVICE_DISABLED", True) ' "Serveis avançats desactivats"
-        Me.cmdActive.Text = lang.getText("cmdActive.Text") ' "Activació"		
-        Me.Label85.Text = lang.getText("Label85.Text") & ":" ' "Clau Activació" & ":"
-        lbOnline.Text = lang.getText("lbOnline.Text") 'Active sincronation online
+        Me.GroupClients.Text = Lang.getText("GroupClients.Text") ' "Registre del servei"
+        Me.LbClientOK.Text = Lang.getText("LbClientOK.Text") ' "Client amb seveis avançats"
+        Me.LbClientKO.Text = Lang.getText("MSG_ADVANCED_SERVICE_DISABLED", True) ' "Serveis avançats desactivats"
+        Me.cmdActive.Text = Lang.getText("cmdActive.Text") ' "Activació"		
+        Me.Label85.Text = Lang.getText("Label85.Text") & ":" ' "Clau Activació" & ":"
+        lbOnline.Text = Lang.getText("lbOnline.Text") 'Active sincronation online
 
         Label15.Text = Lang.getText("Label15.Text") & ":" '"Codi per compartir:"
         LbInfoConvida.Text = Lang.getText("LbInfoConvida.Text") '"Dona aquest codi a l'emissora amb qui vols compartir aquest programa"
@@ -1444,24 +1445,24 @@ Public Class frmParams
         lbInfoPrgCloud.Text = Lang.getText("lbInfoPrgCloud.Text") '"Enganxa el codi que t'han proporcionat"
         ColumnFrom.HeaderText = Lang.getText("ColumnFrom.HeaderText") '"From"
         'todo:
-        groupBoxCloudPrograms.Text = lang.getText("groupBoxCloudPrograms.Text") '"Programes compartits"
+        groupBoxCloudPrograms.Text = Lang.getText("groupBoxCloudPrograms.Text") '"Programes compartits"
 
-        chk_sharePrograms.Text = lang.getText("chk_sharePrograms.Text") '"Compartir Programes"
+        chk_sharePrograms.Text = Lang.getText("chk_sharePrograms.Text") '"Compartir Programes"
 
-        tabPagePrgShareCloud.Text = lang.getText("tabPagePrgShareCloud.Text") '"Programes del Núvol"
-        tabPagePrgCloudPropis.Text = lang.getText("tabPagePrgCloudPropis.Text") '"Programes Propis a compartir"
+        tabPagePrgShareCloud.Text = Lang.getText("tabPagePrgShareCloud.Text") '"Programes del Núvol"
+        tabPagePrgCloudPropis.Text = Lang.getText("tabPagePrgCloudPropis.Text") '"Programes Propis a compartir"
 
-        label54.Text = lang.getText("NAME_PROGRAMES", True) '"Programa"
+        label54.Text = Lang.getText("NAME_PROGRAMES", True) '"Programa"
 
         label136.Text = Lang.getText("label136.Text") '"Programes propis compartits"        
-        label139.Text = lang.getText("label139.Text") '"Programes importats procedents del núvol"
-        MSG_IMPORT_PRG_OK = lang.getText("MSG_IMPORT_PRG_OK") '"S'ha importat el programa"
+        label139.Text = Lang.getText("label139.Text") '"Programes importats procedents del núvol"
+        MSG_IMPORT_PRG_OK = Lang.getText("MSG_IMPORT_PRG_OK") '"S'ha importat el programa"
         'columnes grids
-        Me.Column_prg_nom.HeaderText = lang.getText("LABEL_NOM", True) '"Nom"
+        Me.Column_prg_nom.HeaderText = Lang.getText("LABEL_NOM", True) '"Nom"
         Me.Column_prg_emissora.HeaderText = GroupBox6.Text '"Emissora"
-        Me.dataGridViewTextBoxColumn2.HeaderText = lang.getText("LABEL_NOM", True) '"Nom"
+        Me.dataGridViewTextBoxColumn2.HeaderText = Lang.getText("LABEL_NOM", True) '"Nom"
 
-        Me.Text = lang.getText("LABEL_PARAMS_SISTEMA", True) ' "Paràmetres del sistema"
+        Me.Text = Lang.getText("LABEL_PARAMS_SISTEMA", True) ' "Paràmetres del sistema"
 
 
 
@@ -2053,9 +2054,9 @@ ErrorLine:
         lbSaved.Visible = True
     End Sub
 
-    Private Sub txtHTop_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtHTop.KeyPress, txtHHit.KeyPress, txtHBorrInterp.KeyPress _
-        , txtHHitTop.KeyPress, txtHOldTop.KeyPress, txtIntervRitme.KeyPress, txtMaxRadiHIT.KeyPress, txtMaxRadiOLD.KeyPress, txtMaxRadiTop.KeyPress _
-        , txtNHitOld.KeyPress, txtNTopHit.KeyPress, txtOld.KeyPress, txtNumTracs.KeyPress, txtNumVots.KeyPress, txtPermanenciaPodcast.KeyPress
+    Private Sub txtHTop_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtPermanenciaPodcast.KeyPress, txtOld.KeyPress, txtNumVots.KeyPress, txtNumTracs.KeyPress, txtNTopHit.KeyPress, txtNHitOld.KeyPress, txtMaxRadiTop.KeyPress, txtMaxRadiOLD.KeyPress, txtMaxRadiHIT.KeyPress, txtIntervRitme.KeyPress, txtHTop.KeyPress, txtHOldTop.KeyPress, txtHHitTop.KeyPress, txtHHit.KeyPress, txtHBorrInterp.KeyPress
+
+
 
         Dim KeyAscii As Short = CShort(Asc(e.KeyChar))
         If KeyAscii < Asc("0") Or KeyAscii > Asc("9") Then If KeyAscii <> 8 Then KeyAscii = 0
@@ -2098,7 +2099,7 @@ ErrorLine:
         Changed()
     End Sub
 
-    Private Sub txtServerFTP_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtServerFTP.TextChanged, txtDirFTP.TextChanged, txtUserFTP.TextChanged, txtServerFTP.TextChanged, txtPswFTP.TextChanged
+    Private Sub txtServerFTP_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtServerFTP.TextChanged, txtUserFTP.TextChanged, txtPswFTP.TextChanged, txtDirFTP.TextChanged
         change_IntegraWeb = True
         Changed()
     End Sub
@@ -2276,7 +2277,7 @@ ErrorLine:
         End With
     End Sub
 
-    Private Sub txtCodiCR_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtCodiCR.KeyPress, txtIntervalCR.KeyPress
+    Private Sub txtCodiCR_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtIntervalCR.KeyPress, txtCodiCR.KeyPress
         Dim KeyAscii As Short = CShort(Asc(e.KeyChar))
         If KeyAscii < Asc("0") Or KeyAscii > Asc("9") Then If KeyAscii <> 8 Then KeyAscii = 0
         e.KeyChar = Chr(KeyAscii)
@@ -2340,7 +2341,7 @@ ErrorLine:
         db = Nothing
     End Sub
 
-    Private Sub txtCodiCR_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtCodiCR.LostFocus, txtIntervalCR.LostFocus
+    Private Sub txtCodiCR_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtIntervalCR.LostFocus, txtCodiCR.LostFocus
 
         If Not IsNumeric(CType(sender, TextBox).Text) Then
             CType(sender, TextBox).Text = 0
@@ -2410,7 +2411,7 @@ ErrorLine:
     End Sub
 
 
-    Private Sub LinkLbMySql_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLbMySql.LinkClicked, LinkLbBass.LinkClicked, LinkLbLame.LinkClicked, linkLabelJamendo.LinkClicked, LinkLabel1.LinkClicked
+    Private Sub LinkLbMySql_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLbMySql.LinkClicked, LinkLbLame.LinkClicked, LinkLbBass.LinkClicked, linkLabelJamendo.LinkClicked, LinkLabel1.LinkClicked
         Dim url As String = CType(sender, LinkLabel).Text
         Dim Proces As Process = New Process
         Try
@@ -2517,10 +2518,10 @@ ErrorLine:
     End Sub
 
     Private Sub cmbBitrate_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles _
-        cmbBitrate.SelectedIndexChanged,
-        cmbAudioChannel.SelectedIndexChanged,
-        cmbSampleRate.SelectedIndexChanged,
-        ComboBoxDuradaDef.SelectedIndexChanged
+                                                                                            cmbBitrate.SelectedIndexChanged,
+                                                                                            cmbAudioChannel.SelectedIndexChanged,
+                                                                                            cmbSampleRate.SelectedIndexChanged,
+                                                                                            ComboBoxDuradaDef.SelectedIndexChanged
         Changed()
     End Sub
 
@@ -2542,18 +2543,18 @@ ErrorLine:
                 Changed()
             End If
             TestPathAudios(lbPathMusica, Params.PathMusica, getNomFitxer(Tipus_Play.CTL_MUSICA))
-            TestPathAudios(Me.lbPathAudioUser, Params.PathAudioUser, lang.getText("FITXER_AUDIO", True))
+            TestPathAudios(Me.lbPathAudioUser, Params.PathAudioUser, Lang.getText("FITXER_AUDIO", True))
             TestPathAudios(Me.lbPathPautes, Params.PathDefPauta, "Pautes")
             TestPathAudios(Me.lbPathProgrames, Params.PathProgrames, getNomFitxer(Tipus_Play.CTL_PROGRAMA))
             TestPathAudios(Me.lbPathPublicitat, Params.PathPublicitat, getNomFitxer(Tipus_Play.CTL_PUBLICITAT))
-            TestPathAudios(Me.lbPathBackup, Params.PathBackups, lang.getText("LABEL_BACKUP", True))
+            TestPathAudios(Me.lbPathBackup, Params.PathBackups, Lang.getText("LABEL_BACKUP", True))
         Catch ex As Exception
             TestPathAudios(lbPathMusica, "", getNomFitxer(Tipus_Play.CTL_MUSICA))
-            TestPathAudios(Me.lbPathAudioUser, "", lang.getText("FITXER_AUDIO", True))
+            TestPathAudios(Me.lbPathAudioUser, "", Lang.getText("FITXER_AUDIO", True))
             TestPathAudios(Me.lbPathPautes, "", "Pautes")
             TestPathAudios(Me.lbPathProgrames, "", getNomFitxer(Tipus_Play.CTL_PROGRAMA))
             TestPathAudios(Me.lbPathPublicitat, "", getNomFitxer(Tipus_Play.CTL_PUBLICITAT))
-            TestPathAudios(Me.lbPathBackup, Params.PathBackups, lang.getText("LABEL_BACKUP", True))
+            TestPathAudios(Me.lbPathBackup, Params.PathBackups, Lang.getText("LABEL_BACKUP", True))
         End Try
     End Sub
 
@@ -2563,12 +2564,7 @@ ErrorLine:
     End Sub
 
     Sub LinkMysqlBackupLinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
-        Dim url As String = CType(sender, LinkLabel).Text
-        Dim Proces As Process = New Process
-        Try
-            Process.Start(url)
-        Catch ex As Exception
-        End Try
+
     End Sub
 
     Sub Button3Click(sender As Object, e As EventArgs) Handles txtPathLogErr.ButtonClick
@@ -2636,7 +2632,7 @@ ErrorLine:
         If blEnable = True Then
             Lang = New MSC.UserLanguage(Me.cmbLang.SelectedValue)
             Lang.StrApp = My.Application.Info.AssemblyName
-            My.Application.ChangeUICulture(lang.Code)
+            My.Application.ChangeUICulture(Lang.Code)
             setLanguageGlobal()
             Dim myForms As FormCollection = Application.OpenForms
             For Each frmName As Form In myForms
@@ -2911,7 +2907,7 @@ ErrorLine:
         Changed()
     End Sub
 
-    Private Sub frmParams_ResizeEnd(sender As Object, e As EventArgs) Handles Me.ResizeEnd
+    Private Sub frmParams_ResizeEnd(sender As Object, e As EventArgs) Handles MyBase.ResizeEnd
         Dim FitxerINI As New IniFile
         frm_sice(0) = Me.Width : frm_sice(1) = Me.Height
         FitxerINI.INIWrite(MyAPP.IniFile, "Data Gest", "size", frm_sice(0).ToString & "," & frm_sice(1).ToString)

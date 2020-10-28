@@ -29,9 +29,6 @@ Partial Class frmBKPDBS
         Me.chkDelConnex = New MetroFramework.Controls.MetroCheckBox()
         Me.chkDelCtlRadia = New MetroFramework.Controls.MetroCheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.groupBox1 = New System.Windows.Forms.GroupBox()
-        Me.linkWebHelp = New System.Windows.Forms.LinkLabel()
-        Me.label3 = New System.Windows.Forms.Label()
         Me.lbAtencio = New System.Windows.Forms.Label()
         Me.tmrAtencio = New System.Windows.Forms.Timer(Me.components)
         Me.lbInfoProgress = New System.Windows.Forms.Label()
@@ -51,7 +48,6 @@ Partial Class frmBKPDBS
         Me.lbBkpInfoProcess = New MetroFramework.Controls.MetroLabel()
         Me.groupBox2.SuspendLayout()
         Me.groupBox3.SuspendLayout()
-        Me.groupBox1.SuspendLayout()
         Me.MetroTabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -148,40 +144,6 @@ Partial Class frmBKPDBS
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Directori destí:"
         '
-        'groupBox1
-        '
-        Me.groupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.groupBox1.Controls.Add(Me.linkWebHelp)
-        Me.groupBox1.Controls.Add(Me.label3)
-        Me.groupBox1.ForeColor = System.Drawing.Color.Red
-        Me.groupBox1.Location = New System.Drawing.Point(0, 101)
-        Me.groupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.groupBox1.Name = "groupBox1"
-        Me.groupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.groupBox1.Size = New System.Drawing.Size(521, 141)
-        Me.groupBox1.TabIndex = 2
-        Me.groupBox1.TabStop = False
-        Me.groupBox1.Text = "Atenció"
-        Me.groupBox1.Visible = False
-        '
-        'linkWebHelp
-        '
-        Me.linkWebHelp.Location = New System.Drawing.Point(62, 89)
-        Me.linkWebHelp.Name = "linkWebHelp"
-        Me.linkWebHelp.Size = New System.Drawing.Size(429, 30)
-        Me.linkWebHelp.TabIndex = 1
-        Me.linkWebHelp.TabStop = True
-        Me.linkWebHelp.Text = "http://comunitat.msc-soft.com"
-        '
-        'label3
-        '
-        Me.label3.Location = New System.Drawing.Point(44, 39)
-        Me.label3.Name = "label3"
-        Me.label3.Size = New System.Drawing.Size(416, 41)
-        Me.label3.TabIndex = 0
-        Me.label3.Text = "Si aquesta pantalla us dona un error, consulteu el manual per configurar el vostr" &
-    "e servidor."
-        '
         'lbAtencio
         '
         Me.lbAtencio.AutoSize = True
@@ -233,7 +195,7 @@ Partial Class frmBKPDBS
         Me.TabPage1.Text = "Salvar Dades"
         Me.TabPage1.VerticalScrollbarBarColor = True
         Me.TabPage1.VerticalScrollbarHighlightOnWheel = False
-        Me.TabPage1.VerticalScrollbarSize = 4
+        Me.TabPage1.VerticalScrollbarSize = 3
         '
         'cmdBKP
         '
@@ -284,7 +246,6 @@ Partial Class frmBKPDBS
         Me.TabPage2.Controls.Add(Me.cmdRestore)
         Me.TabPage2.Controls.Add(Me.txtOrigen)
         Me.TabPage2.Controls.Add(Me.Label2)
-        Me.TabPage2.Controls.Add(Me.groupBox1)
         Me.TabPage2.Controls.Add(Me.Label4)
         Me.TabPage2.HorizontalScrollbarBarColor = True
         Me.TabPage2.HorizontalScrollbarHighlightOnWheel = False
@@ -296,7 +257,7 @@ Partial Class frmBKPDBS
         Me.TabPage2.Text = "Restaurar Dades"
         Me.TabPage2.VerticalScrollbarBarColor = True
         Me.TabPage2.VerticalScrollbarHighlightOnWheel = False
-        Me.TabPage2.VerticalScrollbarSize = 4
+        Me.TabPage2.VerticalScrollbarSize = 3
         '
         'cmdRestore
         '
@@ -415,7 +376,6 @@ Partial Class frmBKPDBS
         Me.groupBox2.PerformLayout()
         Me.groupBox3.ResumeLayout(False)
         Me.groupBox3.PerformLayout()
-        Me.groupBox1.ResumeLayout(False)
         Me.MetroTabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
@@ -427,9 +387,6 @@ Partial Class frmBKPDBS
     End Sub
     Private groupBox3 As System.Windows.Forms.GroupBox
     Private groupBox2 As System.Windows.Forms.GroupBox
-    Private label3 As System.Windows.Forms.Label
-    Private WithEvents linkWebHelp As System.Windows.Forms.LinkLabel
-    Private groupBox1 As System.Windows.Forms.GroupBox
     Private folderBrowserDialog1 As System.Windows.Forms.FolderBrowserDialog
     Private openFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents Label1 As System.Windows.Forms.Label

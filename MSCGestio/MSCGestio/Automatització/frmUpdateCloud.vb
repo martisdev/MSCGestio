@@ -15,14 +15,12 @@
 
         Me.Show()
 
+
         Dim bkp As New Backup
+
         AddHandler bkp.StatusChanged, AddressOf InfoCloudProcess
-        Dim result As Boolean = True
-        If TotalSync = True Then
-            result = bkp.SincroDBSTotalCloud()
-        Else
-            result = bkp.SincroDBSWebCloud()
-        End If
+        Dim result As Boolean = bkp.SincroDBSCloud(TotalSync)
+
         AmbTasquesPendents = False
         If result = True Then
             Me.DialogResult = DialogResult.OK
@@ -38,16 +36,11 @@
             Dim msg() As String = Split(newStatus, ",")
 
 
-            If msg(2) = "1" Then
-                If IsNumeric(msg(0)) Then MetroProgressSpinnerCloud.Maximum = CInt(msg(0))
-                If IsNumeric(msg(1)) Then MetroProgressSpinnerCloud.Value = CInt(msg(1))
-                lbInfoProcess.Text = String.Format(MSG_UPDATE_DATA, msg(3))
-            Else
-                MetroProgressSpinnerCloud.Value = 0
-                If IsNumeric(msg(0)) Then MetroProgressGeneralCloud.Maximum = CInt(msg(0))
-                If IsNumeric(msg(1)) Then MetroProgressGeneralCloud.Value = CInt(msg(1))
-                lbInfoProcess.Text = String.Format(MSG_UPDATE_TABLE, msg(3))
-            End If
+
+            If IsNumeric(msg(0)) Then MetroProgressSpinnerCloud.Maximum = CInt(msg(0))
+            If IsNumeric(msg(1)) Then MetroProgressSpinnerCloud.Value = CInt(msg(1))
+            lbInfoProcess.Text = String.Format(MSG_UPDATE_DATA, msg(2))
+
 
             My.Application.DoEvents()
         Catch ex As Exception

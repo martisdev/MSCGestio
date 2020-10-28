@@ -458,18 +458,22 @@ Public Class frmProgrames
 			'Borrar Tags
 			StrSql = "DELETE FROM tags_relationships WHERE fitxer_id =" & IDProg & " AND relation_tipfitxer=" & Tipus_Fitxers.FITXER_PROGRAMA & " ;"
 			db.Delete_ID(StrSql)
-			'Borrar fitxer 
-			For e As Integer = 0 To gridSessions.Rows.Count - 1
-				Dim Ses_ID As Integer = gridSessions.Rows(e).Cells("ColumnSES_ID").Value
-				Fitxer = Params.PathProgrames & "\" & Ses_ID & ".mp3"
-				If IO.File.Exists(Fitxer) Then
-					Try
-						IO.File.Delete(Fitxer)
-					Catch ex As Exception
-					End Try
-				End If
-			Next
-		Next
+            'Borrar fitxer 
+            For e As Integer = 0 To gridSessions.Rows.Count - 1
+                Dim Ses_ID As Integer = gridSessions.Rows(e).Cells("ColumnSES_ID").Value
+                Fitxer = Params.PathProgrames & "\" & Ses_ID & ".mp3"
+                If IO.File.Exists(Fitxer) Then
+                    Try
+                        IO.File.Delete(Fitxer)
+                    Catch ex As Exception
+                    End Try
+                End If
+            Next
+            'TODO: Borrar podcasting
+
+            'TODO: borrar de calendari
+
+        Next
 		db.EndTransaction()
 		db = Nothing
 		'Borrar llistat        

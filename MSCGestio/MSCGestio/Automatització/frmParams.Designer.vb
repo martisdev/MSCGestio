@@ -60,6 +60,32 @@ Partial Class frmParams
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.TreeViewParams = New System.Windows.Forms.TreeView()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.GroupCredits = New System.Windows.Forms.GroupBox()
+        Me.MetroPanel3 = New MetroFramework.Controls.MetroPanel()
+        Me.groupBox14 = New System.Windows.Forms.GroupBox()
+        Me.label52 = New System.Windows.Forms.Label()
+        Me.linkMysqlBackup = New System.Windows.Forms.LinkLabel()
+        Me.lbVerMySqlBackup = New System.Windows.Forms.Label()
+        Me.label84 = New System.Windows.Forms.Label()
+        Me.GroupBox21 = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.groupBox20 = New System.Windows.Forms.GroupBox()
+        Me.label145 = New System.Windows.Forms.Label()
+        Me.linkLabelJamendo = New System.Windows.Forms.LinkLabel()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.Label92 = New System.Windows.Forms.Label()
+        Me.LinkLbLame = New System.Windows.Forms.LinkLabel()
+        Me.LinkLbBass = New System.Windows.Forms.LinkLabel()
+        Me.Label95 = New System.Windows.Forms.Label()
+        Me.lbVersioBass = New System.Windows.Forms.Label()
+        Me.Label97 = New System.Windows.Forms.Label()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.Label56 = New System.Windows.Forms.Label()
+        Me.LinkLbMySql = New System.Windows.Forms.LinkLabel()
+        Me.lbVerMysql = New System.Windows.Forms.Label()
+        Me.Label99 = New System.Windows.Forms.Label()
         Me.groupBoxCloudPrograms = New System.Windows.Forms.GroupBox()
         Me.MetroTabControl1 = New MetroFramework.Controls.MetroTabControl()
         Me.tabPagePrgCloudPropis = New MetroFramework.Controls.MetroTabPage()
@@ -134,27 +160,6 @@ Partial Class frmParams
         Me.Label93 = New System.Windows.Forms.Label()
         Me.Label100 = New System.Windows.Forms.Label()
         Me.lbVerDBS = New System.Windows.Forms.Label()
-        Me.GroupCredits = New System.Windows.Forms.GroupBox()
-        Me.MetroPanel3 = New MetroFramework.Controls.MetroPanel()
-        Me.GroupBox21 = New System.Windows.Forms.GroupBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
-        Me.groupBox20 = New System.Windows.Forms.GroupBox()
-        Me.label145 = New System.Windows.Forms.Label()
-        Me.linkLabelJamendo = New System.Windows.Forms.LinkLabel()
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
-        Me.Label92 = New System.Windows.Forms.Label()
-        Me.LinkLbLame = New System.Windows.Forms.LinkLabel()
-        Me.LinkLbBass = New System.Windows.Forms.LinkLabel()
-        Me.Label95 = New System.Windows.Forms.Label()
-        Me.lbVersioBass = New System.Windows.Forms.Label()
-        Me.Label97 = New System.Windows.Forms.Label()
-        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
-        Me.Label56 = New System.Windows.Forms.Label()
-        Me.LinkLbMySql = New System.Windows.Forms.LinkLabel()
-        Me.lbVerMysql = New System.Windows.Forms.Label()
-        Me.Label99 = New System.Windows.Forms.Label()
         Me.grupWeb = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.txtNumTracs = New System.Windows.Forms.TextBox()
@@ -484,6 +489,13 @@ Partial Class frmParams
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        Me.GroupCredits.SuspendLayout()
+        Me.MetroPanel3.SuspendLayout()
+        Me.groupBox14.SuspendLayout()
+        Me.GroupBox21.SuspendLayout()
+        Me.groupBox20.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
         Me.groupBoxCloudPrograms.SuspendLayout()
         Me.MetroTabControl1.SuspendLayout()
         Me.tabPagePrgCloudPropis.SuspendLayout()
@@ -499,12 +511,6 @@ Partial Class frmParams
         Me.groupBoxQualityServer.SuspendLayout()
         Me.GroupInfoSistema.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
-        Me.GroupCredits.SuspendLayout()
-        Me.MetroPanel3.SuspendLayout()
-        Me.GroupBox21.SuspendLayout()
-        Me.groupBox20.SuspendLayout()
-        Me.GroupBox9.SuspendLayout()
-        Me.GroupBox10.SuspendLayout()
         Me.grupWeb.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -748,6 +754,307 @@ Partial Class frmParams
         Me.ImageList1.Images.SetKeyName(18, "program.gif")
         Me.ImageList1.Images.SetKeyName(19, "clock.png")
         Me.ImageList1.Images.SetKeyName(20, "database.png")
+        '
+        'GroupCredits
+        '
+        Me.GroupCredits.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupCredits.Controls.Add(Me.MetroPanel3)
+        Me.GroupCredits.Font = New System.Drawing.Font("Segoe UI Symbol", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupCredits.Location = New System.Drawing.Point(0, 0)
+        Me.GroupCredits.Name = "GroupCredits"
+        Me.GroupCredits.Size = New System.Drawing.Size(630, 433)
+        Me.GroupCredits.TabIndex = 22
+        Me.GroupCredits.TabStop = False
+        Me.GroupCredits.Text = "Crèdits"
+        Me.GroupCredits.Visible = False
+        '
+        'MetroPanel3
+        '
+        Me.MetroPanel3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.MetroPanel3.AutoScroll = True
+        Me.MetroPanel3.Controls.Add(Me.groupBox14)
+        Me.MetroPanel3.Controls.Add(Me.GroupBox21)
+        Me.MetroPanel3.Controls.Add(Me.groupBox20)
+        Me.MetroPanel3.Controls.Add(Me.GroupBox9)
+        Me.MetroPanel3.Controls.Add(Me.GroupBox10)
+        Me.MetroPanel3.HorizontalScrollbar = True
+        Me.MetroPanel3.HorizontalScrollbarBarColor = True
+        Me.MetroPanel3.HorizontalScrollbarHighlightOnWheel = False
+        Me.MetroPanel3.HorizontalScrollbarSize = 10
+        Me.MetroPanel3.Location = New System.Drawing.Point(6, 16)
+        Me.MetroPanel3.Name = "MetroPanel3"
+        Me.MetroPanel3.Size = New System.Drawing.Size(616, 413)
+        Me.MetroPanel3.TabIndex = 1
+        Me.MetroPanel3.VerticalScrollbar = True
+        Me.MetroPanel3.VerticalScrollbarBarColor = True
+        Me.MetroPanel3.VerticalScrollbarHighlightOnWheel = False
+        Me.MetroPanel3.VerticalScrollbarSize = 10
+        '
+        'groupBox14
+        '
+        Me.groupBox14.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.groupBox14.Controls.Add(Me.label52)
+        Me.groupBox14.Controls.Add(Me.linkMysqlBackup)
+        Me.groupBox14.Controls.Add(Me.lbVerMySqlBackup)
+        Me.groupBox14.Controls.Add(Me.label84)
+        Me.groupBox14.Location = New System.Drawing.Point(3, 97)
+        Me.groupBox14.Name = "groupBox14"
+        Me.groupBox14.Size = New System.Drawing.Size(578, 90)
+        Me.groupBox14.TabIndex = 6
+        Me.groupBox14.TabStop = False
+        Me.groupBox14.Text = "Còpies de seguretat"
+        '
+        'label52
+        '
+        Me.label52.AutoSize = True
+        Me.label52.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.label52.Location = New System.Drawing.Point(16, 41)
+        Me.label52.Name = "label52"
+        Me.label52.Size = New System.Drawing.Size(418, 17)
+        Me.label52.TabIndex = 3
+        Me.label52.Text = "A tool to backup and restore MySQL database in C#/VB.NET/ASP.NET."
+        '
+        'linkMysqlBackup
+        '
+        Me.linkMysqlBackup.AutoSize = True
+        Me.linkMysqlBackup.Location = New System.Drawing.Point(16, 63)
+        Me.linkMysqlBackup.Name = "linkMysqlBackup"
+        Me.linkMysqlBackup.Size = New System.Drawing.Size(233, 17)
+        Me.linkMysqlBackup.TabIndex = 2
+        Me.linkMysqlBackup.TabStop = True
+        Me.linkMysqlBackup.Text = "https://mysqlbackupnet.codeplex.com/"
+        '
+        'lbVerMySqlBackup
+        '
+        Me.lbVerMySqlBackup.AutoSize = True
+        Me.lbVerMySqlBackup.Location = New System.Drawing.Point(159, 20)
+        Me.lbVerMySqlBackup.Name = "lbVerMySqlBackup"
+        Me.lbVerMySqlBackup.Size = New System.Drawing.Size(42, 17)
+        Me.lbVerMySqlBackup.TabIndex = 1
+        Me.lbVerMySqlBackup.Text = "2.3.30"
+        '
+        'label84
+        '
+        Me.label84.AutoSize = True
+        Me.label84.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label84.Location = New System.Drawing.Point(16, 19)
+        Me.label84.Name = "label84"
+        Me.label84.Size = New System.Drawing.Size(121, 13)
+        Me.label84.TabIndex = 0
+        Me.label84.Text = "MySqlBackup.NET :"
+        '
+        'GroupBox21
+        '
+        Me.GroupBox21.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox21.Controls.Add(Me.Label3)
+        Me.GroupBox21.Controls.Add(Me.Label26)
+        Me.GroupBox21.Controls.Add(Me.LinkLabel1)
+        Me.GroupBox21.Location = New System.Drawing.Point(3, 322)
+        Me.GroupBox21.Name = "GroupBox21"
+        Me.GroupBox21.Size = New System.Drawing.Size(578, 81)
+        Me.GroupBox21.TabIndex = 5
+        Me.GroupBox21.TabStop = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label3.Location = New System.Drawing.Point(19, 36)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(317, 17)
+        Me.Label3.TabIndex = 7
+        Me.Label3.Text = "Windows Modern UI for .NET WinForms Applications"
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.Location = New System.Drawing.Point(19, 17)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(100, 13)
+        Me.Label26.TabIndex = 4
+        Me.Label26.Text = "MetroFramework"
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Location = New System.Drawing.Point(19, 55)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(241, 17)
+        Me.LinkLabel1.TabIndex = 3
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "https://thielj.github.io/MetroFramework/"
+        '
+        'groupBox20
+        '
+        Me.groupBox20.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.groupBox20.Controls.Add(Me.label145)
+        Me.groupBox20.Controls.Add(Me.linkLabelJamendo)
+        Me.groupBox20.Location = New System.Drawing.Point(3, 407)
+        Me.groupBox20.Name = "groupBox20"
+        Me.groupBox20.Size = New System.Drawing.Size(578, 75)
+        Me.groupBox20.TabIndex = 4
+        Me.groupBox20.TabStop = False
+        Me.groupBox20.Text = "Free music downloads"
+        '
+        'label145
+        '
+        Me.label145.AutoSize = True
+        Me.label145.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.label145.Location = New System.Drawing.Point(19, 36)
+        Me.label145.Name = "label145"
+        Me.label145.Size = New System.Drawing.Size(509, 17)
+        Me.label145.TabIndex = 7
+        Me.label145.Text = "Discover free music downloads and streaming from thousands of independent artists" &
+    "."
+        '
+        'linkLabelJamendo
+        '
+        Me.linkLabelJamendo.AutoSize = True
+        Me.linkLabelJamendo.Location = New System.Drawing.Point(19, 55)
+        Me.linkLabelJamendo.Name = "linkLabelJamendo"
+        Me.linkLabelJamendo.Size = New System.Drawing.Size(164, 17)
+        Me.linkLabelJamendo.TabIndex = 3
+        Me.linkLabelJamendo.TabStop = True
+        Me.linkLabelJamendo.Text = "https://www.jamendo.com/"
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox9.Controls.Add(Me.Label92)
+        Me.GroupBox9.Controls.Add(Me.LinkLbLame)
+        Me.GroupBox9.Controls.Add(Me.LinkLbBass)
+        Me.GroupBox9.Controls.Add(Me.Label95)
+        Me.GroupBox9.Controls.Add(Me.lbVersioBass)
+        Me.GroupBox9.Controls.Add(Me.Label97)
+        Me.GroupBox9.Location = New System.Drawing.Point(3, 191)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(578, 127)
+        Me.GroupBox9.TabIndex = 2
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Llibreries d'àudio"
+        '
+        'Label92
+        '
+        Me.Label92.AutoSize = True
+        Me.Label92.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label92.Location = New System.Drawing.Point(16, 85)
+        Me.Label92.Name = "Label92"
+        Me.Label92.Size = New System.Drawing.Size(497, 17)
+        Me.Label92.TabIndex = 6
+        Me.Label92.Text = "LAME is a high quality MPEG Audio Layer III (MP3) encoder licensed under the LGPL" &
+    "."
+        '
+        'LinkLbLame
+        '
+        Me.LinkLbLame.AutoSize = True
+        Me.LinkLbLame.Location = New System.Drawing.Point(16, 105)
+        Me.LinkLbLame.Name = "LinkLbLame"
+        Me.LinkLbLame.Size = New System.Drawing.Size(167, 17)
+        Me.LinkLbLame.TabIndex = 5
+        Me.LinkLbLame.TabStop = True
+        Me.LinkLbLame.Text = "http://lame.sourceforge.net"
+        '
+        'LinkLbBass
+        '
+        Me.LinkLbBass.AutoSize = True
+        Me.LinkLbBass.Location = New System.Drawing.Point(16, 43)
+        Me.LinkLbBass.Name = "LinkLbBass"
+        Me.LinkLbBass.Size = New System.Drawing.Size(155, 17)
+        Me.LinkLbBass.TabIndex = 4
+        Me.LinkLbBass.TabStop = True
+        Me.LinkLbBass.Text = "http://www.un4seen.com/"
+        '
+        'Label95
+        '
+        Me.Label95.AutoSize = True
+        Me.Label95.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label95.Location = New System.Drawing.Point(16, 68)
+        Me.Label95.Name = "Label95"
+        Me.Label95.Size = New System.Drawing.Size(110, 13)
+        Me.Label95.TabIndex = 3
+        Me.Label95.Text = "The LAME Project"
+        '
+        'lbVersioBass
+        '
+        Me.lbVersioBass.AutoSize = True
+        Me.lbVersioBass.Location = New System.Drawing.Point(161, 23)
+        Me.lbVersioBass.Name = "lbVersioBass"
+        Me.lbVersioBass.Size = New System.Drawing.Size(25, 17)
+        Me.lbVersioBass.TabIndex = 2
+        Me.lbVersioBass.Text = "2.4"
+        '
+        'Label97
+        '
+        Me.Label97.AutoSize = True
+        Me.Label97.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label97.Location = New System.Drawing.Point(16, 22)
+        Me.Label97.Name = "Label97"
+        Me.Label97.Size = New System.Drawing.Size(120, 13)
+        Me.Label97.TabIndex = 0
+        Me.Label97.Text = "Bass Audio Library :"
+        '
+        'GroupBox10
+        '
+        Me.GroupBox10.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox10.Controls.Add(Me.Label56)
+        Me.GroupBox10.Controls.Add(Me.LinkLbMySql)
+        Me.GroupBox10.Controls.Add(Me.lbVerMysql)
+        Me.GroupBox10.Controls.Add(Me.Label99)
+        Me.GroupBox10.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(578, 90)
+        Me.GroupBox10.TabIndex = 1
+        Me.GroupBox10.TabStop = False
+        Me.GroupBox10.Text = "Servidor de dades"
+        '
+        'Label56
+        '
+        Me.Label56.AutoSize = True
+        Me.Label56.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label56.Location = New System.Drawing.Point(16, 41)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(293, 17)
+        Me.Label56.TabIndex = 3
+        Me.Label56.Text = "The world's most popular open source database"
+        '
+        'LinkLbMySql
+        '
+        Me.LinkLbMySql.AutoSize = True
+        Me.LinkLbMySql.Location = New System.Drawing.Point(16, 63)
+        Me.LinkLbMySql.Name = "LinkLbMySql"
+        Me.LinkLbMySql.Size = New System.Drawing.Size(141, 17)
+        Me.LinkLbMySql.TabIndex = 2
+        Me.LinkLbMySql.TabStop = True
+        Me.LinkLbMySql.Text = "http://www.mysql.com/"
+        '
+        'lbVerMysql
+        '
+        Me.lbVerMysql.AutoSize = True
+        Me.lbVerMysql.Location = New System.Drawing.Point(159, 20)
+        Me.lbVerMysql.Name = "lbVerMysql"
+        Me.lbVerMysql.Size = New System.Drawing.Size(25, 17)
+        Me.lbVerMysql.TabIndex = 1
+        Me.lbVerMysql.Text = "5.5"
+        '
+        'Label99
+        '
+        Me.Label99.AutoSize = True
+        Me.Label99.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label99.Location = New System.Drawing.Point(16, 19)
+        Me.Label99.Name = "Label99"
+        Me.Label99.Size = New System.Drawing.Size(96, 13)
+        Me.Label99.TabIndex = 0
+        Me.Label99.Text = "MySQL Server :"
         '
         'groupBoxCloudPrograms
         '
@@ -1126,7 +1433,7 @@ Partial Class frmParams
         Me.dataGridViewProgramsCloud.RowHeadersVisible = False
         Me.dataGridViewProgramsCloud.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dataGridViewProgramsCloud.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dataGridViewProgramsCloud.Size = New System.Drawing.Size(581, 337)
+        Me.dataGridViewProgramsCloud.Size = New System.Drawing.Size(581, 343)
         Me.dataGridViewProgramsCloud.TabIndex = 262
         '
         'dataGridViewTextBoxColumn1
@@ -1732,252 +2039,6 @@ Partial Class frmParams
         Me.lbVerDBS.Size = New System.Drawing.Size(25, 17)
         Me.lbVerDBS.TabIndex = 10
         Me.lbVerDBS.Text = "5.6"
-        '
-        'GroupCredits
-        '
-        Me.GroupCredits.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupCredits.Controls.Add(Me.MetroPanel3)
-        Me.GroupCredits.Font = New System.Drawing.Font("Segoe UI Symbol", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupCredits.Location = New System.Drawing.Point(0, 0)
-        Me.GroupCredits.Name = "GroupCredits"
-        Me.GroupCredits.Size = New System.Drawing.Size(630, 433)
-        Me.GroupCredits.TabIndex = 22
-        Me.GroupCredits.TabStop = False
-        Me.GroupCredits.Text = "Crèdits"
-        Me.GroupCredits.Visible = False
-        '
-        'MetroPanel3
-        '
-        Me.MetroPanel3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MetroPanel3.AutoScroll = True
-        Me.MetroPanel3.Controls.Add(Me.GroupBox21)
-        Me.MetroPanel3.Controls.Add(Me.groupBox20)
-        Me.MetroPanel3.Controls.Add(Me.GroupBox9)
-        Me.MetroPanel3.Controls.Add(Me.GroupBox10)
-        Me.MetroPanel3.HorizontalScrollbar = True
-        Me.MetroPanel3.HorizontalScrollbarBarColor = True
-        Me.MetroPanel3.HorizontalScrollbarHighlightOnWheel = False
-        Me.MetroPanel3.HorizontalScrollbarSize = 10
-        Me.MetroPanel3.Location = New System.Drawing.Point(6, 16)
-        Me.MetroPanel3.Name = "MetroPanel3"
-        Me.MetroPanel3.Size = New System.Drawing.Size(616, 417)
-        Me.MetroPanel3.TabIndex = 1
-        Me.MetroPanel3.VerticalScrollbar = True
-        Me.MetroPanel3.VerticalScrollbarBarColor = True
-        Me.MetroPanel3.VerticalScrollbarHighlightOnWheel = False
-        Me.MetroPanel3.VerticalScrollbarSize = 10
-        '
-        'GroupBox21
-        '
-        Me.GroupBox21.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox21.Controls.Add(Me.Label3)
-        Me.GroupBox21.Controls.Add(Me.Label26)
-        Me.GroupBox21.Controls.Add(Me.LinkLabel1)
-        Me.GroupBox21.Location = New System.Drawing.Point(3, 224)
-        Me.GroupBox21.Name = "GroupBox21"
-        Me.GroupBox21.Size = New System.Drawing.Size(595, 75)
-        Me.GroupBox21.TabIndex = 5
-        Me.GroupBox21.TabStop = False
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Label3.Location = New System.Drawing.Point(19, 36)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(317, 17)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "Windows Modern UI for .NET WinForms Applications"
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(19, 17)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(100, 13)
-        Me.Label26.TabIndex = 4
-        Me.Label26.Text = "MetroFramework"
-        '
-        'LinkLabel1
-        '
-        Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(19, 55)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(241, 17)
-        Me.LinkLabel1.TabIndex = 3
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "https://thielj.github.io/MetroFramework/"
-        '
-        'groupBox20
-        '
-        Me.groupBox20.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.groupBox20.Controls.Add(Me.label145)
-        Me.groupBox20.Controls.Add(Me.linkLabelJamendo)
-        Me.groupBox20.Location = New System.Drawing.Point(3, 301)
-        Me.groupBox20.Name = "groupBox20"
-        Me.groupBox20.Size = New System.Drawing.Size(595, 75)
-        Me.groupBox20.TabIndex = 4
-        Me.groupBox20.TabStop = False
-        Me.groupBox20.Text = "Free music downloads"
-        '
-        'label145
-        '
-        Me.label145.AutoSize = True
-        Me.label145.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.label145.Location = New System.Drawing.Point(19, 36)
-        Me.label145.Name = "label145"
-        Me.label145.Size = New System.Drawing.Size(509, 17)
-        Me.label145.TabIndex = 7
-        Me.label145.Text = "Discover free music downloads and streaming from thousands of independent artists" &
-    "."
-        '
-        'linkLabelJamendo
-        '
-        Me.linkLabelJamendo.AutoSize = True
-        Me.linkLabelJamendo.Location = New System.Drawing.Point(19, 55)
-        Me.linkLabelJamendo.Name = "linkLabelJamendo"
-        Me.linkLabelJamendo.Size = New System.Drawing.Size(164, 17)
-        Me.linkLabelJamendo.TabIndex = 3
-        Me.linkLabelJamendo.TabStop = True
-        Me.linkLabelJamendo.Text = "https://www.jamendo.com/"
-        '
-        'GroupBox9
-        '
-        Me.GroupBox9.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox9.Controls.Add(Me.Label92)
-        Me.GroupBox9.Controls.Add(Me.LinkLbLame)
-        Me.GroupBox9.Controls.Add(Me.LinkLbBass)
-        Me.GroupBox9.Controls.Add(Me.Label95)
-        Me.GroupBox9.Controls.Add(Me.lbVersioBass)
-        Me.GroupBox9.Controls.Add(Me.Label97)
-        Me.GroupBox9.Location = New System.Drawing.Point(3, 95)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(595, 127)
-        Me.GroupBox9.TabIndex = 2
-        Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Llibreries d'àudio"
-        '
-        'Label92
-        '
-        Me.Label92.AutoSize = True
-        Me.Label92.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Label92.Location = New System.Drawing.Point(16, 85)
-        Me.Label92.Name = "Label92"
-        Me.Label92.Size = New System.Drawing.Size(497, 17)
-        Me.Label92.TabIndex = 6
-        Me.Label92.Text = "LAME is a high quality MPEG Audio Layer III (MP3) encoder licensed under the LGPL" &
-    "."
-        '
-        'LinkLbLame
-        '
-        Me.LinkLbLame.AutoSize = True
-        Me.LinkLbLame.Location = New System.Drawing.Point(16, 105)
-        Me.LinkLbLame.Name = "LinkLbLame"
-        Me.LinkLbLame.Size = New System.Drawing.Size(167, 17)
-        Me.LinkLbLame.TabIndex = 5
-        Me.LinkLbLame.TabStop = True
-        Me.LinkLbLame.Text = "http://lame.sourceforge.net"
-        '
-        'LinkLbBass
-        '
-        Me.LinkLbBass.AutoSize = True
-        Me.LinkLbBass.Location = New System.Drawing.Point(16, 43)
-        Me.LinkLbBass.Name = "LinkLbBass"
-        Me.LinkLbBass.Size = New System.Drawing.Size(155, 17)
-        Me.LinkLbBass.TabIndex = 4
-        Me.LinkLbBass.TabStop = True
-        Me.LinkLbBass.Text = "http://www.un4seen.com/"
-        '
-        'Label95
-        '
-        Me.Label95.AutoSize = True
-        Me.Label95.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label95.Location = New System.Drawing.Point(16, 68)
-        Me.Label95.Name = "Label95"
-        Me.Label95.Size = New System.Drawing.Size(110, 13)
-        Me.Label95.TabIndex = 3
-        Me.Label95.Text = "The LAME Project"
-        '
-        'lbVersioBass
-        '
-        Me.lbVersioBass.AutoSize = True
-        Me.lbVersioBass.Location = New System.Drawing.Point(161, 23)
-        Me.lbVersioBass.Name = "lbVersioBass"
-        Me.lbVersioBass.Size = New System.Drawing.Size(25, 17)
-        Me.lbVersioBass.TabIndex = 2
-        Me.lbVersioBass.Text = "2.4"
-        '
-        'Label97
-        '
-        Me.Label97.AutoSize = True
-        Me.Label97.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label97.Location = New System.Drawing.Point(16, 22)
-        Me.Label97.Name = "Label97"
-        Me.Label97.Size = New System.Drawing.Size(120, 13)
-        Me.Label97.TabIndex = 0
-        Me.Label97.Text = "Bass Audio Library :"
-        '
-        'GroupBox10
-        '
-        Me.GroupBox10.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox10.Controls.Add(Me.Label56)
-        Me.GroupBox10.Controls.Add(Me.LinkLbMySql)
-        Me.GroupBox10.Controls.Add(Me.lbVerMysql)
-        Me.GroupBox10.Controls.Add(Me.Label99)
-        Me.GroupBox10.Location = New System.Drawing.Point(3, 3)
-        Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(595, 90)
-        Me.GroupBox10.TabIndex = 1
-        Me.GroupBox10.TabStop = False
-        Me.GroupBox10.Text = "Servidor de dades"
-        '
-        'Label56
-        '
-        Me.Label56.AutoSize = True
-        Me.Label56.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Label56.Location = New System.Drawing.Point(16, 41)
-        Me.Label56.Name = "Label56"
-        Me.Label56.Size = New System.Drawing.Size(293, 17)
-        Me.Label56.TabIndex = 3
-        Me.Label56.Text = "The world's most popular open source database"
-        '
-        'LinkLbMySql
-        '
-        Me.LinkLbMySql.AutoSize = True
-        Me.LinkLbMySql.Location = New System.Drawing.Point(16, 63)
-        Me.LinkLbMySql.Name = "LinkLbMySql"
-        Me.LinkLbMySql.Size = New System.Drawing.Size(141, 17)
-        Me.LinkLbMySql.TabIndex = 2
-        Me.LinkLbMySql.TabStop = True
-        Me.LinkLbMySql.Text = "http://www.mysql.com/"
-        '
-        'lbVerMysql
-        '
-        Me.lbVerMysql.AutoSize = True
-        Me.lbVerMysql.Location = New System.Drawing.Point(159, 20)
-        Me.lbVerMysql.Name = "lbVerMysql"
-        Me.lbVerMysql.Size = New System.Drawing.Size(25, 17)
-        Me.lbVerMysql.TabIndex = 1
-        Me.lbVerMysql.Text = "5.5"
-        '
-        'Label99
-        '
-        Me.Label99.AutoSize = True
-        Me.Label99.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label99.Location = New System.Drawing.Point(16, 19)
-        Me.Label99.Name = "Label99"
-        Me.Label99.Size = New System.Drawing.Size(96, 13)
-        Me.Label99.TabIndex = 0
-        Me.Label99.Text = "MySQL Server :"
         '
         'grupWeb
         '
@@ -4892,6 +4953,7 @@ Partial Class frmParams
         '
         Me.listURSErr.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5})
         Me.listURSErr.FullRowSelect = True
+        Me.listURSErr.HideSelection = False
         Me.listURSErr.Location = New System.Drawing.Point(52, 34)
         Me.listURSErr.Name = "listURSErr"
         Me.listURSErr.Size = New System.Drawing.Size(351, 196)
@@ -5710,6 +5772,18 @@ Partial Class frmParams
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        Me.GroupCredits.ResumeLayout(False)
+        Me.MetroPanel3.ResumeLayout(False)
+        Me.groupBox14.ResumeLayout(False)
+        Me.groupBox14.PerformLayout()
+        Me.GroupBox21.ResumeLayout(False)
+        Me.GroupBox21.PerformLayout()
+        Me.groupBox20.ResumeLayout(False)
+        Me.groupBox20.PerformLayout()
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
+        Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox10.PerformLayout()
         Me.groupBoxCloudPrograms.ResumeLayout(False)
         Me.MetroTabControl1.ResumeLayout(False)
         Me.tabPagePrgCloudPropis.ResumeLayout(False)
@@ -5732,16 +5806,6 @@ Partial Class frmParams
         Me.GroupInfoSistema.PerformLayout()
         Me.GroupBox11.ResumeLayout(False)
         Me.GroupBox11.PerformLayout()
-        Me.GroupCredits.ResumeLayout(False)
-        Me.MetroPanel3.ResumeLayout(False)
-        Me.GroupBox21.ResumeLayout(False)
-        Me.GroupBox21.PerformLayout()
-        Me.groupBox20.ResumeLayout(False)
-        Me.groupBox20.PerformLayout()
-        Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout()
-        Me.GroupBox10.ResumeLayout(False)
-        Me.GroupBox10.PerformLayout()
         Me.grupWeb.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
@@ -6250,4 +6314,9 @@ Partial Class frmParams
     Friend WithEvents ColumnCli_id As DataGridViewTextBoxColumn
     Friend WithEvents Column_prg_delete As DataGridViewButtonColumn
     Friend WithEvents lbInfoPrgCloud As MetroFramework.Controls.MetroLabel
+    Friend WithEvents groupBox14 As GroupBox
+    Friend WithEvents label52 As Label
+    Friend WithEvents linkMysqlBackup As LinkLabel
+    Friend WithEvents lbVerMySqlBackup As Label
+    Friend WithEvents label84 As Label
 End Class
