@@ -576,7 +576,7 @@ Partial Class frmParams
         '
         'SplitContainer1.Panel2
         '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.GroupCredits)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.grupSOS)
         Me.SplitContainer1.Panel2.Controls.Add(Me.groupBoxCloudPrograms)
         Me.SplitContainer1.Panel2.Controls.Add(Me.grupSequencies)
         Me.SplitContainer1.Panel2.Controls.Add(Me.groupBoxStreaming)
@@ -591,13 +591,13 @@ Partial Class frmParams
         Me.SplitContainer1.Panel2.Controls.Add(Me.grupMoneda)
         Me.SplitContainer1.Panel2.Controls.Add(Me.grupCartut)
         Me.SplitContainer1.Panel2.Controls.Add(Me.grupCategories)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.grupSOS)
         Me.SplitContainer1.Panel2.Controls.Add(Me.grupDBS)
         Me.SplitContainer1.Panel2.Controls.Add(Me.grupDirecte)
         Me.SplitContainer1.Panel2.Controls.Add(Me.grupCR)
         Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBoxUsuaris)
         Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBoxCodificacio)
         Me.SplitContainer1.Panel2.Controls.Add(Me.grupAudioUSR)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.GroupCredits)
         Me.SplitContainer1.Size = New System.Drawing.Size(956, 433)
         Me.SplitContainer1.SplitterDistance = 322
         Me.SplitContainer1.TabIndex = 0
@@ -1132,7 +1132,7 @@ Partial Class frmParams
         '
         '
         '
-        Me.TxtCodeToShare.CustomButton.Image = CType(resources.GetObject("resource.Image"), System.Drawing.Image)
+        Me.TxtCodeToShare.CustomButton.Image = CType(resources.GetObject("resource.Image1"), System.Drawing.Image)
         Me.TxtCodeToShare.CustomButton.Location = New System.Drawing.Point(484, 1)
         Me.TxtCodeToShare.CustomButton.Name = ""
         Me.TxtCodeToShare.CustomButton.Size = New System.Drawing.Size(31, 31)
@@ -1433,7 +1433,7 @@ Partial Class frmParams
         Me.dataGridViewProgramsCloud.RowHeadersVisible = False
         Me.dataGridViewProgramsCloud.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dataGridViewProgramsCloud.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dataGridViewProgramsCloud.Size = New System.Drawing.Size(581, 343)
+        Me.dataGridViewProgramsCloud.Size = New System.Drawing.Size(581, 346)
         Me.dataGridViewProgramsCloud.TabIndex = 262
         '
         'dataGridViewTextBoxColumn1
@@ -2432,7 +2432,7 @@ Partial Class frmParams
         '
         '
         '
-        Me.txtSenyHora.CustomButton.Image = CType(resources.GetObject("resource.Image1"), System.Drawing.Image)
+        Me.txtSenyHora.CustomButton.Image = CType(resources.GetObject("resource.Image2"), System.Drawing.Image)
         Me.txtSenyHora.CustomButton.Location = New System.Drawing.Point(489, 2)
         Me.txtSenyHora.CustomButton.Name = ""
         Me.txtSenyHora.CustomButton.Size = New System.Drawing.Size(25, 25)
@@ -2547,7 +2547,7 @@ Partial Class frmParams
         '
         '
         '
-        Me.txtAternativeDir.CustomButton.Image = CType(resources.GetObject("resource.Image2"), System.Drawing.Image)
+        Me.txtAternativeDir.CustomButton.Image = CType(resources.GetObject("resource.Image3"), System.Drawing.Image)
         Me.txtAternativeDir.CustomButton.Location = New System.Drawing.Point(454, 1)
         Me.txtAternativeDir.CustomButton.Name = ""
         Me.txtAternativeDir.CustomButton.Size = New System.Drawing.Size(23, 23)
@@ -2580,7 +2580,7 @@ Partial Class frmParams
         '
         '
         '
-        Me.txtPathArrelAudio.CustomButton.Image = CType(resources.GetObject("resource.Image3"), System.Drawing.Image)
+        Me.txtPathArrelAudio.CustomButton.Image = CType(resources.GetObject("resource.Image4"), System.Drawing.Image)
         Me.txtPathArrelAudio.CustomButton.Location = New System.Drawing.Point(454, 1)
         Me.txtPathArrelAudio.CustomButton.Name = ""
         Me.txtPathArrelAudio.CustomButton.Size = New System.Drawing.Size(23, 23)
@@ -4049,7 +4049,7 @@ Partial Class frmParams
         '
         '
         '
-        Me.txtPathLogErr.CustomButton.Image = CType(resources.GetObject("resource.Image4"), System.Drawing.Image)
+        Me.txtPathLogErr.CustomButton.Image = CType(resources.GetObject("resource.Image"), System.Drawing.Image)
         Me.txtPathLogErr.CustomButton.Location = New System.Drawing.Point(509, 1)
         Me.txtPathLogErr.CustomButton.Name = ""
         Me.txtPathLogErr.CustomButton.Size = New System.Drawing.Size(23, 23)
@@ -4078,9 +4078,9 @@ Partial Class frmParams
         '
         'label53
         '
-        Me.label53.Location = New System.Drawing.Point(26, 364)
+        Me.label53.Location = New System.Drawing.Point(26, 359)
         Me.label53.Name = "label53"
-        Me.label53.Size = New System.Drawing.Size(100, 12)
+        Me.label53.Size = New System.Drawing.Size(109, 20)
         Me.label53.TabIndex = 21
         Me.label53.Text = "Localització:"
         '

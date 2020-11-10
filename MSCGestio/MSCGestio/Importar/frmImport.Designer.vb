@@ -282,8 +282,6 @@ Partial Class frmImport
         '
         'GroupDBS
         '
-        Me.GroupDBS.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupDBS.BackColor = System.Drawing.Color.Transparent
         Me.GroupDBS.Controls.Add(Me.comboBoxOpcions)
         Me.GroupDBS.Controls.Add(Me.lbInfoImport)
@@ -293,13 +291,14 @@ Partial Class frmImport
         Me.GroupDBS.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupDBS.Name = "GroupDBS"
         Me.GroupDBS.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupDBS.Size = New System.Drawing.Size(310, 444)
+        Me.GroupDBS.Size = New System.Drawing.Size(310, 437)
         Me.GroupDBS.TabIndex = 0
         Me.GroupDBS.TabStop = False
         Me.GroupDBS.Text = "Importar a la base de dades"
         '
         'comboBoxOpcions
         '
+        Me.comboBoxOpcions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.comboBoxOpcions.FormattingEnabled = True
         Me.comboBoxOpcions.Location = New System.Drawing.Point(15, 19)
         Me.comboBoxOpcions.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -339,7 +338,7 @@ Partial Class frmImport
         Me.GroupMusic.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupMusic.Name = "GroupMusic"
         Me.GroupMusic.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupMusic.Size = New System.Drawing.Size(297, 379)
+        Me.GroupMusic.Size = New System.Drawing.Size(297, 372)
         Me.GroupMusic.TabIndex = 0
         Me.GroupMusic.TabStop = False
         '
@@ -581,7 +580,7 @@ Partial Class frmImport
         Me.GroupBoxProgrames.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBoxProgrames.Name = "GroupBoxProgrames"
         Me.GroupBoxProgrames.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBoxProgrames.Size = New System.Drawing.Size(297, 379)
+        Me.GroupBoxProgrames.Size = New System.Drawing.Size(297, 372)
         Me.GroupBoxProgrames.TabIndex = 3
         Me.GroupBoxProgrames.TabStop = False
         Me.GroupBoxProgrames.Text = "Programes"
@@ -756,7 +755,7 @@ Partial Class frmImport
         '
         Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label9.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Label9.Location = New System.Drawing.Point(10, 284)
+        Me.Label9.Location = New System.Drawing.Point(10, 277)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(273, 36)
         Me.Label9.TabIndex = 232
@@ -766,7 +765,7 @@ Partial Class frmImport
         '
         Me.Label19.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label19.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Label19.Location = New System.Drawing.Point(10, 321)
+        Me.Label19.Location = New System.Drawing.Point(10, 314)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(273, 36)
         Me.Label19.TabIndex = 22
@@ -782,10 +781,11 @@ Partial Class frmImport
         Me.lsvTrackList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.columnHeader5})
         Me.lsvTrackList.ContextMenuStrip = Me.mnuEditSelect
         Me.lsvTrackList.FullRowSelect = True
+        Me.lsvTrackList.HideSelection = False
         Me.lsvTrackList.Location = New System.Drawing.Point(357, 158)
         Me.lsvTrackList.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lsvTrackList.Name = "lsvTrackList"
-        Me.lsvTrackList.Size = New System.Drawing.Size(643, 363)
+        Me.lsvTrackList.Size = New System.Drawing.Size(643, 399)
         Me.lsvTrackList.TabIndex = 2
         Me.lsvTrackList.UseCompatibleStateImageBehavior = False
         Me.lsvTrackList.View = System.Windows.Forms.View.Details
@@ -991,10 +991,9 @@ Partial Class frmImport
         'cmdImport
         '
         Me.cmdImport.ActiveControl = Nothing
-        Me.cmdImport.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmdImport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.cmdImport.Enabled = False
-        Me.cmdImport.Location = New System.Drawing.Point(528, 524)
+        Me.cmdImport.Location = New System.Drawing.Point(37, 514)
         Me.cmdImport.Name = "cmdImport"
         Me.cmdImport.Size = New System.Drawing.Size(297, 43)
         Me.cmdImport.TabIndex = 1
@@ -1153,11 +1152,10 @@ Partial Class frmImport
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.cmbExit
-        Me.ClientSize = New System.Drawing.Size(1022, 575)
+        Me.ClientSize = New System.Drawing.Size(1022, 570)
         Me.Controls.Add(Me.pic_logo)
         Me.Controls.Add(Me.picVuMeter)
         Me.Controls.Add(Me.mnuRipper)
-        Me.Controls.Add(Me.cmdImport)
         Me.Controls.Add(Me.MetroProgressSpinnerCDDB)
         Me.Controls.Add(Me.picPlay)
         Me.Controls.Add(Me.picPause)
@@ -1166,6 +1164,7 @@ Partial Class frmImport
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.cmbExit)
         Me.Controls.Add(Me.GroupDBS)
+        Me.Controls.Add(Me.cmdImport)
         Me.Font = New System.Drawing.Font("Segoe UI Symbol", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)

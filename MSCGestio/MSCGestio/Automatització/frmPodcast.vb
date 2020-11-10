@@ -1039,7 +1039,6 @@ Public Class frmPodcast
         Next
         txtPartsProces.Visible = True
         For i As Integer = 0 To dataGridViewRemote.Rows.Count - 1
-            'Dim FitxerTMPFTPsadsa As String = IO.Path.GetTempPath & "fgfdg.mp3"
             AmbTasquesPendents = True
             ProgressBarFTP.Maximum = dataGridViewRemote.Rows.Count
             ProgressBarFTP.Value = i
@@ -1047,7 +1046,7 @@ Public Class frmPodcast
             NumProces += 1
             txtPartsProces.Text = NumProces.ToString & " / " & NumMaxProces.ToString
             My.Application.DoEvents()
-            Dim bl As Boolean = True ' dataGridViewRemote.Rows (i).Cells ("ColumnFTPChk").Value
+            Dim bl As Boolean = CBool(dataGridViewRemote.Rows(i).Cells("ColumnFTPChk").Value)
             If bl = True Then
                 Dim PathLocal As String = Me.dataGridViewLocal.Rows(i).Cells("ColumnLocalPath").Value
                 If IO.File.Exists(PathLocal) = True Then
@@ -1111,11 +1110,8 @@ Public Class frmPodcast
                                 While Bass.BASS_ChannelIsActive(stream) = BASSActive.BASS_ACTIVE_PLAYING
                                     ' getting sample data will automatically feed the encoder 
                                     Dim len As Integer = Bass.BASS_ChannelGetData(stream, encBuffer, encBuffer.Length)
-
-                                    'Dim Pos As double = Bass.BASS_ChannelBytes2Seconds(stream, Bass.BASS_ChannelGetPosition(stream))
                                     ProgressBarFTP.Value = 1
                                     Application.DoEvents()
-                                    'Threading.Thread.Sleep(1)
                                 End While
                                 l.Stop() ' finish
                                 Bass.BASS_StreamFree(stream)
@@ -1133,7 +1129,12 @@ Public Class frmPodcast
                             ProgressBarFTP.Style = System.Windows.Forms.ProgressBarStyle.Continuous
                             My.Application.DoEvents()
                             ClientFTP.Upload(fi)
-                            If IO.File.Exists(FitxerTMPFTP) Then IO.File.Delete(FitxerTMPFTP)
+                            If IO.File.Exists(FitxerTMPFTP) Then
+                                Try
+                                    IO.File.Delete(FitxerTMPFTP)
+                                Catch ex As Exception
+                                End Try
+                            End If
                         Case AccionsRemoteFile.DELETE_FILE
                             ClientFTP.DeleteFileOnServer(IO.Path.GetFileName(PathRemote))
                         Case Else '???

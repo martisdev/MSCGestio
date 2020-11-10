@@ -709,7 +709,7 @@ Public Class frmMain
             AddHandler BotoTrack.Click, AddressOf lbInfoProcesTasques_Click
         End If
         'Botó Donation
-        If Cloud.ClientType < Cloud.client_type.RADIO_WITH_SERVICES Then
+        If Cloud.ClientType < Cloud.client_type.RADIO_WITH_SERVICES And Params.ClientKey.Length = 0 Then
             BotoTrack = New MetroFramework.Controls.MetroTile
             BotoTrack.Parent = Me.groupBotons
             BotoTrack.Tag = 100

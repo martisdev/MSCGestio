@@ -1,7 +1,7 @@
 ﻿Option Strict Off
 Option Explicit On
 Imports MySql.Data.MySqlClient
-
+Imports System.Threading.Tasks
 
 Public Class frmCalendari
 	Dim blEnable As Boolean
@@ -78,9 +78,9 @@ Public Class frmCalendari
 	
 	Private Sub LockedRecord(Optional ByVal saved As Boolean = False)
         If Me.cmdSalvar.Enabled = True And saved = False Then
-            If MetroFramework.MetroMessageBox.Show(Me, MSG_SAVE_DADES, MSG_ATENCIO, MessageBoxButtons.OKCancel, MessageBoxIcon.Question, 100) = MsgBoxResult.Ok Then SaveRecord()
+            If MetroFramework.MetroMessageBox.Show(Me, MSG_SAVE_DADES, MSG_ATENCIO, MessageBoxButtons.OKCancel, MessageBoxIcon.Question, 100) = MsgBoxResult.Ok Then PreSaveRecord()  'SaveRecord()
         End If
-        blEnable = Not blEnable
+            blEnable = Not blEnable
 		Me.grupAssignar.Enabled = blEnable
 		Me.cmdDel.Enabled = blEnable
 		Me.cmdDelCalendar.Enabled = blEnable
@@ -351,18 +351,18 @@ Public Class frmCalendari
 		Changed()
 	End Sub
 
-    Private Sub SaveRecord()
+    Private Async Function SaveRecord(progress As IProgress(Of Integer)) As Task(Of Integer)
 
         If Not MyAPP.PermisPerContinuar() Then MetroFramework.MetroMessageBox.Show(Me, MSG_SERVER_CLOSE, MSG_ATENCIO, MessageBoxButtons.OK, MessageBoxIcon.Stop, 100) : Me.Close()
-        If MetroFramework.MetroMessageBox.Show(Me, MSG_CONFIRM_SAVE_DADES, MSG_ATENCIO, MessageBoxButtons.YesNo, MessageBoxIcon.Question, 100) = DialogResult.No Then Exit Sub
+        If MetroFramework.MetroMessageBox.Show(Me, MSG_CONFIRM_SAVE_DADES, MSG_ATENCIO, MessageBoxButtons.YesNo, MessageBoxIcon.Question, 100) = DialogResult.No Then Return 0
 
         Dim TipAssig As Integer = IIf(Me.optionSemana.Checked = True, 0, 1)
         Dim TipProgram As Tipus_Emissio = CType(Me.cmbTipProg.SelectedValue, Tipus_Emissio)
         Dim Durada As Date = Me.txtDurada.Value
 
-        If Durada = "#1/1/1970#" Then MetroFramework.MetroMessageBox.Show(Me, MSG_DURADA_NO_VALIDA, MSG_ATENCIO, MessageBoxButtons.OK, MessageBoxIcon.Error, 100) : Exit Sub
+        If Durada = "#1/1/1970#" Then MetroFramework.MetroMessageBox.Show(Me, MSG_DURADA_NO_VALIDA, MSG_ATENCIO, MessageBoxButtons.OK, MessageBoxIcon.Error, 100) : Return 0
         If RadioButtonPrg.Checked = True AndAlso Me.ComboBoxProgrames.SelectedValue = 0 AndAlso TipProgram = Tipus_Emissio.TIP_AUTOMATIC AndAlso Me.chk_FromCloud.Checked = False Then
-            MetroFramework.MetroMessageBox.Show(Me, MSG_SET_SESSIO, MSG_ATENCIO, MessageBoxButtons.OK, MessageBoxIcon.Error, 100) : ComboBoxProgrames.Focus() : Exit Sub
+            MetroFramework.MetroMessageBox.Show(Me, MSG_SET_SESSIO, MSG_ATENCIO, MessageBoxButtons.OK, MessageBoxIcon.Error, 100) : ComboBoxProgrames.Focus() : Return 0
         End If
         Dim StrSql As String = ""
         Dim ForceDirecte As Boolean = False
@@ -394,7 +394,7 @@ Public Class frmCalendari
             AndAlso Me.chk_Dge.Checked = False AndAlso TipAssig = Tipus_AssigDataCalendari.PROGRAM_DIA_SETMANA_HORA _
             AndAlso mblnNewDates = True Then
             MetroFramework.MetroMessageBox.Show(Me, MSG_NO_ASSIG_DIA, MSG_ATENCIO, MessageBoxButtons.OK, MessageBoxIcon.Error, 100)
-            Exit Sub
+            Return 0
         End If
 
         Dim db As New MSC.dbs(Cloud)
@@ -551,7 +551,7 @@ Public Class frmCalendari
                     Dim NomPrograma As String = getNomProgramaFromSession(Me.ComboBoxProgrames.SelectedValue)
                     Dim NameFitxerPotcast As String = RemoveInvalidFileNameChars(NomPrograma & "-" & Now.ToString("yyyyMMdd")).Replace(" ", "_") & ".mp3"
                     StrSqlPodCast(StrSqlPodCast.Length - 1) = "INSERT INTO podcasting (pod_tipusfitxer, pod_id_origen, pod_durada,pod_datacreacio, pod_datapubli, pod_dataout, pod_descrip, pod_file) " &
-                        "VALUES ( 5, " & IdSession & ",'" & Durada.ToString("HH:mm:ss") & "','" & Now.ToString("yyyy-MM-dd HH:mm:ss") & "','" & data.ToString("yyyy-MM-dd") & "','" & data.AddDays(cloud.DiesPermanenciaPodcast).ToString("yyyy-MM-dd") & "','" & Descrip & "', '" & NameFitxerPotcast & "');"
+                        "VALUES ( 5, " & IdSession & ",'" & Durada.ToString("HH:mm:ss") & "','" & Now.ToString("yyyy-MM-dd HH:mm:ss") & "','" & data.ToString("yyyy-MM-dd") & "','" & data.AddDays(Cloud.DiesPermanenciaPodcast).ToString("yyyy-MM-dd") & "','" & Descrip & "', '" & NameFitxerPotcast & "');"
                 End If
                 If cal_id_exist > 0 Then
                     Dim strUpdt As String = "UPDATE calendari SET"
@@ -660,18 +660,30 @@ Public Class frmCalendari
                 'For Each Str As String In StrSqlPodCast
                 NewIdPod(i) = db.New_ID(StrSqlPodCast(i))
             Next
-            If IsLoadForm("frmPodcast") = False Then frmPodCast.Show()
-            frmPodCast.AutomaticUploadFitxer(NewIdPod)
+            If IsLoadForm("frmPodcast") = False Then frmPodcast.Show()
+            frmPodcast.AutomaticUploadFitxer(NewIdPod)
         End If
         db = Nothing
         If IsLoadForm("frmPrgLogger") = True Then frmPrgLogger.BuscaItemsCalendari()
+        Return 0
+    End Function
+
+
+    Private Sub UpdateProgress(value As Integer)
+        ProgressBar.Value = value
     End Sub
 
-    Private Sub cmdSalvar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSalvar.Click
-		SaveRecord()
-	End Sub
+    Private Async Sub cmdSalvar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSalvar.Click
+        PreSaveRecord()
+    End Sub
+
+    Private Async Sub PreSaveRecord()
+        Dim progressIndicator As New Progress(Of Integer)(AddressOf UpdateProgress)
+        Dim RowsAfect As Integer = Await SaveRecord(progressIndicator)
+    End Sub
 
     Private Sub DeleteRecord()
+
         If MetroFramework.MetroMessageBox.Show(Me, MSG_SURE_DEL_ITEM, MSG_ATENCIO, MessageBoxButtons.YesNo, MessageBoxIcon.Error, 100) = MsgBoxResult.Yes Then
             'si és un programa en diferit esborrem la alguna pauta relacionada.
             Dim db As New MSC.dbs(Cloud)
@@ -811,8 +823,9 @@ Public Class frmCalendari
 	End Sub
 	
 	Private Sub mnuSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuSave.Click
-		SaveRecord()
-	End Sub
+        PreSaveRecord()
+        'SaveRecord()
+    End Sub
 	
 	Private Sub mnuDel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuDel.Click
 		DeleteRecord()

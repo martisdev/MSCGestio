@@ -85,6 +85,7 @@ Partial Class frmDelCalendar
         Me.MetroTabPage2 = New MetroFramework.Controls.MetroTabPage()
         Me.cmdDelCaduc = New MetroFramework.Controls.MetroTile()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.ProgressSpinnerCaducats = New MetroFramework.Controls.MetroProgressSpinner()
         Me.groupBox2.SuspendLayout()
         Me.MetroTabControl1.SuspendLayout()
         Me.MetroTabPage1.SuspendLayout()
@@ -140,7 +141,7 @@ Partial Class frmDelCalendar
         'txtDelProgramaOut
         '
         Me.txtDelProgramaOut.Location = New System.Drawing.Point(103, 59)
-        Me.txtDelProgramaOut.MinimumSize = New System.Drawing.Size(4, 29)
+        Me.txtDelProgramaOut.MinimumSize = New System.Drawing.Size(0, 29)
         Me.txtDelProgramaOut.Name = "txtDelProgramaOut"
         Me.txtDelProgramaOut.Size = New System.Drawing.Size(207, 29)
         Me.txtDelProgramaOut.TabIndex = 1
@@ -148,7 +149,7 @@ Partial Class frmDelCalendar
         'txtDelProgramaIn
         '
         Me.txtDelProgramaIn.Location = New System.Drawing.Point(103, 24)
-        Me.txtDelProgramaIn.MinimumSize = New System.Drawing.Size(4, 29)
+        Me.txtDelProgramaIn.MinimumSize = New System.Drawing.Size(0, 29)
         Me.txtDelProgramaIn.Name = "txtDelProgramaIn"
         Me.txtDelProgramaIn.Size = New System.Drawing.Size(209, 29)
         Me.txtDelProgramaIn.TabIndex = 0
@@ -317,7 +318,7 @@ Partial Class frmDelCalendar
         'txtDelEntreDataOut
         '
         Me.txtDelEntreDataOut.Location = New System.Drawing.Point(103, 59)
-        Me.txtDelEntreDataOut.MinimumSize = New System.Drawing.Size(4, 29)
+        Me.txtDelEntreDataOut.MinimumSize = New System.Drawing.Size(0, 29)
         Me.txtDelEntreDataOut.Name = "txtDelEntreDataOut"
         Me.txtDelEntreDataOut.Size = New System.Drawing.Size(207, 29)
         Me.txtDelEntreDataOut.TabIndex = 14
@@ -325,7 +326,7 @@ Partial Class frmDelCalendar
         'txtDelEntreDataIn
         '
         Me.txtDelEntreDataIn.Location = New System.Drawing.Point(103, 24)
-        Me.txtDelEntreDataIn.MinimumSize = New System.Drawing.Size(4, 29)
+        Me.txtDelEntreDataIn.MinimumSize = New System.Drawing.Size(0, 29)
         Me.txtDelEntreDataIn.Name = "txtDelEntreDataIn"
         Me.txtDelEntreDataIn.Size = New System.Drawing.Size(209, 29)
         Me.txtDelEntreDataIn.TabIndex = 13
@@ -814,7 +815,7 @@ Partial Class frmDelCalendar
         'txtDataOut
         '
         Me.txtDataOut.Location = New System.Drawing.Point(144, 48)
-        Me.txtDataOut.MinimumSize = New System.Drawing.Size(4, 29)
+        Me.txtDataOut.MinimumSize = New System.Drawing.Size(0, 29)
         Me.txtDataOut.Name = "txtDataOut"
         Me.txtDataOut.Size = New System.Drawing.Size(207, 29)
         Me.txtDataOut.TabIndex = 1
@@ -822,7 +823,7 @@ Partial Class frmDelCalendar
         'txtDataIn
         '
         Me.txtDataIn.Location = New System.Drawing.Point(144, 13)
-        Me.txtDataIn.MinimumSize = New System.Drawing.Size(4, 29)
+        Me.txtDataIn.MinimumSize = New System.Drawing.Size(0, 29)
         Me.txtDataIn.Name = "txtDataIn"
         Me.txtDataIn.Size = New System.Drawing.Size(209, 29)
         Me.txtDataIn.TabIndex = 0
@@ -853,6 +854,7 @@ Partial Class frmDelCalendar
         '
         'MetroTabPage2
         '
+        Me.MetroTabPage2.Controls.Add(Me.ProgressSpinnerCaducats)
         Me.MetroTabPage2.Controls.Add(Me.cmdDelCaduc)
         Me.MetroTabPage2.Controls.Add(Me.Label2)
         Me.MetroTabPage2.HorizontalScrollbarBarColor = True
@@ -894,6 +896,16 @@ Partial Class frmDelCalendar
         Me.Label2.Size = New System.Drawing.Size(319, 64)
         Me.Label2.TabIndex = 26
         Me.Label2.Text = "Eliminació dels registres del calendari caducats"
+        '
+        'ProgressSpinnerCaducats
+        '
+        Me.ProgressSpinnerCaducats.Location = New System.Drawing.Point(140, 73)
+        Me.ProgressSpinnerCaducats.Maximum = 100
+        Me.ProgressSpinnerCaducats.Name = "ProgressSpinnerCaducats"
+        Me.ProgressSpinnerCaducats.Size = New System.Drawing.Size(135, 120)
+        Me.ProgressSpinnerCaducats.TabIndex = 27
+        Me.ProgressSpinnerCaducats.UseSelectable = True
+        Me.ProgressSpinnerCaducats.Visible = False
         '
         'frmDelCalendar
         '
@@ -994,4 +1006,5 @@ Partial Class frmDelCalendar
     Friend WithEvents RadioButton3 As MetroFramework.Controls.MetroRadioButton
     Friend WithEvents RadioButton2 As MetroFramework.Controls.MetroRadioButton
     Friend WithEvents RadioButton1 As MetroFramework.Controls.MetroRadioButton
+    Friend WithEvents ProgressSpinnerCaducats As MetroFramework.Controls.MetroProgressSpinner
 End Class

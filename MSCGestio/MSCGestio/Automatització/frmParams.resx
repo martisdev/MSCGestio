@@ -125,7 +125,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACy
-        HwAAAk1TRnQBSQFMAgEBFQEAARwBCgEcAQoBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HwAAAk1TRnQBSQFMAgEBFQEAASQBCgEkAQoBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAAWADAAEBAQABCAYAARgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -265,6 +265,25 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="resource.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAABACAYAAABcIPRGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
+        1wAADdcBQiibeAAAAAd0SU1FB+IHFxEEEmKH3hQAAAGHSURBVGhD7dpLSgRBEIThWY138HLiLRRduVJv
+        qGsfZ3CjZjWMjOlvTrVUDAZUwLcwKrurC4VWmU3kJNyHl/BxBDnv4TGcL1/9Ie3haSOVnP21m1aszWvY
+        v4laTl6/C6uSb6CWQzOrDkE3UMqhmab7EHSxUg7N7HQdgi5UyqGZfQcPQRcp5dBMVh6CLlDKoRlyGzA0
+        rJRDM7/BQ9CgUg7NVH4cgoaUcmjmkG+HoAGlHJrp8XUIWlTKoZleZwEXlHJoptdDwAWlHJrp1X4VxwWl
+        4aFNlE7D0NAmShdhaGgTpbfQDjHsO0GbOMHSCZZOsHSCpRMsnWDpBEsnWFYuwzaMTrvnVaA9K1hWFA+/
+        S/tHM+1ZwbJif4D2bVb9CF0H2rOCpRMsnWDpBEsnWFbme6DIfA/0mO+BwbB0gqUTLJ1gWZnvgSLzPdBj
+        vgcGw9IJlk6wdIKlEyydYOkESydYOsHSCZZOsHSCpZOjfehb4SksH2mkRQfLp7baHxHtEM+Bhv6j9qzx
+        8JvtJ0+B5qIl2PaPAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="Label20.Text" xml:space="preserve">
+    <value>No s'envia cap informació de l'usuari ni del sistema, només un informe de l'error que ha provocat l'aturada descontrolada. Podeu visualitzar la totalitat de la informació enviada en el fitxer "ctlMSC.log".</value>
+  </data>
+  <data name="Label87.Text" xml:space="preserve">
+    <value>Utilitzant la configuració per defecte esteu acceptant enviar l'informe d'error al desenvolupador d'aquesta suite, aquest es compromet a utilitzar les dades única i exclusivament per millorar la aplicació.</value>
+  </data>
+  <data name="resource.Image1" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAcCAYAAAB75n/uAAABgmlDQ1BJQ0MgcHJvZmlsZQAAKM+VkTlI
         A0EYhb8kSkQiFqYQsdhCrQyIilhKFEUwEJIIXoW7GxOF7Bp2IzaWgq1g4dF4FTbW2lrYCoLgAWJlaaVo
@@ -511,18 +530,6 @@
   <metadata name="ColumnValors.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="resource.Image1" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAcCAYAAAAAwr0iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        1wAADdcBQiibeAAAAAd0SU1FB+IHDQgREnlhFwQAAAE6SURBVEhL7da/K0VhHMfxIz9KKRnMyiQUJYPZ
-        YjJYrcw2ZfAjignZTAajWSn+AAwms1JKmQyilPD+nHQ6ro/b7fo+usP91Kt7nnu/3/N0T895zsmaaZRM
-        YxlrVaxjHt0IzRwe8VGDd2yjE2G5g5usml20ISRuglrsISTu5JGesYFf45qivWERNq4hhRPYuOIUTmHj
-        ilM4h40r1sLZwSSGMPhHOkcfbConv8II/i3lyW8wAUXb7i3Kv0fbRzHQrbKiL8gqyoWpPKEYXKAHY6hn
-        e67HEvKDF8xqQA5RWZjCNbqQP+GOdUBmoMviGqJNIc8r+tGLM7jiaAfI/72y+fWp9wJXHO0B4yjSAW0S
-        93AN0XSHtaKIBltwxdEuMYBvaccRXEMkrXot8h9pwTDci2gEXfIFjKKZRkuWfQLjPuGqn8KO1QAAAABJ
-        RU5ErkJggg==
-</value>
-  </data>
   <data name="resource.Image2" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAcCAYAAAAAwr0iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
@@ -536,6 +543,18 @@
 </value>
   </data>
   <data name="resource.Image3" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAcCAYAAAAAwr0iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
+        1wAADdcBQiibeAAAAAd0SU1FB+IHDQgREnlhFwQAAAE6SURBVEhL7da/K0VhHMfxIz9KKRnMyiQUJYPZ
+        YjJYrcw2ZfAjignZTAajWSn+AAwms1JKmQyilPD+nHQ6ro/b7fo+usP91Kt7nnu/3/N0T895zsmaaZRM
+        YxlrVaxjHt0IzRwe8VGDd2yjE2G5g5usml20ISRuglrsISTu5JGesYFf45qivWERNq4hhRPYuOIUTmHj
+        ilM4h40r1sLZwSSGMPhHOkcfbConv8II/i3lyW8wAUXb7i3Kv0fbRzHQrbKiL8gqyoWpPKEYXKAHY6hn
+        e67HEvKDF8xqQA5RWZjCNbqQP+GOdUBmoMviGqJNIc8r+tGLM7jiaAfI/72y+fWp9wJXHO0B4yjSAW0S
+        93AN0XSHtaKIBltwxdEuMYBvaccRXEMkrXot8h9pwTDci2gEXfIFjKKZRkuWfQLjPuGqn8KO1QAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="resource.Image4" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAcCAYAAAAAwr0iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
         1wAADdcBQiibeAAAAAd0SU1FB+IHDQgREnlhFwQAAAE6SURBVEhL7da/K0VhHMfxIz9KKRnMyiQUJYPZ
@@ -847,25 +866,6 @@
         otIxICRC6BvELT/S1q7WdfIUM4f+f4JI43iCSON4gkjjeIJI43iCSON4gkjj+AEm/B/7raiwIOG4dQAA
         AABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="resource.Image4" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAABACAYAAABcIPRGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        1wAADdcBQiibeAAAAAd0SU1FB+IHFxEEEmKH3hQAAAGHSURBVGhD7dpLSgRBEIThWY138HLiLRRduVJv
-        qGsfZ3CjZjWMjOlvTrVUDAZUwLcwKrurC4VWmU3kJNyHl/BxBDnv4TGcL1/9Ie3haSOVnP21m1aszWvY
-        v4laTl6/C6uSb6CWQzOrDkE3UMqhmab7EHSxUg7N7HQdgi5UyqGZfQcPQRcp5dBMVh6CLlDKoRlyGzA0
-        rJRDM7/BQ9CgUg7NVH4cgoaUcmjmkG+HoAGlHJrp8XUIWlTKoZleZwEXlHJoptdDwAWlHJrp1X4VxwWl
-        4aFNlE7D0NAmShdhaGgTpbfQDjHsO0GbOMHSCZZOsHSCpRMsnWDpBEsnWFYuwzaMTrvnVaA9K1hWFA+/
-        S/tHM+1ZwbJif4D2bVb9CF0H2rOCpRMsnWDpBEsnWFbme6DIfA/0mO+BwbB0gqUTLJ1gWZnvgSLzPdBj
-        vgcGw9IJlk6wdIKlEyydYOkESydYOsHSCZZOsHSCpZOjfehb4SksH2mkRQfLp7baHxHtEM+Bhv6j9qzx
-        8JvtJ0+B5qIl2PaPAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="Label20.Text" xml:space="preserve">
-    <value>No s'envia cap informació de l'usuari ni del sistema, només un informe de l'error que ha provocat l'aturada descontrolada. Podeu visualitzar la totalitat de la informació enviada en el fitxer "ctlMSC.log".</value>
-  </data>
-  <data name="Label87.Text" xml:space="preserve">
-    <value>Utilitzant la configuració per defecte esteu acceptant enviar l'informe d'error al desenvolupador d'aquesta suite, aquest es compromet a utilitzar les dades única i exclusivament per millorar la aplicació.</value>
   </data>
   <data name="resource.Image5" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

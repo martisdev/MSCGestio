@@ -26,16 +26,17 @@ Public Class frmEsdeveniment
 		If My.Settings.TXT_CAPITALIZE Then Me.txtNom.CharacterCasing = CharacterCasing.Upper
 
         Dim rsEsdev As DataTable = Cloud.GetTable("SELECT esdev_ID, esdev_nom,esdev_tipfitxer, esdev_dataradiacio, esdev_forcehora FROM esdeveniments")
-
-        For i As Integer = 0 To rsEsdev.Rows.Count - 1
-			Dim Id As Short = rsEsdev.Rows(i)("esdev_ID")
-			Dim Nom As String = rsEsdev.Rows(i)("esdev_nom").ToString
-			Dim TipFitxer As Short = rsEsdev.Rows(i)("esdev_tipfitxer")
-			Dim DataRadi As Date = CDate(rsEsdev.Rows(i)("esdev_dataradiacio"))
-			Dim Force As Boolean = CBool(rsEsdev.Rows(i)("esdev_forcehora"))
-			addLineEsdeveniment(Id, Nom, TipFitxer, DataRadi,Force)
-		Next i
-        rsEsdev.Dispose()
+        If rsEsdev IsNot Nothing Then
+            For i As Integer = 0 To rsEsdev.Rows.Count - 1
+                Dim Id As Short = rsEsdev.Rows(i)("esdev_ID")
+                Dim Nom As String = rsEsdev.Rows(i)("esdev_nom").ToString
+                Dim TipFitxer As Short = rsEsdev.Rows(i)("esdev_tipfitxer")
+                Dim DataRadi As Date = CDate(rsEsdev.Rows(i)("esdev_dataradiacio"))
+                Dim Force As Boolean = CBool(rsEsdev.Rows(i)("esdev_forcehora"))
+                addLineEsdeveniment(Id, Nom, TipFitxer, DataRadi, Force)
+            Next i
+            rsEsdev.Dispose()
+        End If
         Me.txtDataRadi.Value = Now
 		txtHoraRadi.Value = Now.AddMinutes(6)
 		

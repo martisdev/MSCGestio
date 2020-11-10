@@ -2351,8 +2351,8 @@ ErrorLine:
     Private Sub cmdActive_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdActive.Click
         Dim db As New MSC.dbs(Cloud)
         Dim StrSql As String = ""
-
-        If txtClientKey.Text.Length > 10 AndAlso Me.lbCientID.Text = 0 Then
+        'If txtClientKey.Text.Length > 10 AndAlso Me.lbCientID.Text = 0 Then
+        If txtClientKey.Text.Length > 10 Then
             'S'ha de salvar la nova clau entrada
             Dim client_key As String = Me.txtClientKey.Text
             Dim user As String = getMD5Hash(Params.NomRadio)
